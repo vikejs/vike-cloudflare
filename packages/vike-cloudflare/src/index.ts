@@ -16,12 +16,6 @@ export interface VikeCloudflarePagesOptions {
   };
 }
 
-function getOutDir(config: ResolvedConfig, force?: "client" | "server" | "cloudflare"): string {
-  const p = join(config.root, normalizePath(config.build.outDir));
-  if (!force) return p;
-  return join(dirname(p), force);
-}
-
 export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
   const virtualEntryId = "virtual:vike-cloudflare-entry";
   const virtualServerId = "virtual:vike-cloudflare-server";
@@ -110,7 +104,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
 
         await writeFile(
           join(outCloudflare, WORKER_JS_NAME),
-          `import handler from  "./server/${chunkPath}";
+          `import handler from "./server/${chunkPath}";
 export default handler;
 `,
           "utf-8",
@@ -119,6 +113,12 @@ export default handler;
     },
   };
 };
+
+function getOutDir(config: ResolvedConfig, force?: "client" | "server" | "cloudflare"): string {
+  const p = join(config.root, normalizePath(config.build.outDir));
+  if (!force) return p;
+  return join(dirname(p), force);
+}
 
 function assert(condition: unknown, message: string): asserts condition {
   if (condition) {

@@ -1,4 +1,4 @@
-This app has been created with [Bati](https://batijs.dev) using the following flags: `--solid --eslint --hono`
+This app has been created with [Bati](https://batijs.dev) using the following flags: `--solid --eslint`
 
 # About this app
 This app is ready to start. It's powered by [Vike](https://vike.dev) and [SolidJS](https://www.solidjs.com/guides/getting-started).
