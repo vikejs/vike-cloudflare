@@ -1,0 +1,37 @@
+name: CI
+on: [ push, pull_request ]
+
+jobs:
+  test:
+    # Prevent workflow being run twice, https://github.com/orgs/community/discussions/57827#discussioncomment-6579237
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
+
+    name: Deploying (${{ matrix.workingDirectory }})
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        workingDirectory:
+          - examples/hono-app
+          - examples/vike-app
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "pnpm"
+
+      - run: pnpm install
+      - run: pnpm run build
+      - run: pnpm run -r build
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: ${{ matrix.workingDirectory }}
+          command: pages deploy
