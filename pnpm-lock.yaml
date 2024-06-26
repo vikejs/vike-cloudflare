@@ -85,6 +85,12 @@ importers:
         specifier: ^5.3.1
         version: 5.3.1(@types/node@18.19.39)
     devDependencies:
+      esbuild-plugin-raw:
+        specifier: ^0.1.8
+        version: 0.1.8(esbuild@0.21.5)
+      hono:
+        specifier: ^4.4.7
+        version: 4.4.8
       tsup:
         specifier: ^8.1.0
         version: 8.1.0(postcss@8.4.38)(typescript@5.5.2)
@@ -1168,6 +1174,11 @@ packages:
 
   es-module-lexer@1.5.4:
     resolution: {integrity: sha512-MVNK56NiMrOwitFB7cqDwq0CQutbw+0BvLshJSse0MUNU+y1FC3bUS/AQg7oUng+/wKrrki7JfmwtVHkVfPLlw==}
+
+  esbuild-plugin-raw@0.1.8:
+    resolution: {integrity: sha512-RNLzkR9DZIDW5nLjtWoSHzECsVHwJf/pel8RFw0fF1AE/0Y7rsdayf1s23mJoXYAuw2rUDqm1hF7zXK++ABRMg==}
+    peerDependencies:
+      esbuild: ^0.14.36 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0 || ^0.19.0 || ^0.20.0
 
   esbuild@0.17.19:
     resolution: {integrity: sha512-XQ0jAPFkK/u3LcVRcvVHQcTIqD6E2H1fvZMA5dQPSOWb3suUbWbfbRf94pjc0bNzRYLfIrDRQXr7X+LHIm5oHw==}
@@ -3036,6 +3047,10 @@ snapshots:
   emoji-regex@9.2.2: {}
 
   es-module-lexer@1.5.4: {}
+
+  esbuild-plugin-raw@0.1.8(esbuild@0.21.5):
+    dependencies:
+      esbuild: 0.21.5
 
   esbuild@0.17.19:
     optionalDependencies:

@@ -25,6 +25,11 @@ export default defineConfig({
     }),
     vike({}),
     vikeSolid(),
-    pages(),
+    pages({
+      server: {
+        kind: "hono",
+        entry: "hono-entry.ts",
+      },
+    }),
   ],
 });
