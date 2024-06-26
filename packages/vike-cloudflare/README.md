@@ -9,6 +9,6 @@
 - [Examples](https://github.com/vikejs/vike-cloudflare/tree/main/examples)
 - [CHANGELOG.md](https://github.com/vikejs/vike-cloudflare/tree/main/CHANGELOG.md)
 - Demos:
-  - [Hono + Streaming](https://vike-clouflare-hono-demo.pages.dev/) ([code](https://github.com/vikejs/vike-cloudflare/tree/main/examples/hono-app))
-  - [Hattip + Streaming](https://vike-clouflare-hattip-demo.pages.dev/) ([code](https://github.com/vikejs/vike-cloudflare/tree/main/examples/hattip-app))
-  - [Plain Vike](https://vike-clouflare-vike-demo.pages.dev/) ([code](https://github.com/vikejs/vike-cloudflare/tree/main/examples/vike-app))
+  - [Hono + Streaming](https://vike-cloudflare-hono-demo.pages.dev/) ([code](https://github.com/vikejs/vike-cloudflare/tree/main/examples/hono-app))
+  - [Hattip + Streaming](https://vike-cloudflare-hattip-demo.pages.dev/) ([code](https://github.com/vikejs/vike-cloudflare/tree/main/examples/hattip-app))
+  - [Plain Vike](https://vike-cloudflare-vike-demo.pages.dev/) ([code](https://github.com/vikejs/vike-cloudflare/tree/main/examples/vike-app))
