@@ -1,6 +1,7 @@
 import { cp, mkdir, rm, symlink, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { normalizePath, Plugin, ResolvedConfig } from "vite";
+import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
 
@@ -11,11 +12,26 @@ const ROUTES_JSON_NAME = "_routes.json";
 const isWin = process.platform === "win32";
 const isCI = Boolean(process.env.CI);
 
+export type SupportedServers = "hono" | "hattip";
+
 export interface VikeCloudflarePagesOptions {
   server?: {
-    kind: "hono";
+    kind: SupportedServers;
     entry: string;
   };
+}
+
+function getAsset(kind: SupportedServers | undefined) {
+  switch (kind) {
+    case "hono": {
+      return honoAsset;
+    }
+    case "hattip": {
+      return hattipAsset;
+    }
+    default:
+      return vikeAsset;
+  }
 }
 
 export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
@@ -38,13 +54,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
     },
     load(id) {
       if (id === resolvedVirtualServerId) {
-        switch (options?.server?.kind) {
-          case "hono": {
-            return honoAsset;
-          }
-          default:
-            return vikeAsset;
-        }
+        return getAsset(options?.server?.kind);
       }
     },
     configResolved: async (config) => {
