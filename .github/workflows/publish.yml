@@ -15,6 +15,11 @@ jobs:
         workingDirectory:
           - examples/hono-app
           - examples/vike-app
+        include:
+          - projectName: vike-clouflare-hono
+            workingDirectory: examples/hono-app
+          - projectName: vike-clouflare-vike
+            workingDirectory: examples/vike-app
 
     steps:
       - uses: actions/checkout@v4
@@ -35,4 +40,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: ${{ matrix.workingDirectory }}
-          command: pages deploy dist/cloudflare
+          command: pages deploy dist/cloudflare --project-name=${{ matrix.projectName }}
