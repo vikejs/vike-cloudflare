@@ -1,4 +1,4 @@
-import { mkdir, rm, symlink, writeFile } from "node:fs/promises";
+import { cp, mkdir, rm, symlink, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { normalizePath, Plugin, ResolvedConfig } from "vite";
 import honoAsset from "../assets/hono.js?raw";
@@ -8,6 +8,8 @@ const NAME = "vike-cloudflare";
 const WORKER_JS_NAME = "_worker.js";
 const WORKER_NAME = "cloudflare-worker";
 const ROUTES_JSON_NAME = "_routes.json";
+const isWin = process.platform === "win32";
+const isCI = Boolean(process.env.CI);
 
 export interface VikeCloudflarePagesOptions {
   server?: {
@@ -77,10 +79,10 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
         await mkdir(outCloudflare, { recursive: true });
 
         // 2. Symlink `dist/client/assets` to `dist/cloudflare/assets`
-        await symlink(join("..", "client", "assets"), join(outCloudflare, "assets"));
+        await symlinkOrCopy(join("..", "client", "assets"), join(outCloudflare, "assets"));
 
         // 3. Symlink `dist/server` to `dist/cloudflare/server`
-        await symlink(join("..", "server"), join(outCloudflare, "server"));
+        await symlinkOrCopy(join("..", "server"), join(outCloudflare, "server"));
 
         // 4. Create _routes.json
         await writeFile(
@@ -113,6 +115,18 @@ export default handler;
     },
   };
 };
+
+async function symlinkOrCopy(target: string, path: string) {
+  if (isWin || isCI) {
+    await cp(target, path, {
+      dereference: true,
+      force: true,
+      recursive: true,
+    });
+  } else {
+    await symlink(target, path);
+  }
+}
 
 function getOutDir(config: ResolvedConfig, force?: "client" | "server" | "cloudflare"): string {
   const p = join(config.root, normalizePath(config.build.outDir));
