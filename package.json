@@ -5,6 +5,11 @@
   "scripts": {
     "build": "cd packages/vike-cloudflare && pnpm run build",
     "release": "cd packages/vike-cloudflare && pnpm run release",
+    "========= Test": "",
+    "test": "pnpm run test:units && pnpm run test:e2e && pnpm run test:types",
+    "test:e2e": "test-e2e",
+    "test:units": "pnpm --recursive --sequential --filter {packages/*} run test",
+    "test:types": "test-types",
     "========= Formatting": "",
     "format": "git ls-files | egrep '\\.(json|js|jsx|css|ts|tsx|vue|mjs|cjs)$' | grep --invert-match package.json | xargs pnpm exec prettier --write",
     "lint": "eslint .",
@@ -13,13 +18,21 @@
   },
   "keywords": [],
   "author": "",
+  "pnpm": {
+    "overrides": {
+      "vike-cloudflare": "link:./packages/vike-cloudflare/"
+    }
+  },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
     "eslint": "^8.57.0",
     "eslint-plugin-solid": "^0.14.1",
-    "prettier": "^3.3.2"
+    "prettier": "^3.3.2",
+    "@brillout/test-e2e": "^0.5.33",
+    "@brillout/test-types": "^0.1.15",
+    "playwright": "^1.42.1"
   },
   "packageManager": "pnpm@9.4.0"
 }

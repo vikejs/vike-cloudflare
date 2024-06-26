@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "wrangler pages dev",
-    "deploy": "wrangler pages deploy",
+    "preview": "vite build && wrangler pages dev",
+    "deploy": "vite build && wrangler pages deploy",
     "test": "tsc --noEmit"
   },
   "keywords": [],
@@ -19,7 +19,7 @@
     "@hono/vite-dev-server": "^0.12.2",
     "@types/node": "^18.19.14",
     "typescript": "^5.5.2",
-    "vike-cloudflare": "workspace:*",
+    "vike-cloudflare": "^0.0.2",
     "wrangler": "^3.61.0"
   },
   "dependencies": {

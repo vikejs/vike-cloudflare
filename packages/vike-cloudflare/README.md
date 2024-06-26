@@ -8,3 +8,6 @@
 - Docs at [`vike.dev/vike-cloudflare`](https://vike.dev/vike-cloudflare)
 - [Examples](https://github.com/vikejs/vike-cloudflare/tree/main/examples)
 - [CHANGELOG.md](https://github.com/vikejs/vike-cloudflare/tree/main/CHANGELOG.md)
+- Demos:
+  - [Hono + Streaming](https://vike-clouflare-hono-demo.pages.dev/) ([code](https://github.com/vikejs/vike-cloudflare/tree/main/examples/hono-app))
+  - [Plain Vike](https://vike-clouflare-vike-demo.pages.dev/) ([code](https://github.com/vikejs/vike-cloudflare/tree/main/examples/vike-app))

@@ -9,6 +9,5 @@ export default {
   Head,
   // <title>
   title: "My Vike App",
-  stream: "web",
   extends: vikeSolid,
 } satisfies Config;

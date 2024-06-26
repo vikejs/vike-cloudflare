@@ -1,3 +1,4 @@
+/// <reference lib="webworker" />
 import { renderPage } from "vike/server";
 
 /**
@@ -15,8 +16,15 @@ async function handleSsr(url) {
     return new Response("Something went wrong", { status: 500 });
   } else {
     const { statusCode: status, headers } = httpResponse;
-    const stream = httpResponse.getReadableWebStream();
-    return new Response(stream, { headers, status });
+
+    const { readable, writable } = new TransformStream();
+
+    httpResponse.pipe(writable);
+
+    return new Response(readable, {
+      status,
+      headers,
+    });
   }
 }
 
