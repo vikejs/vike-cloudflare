@@ -20,5 +20,6 @@
     "eslint": "^8.57.0",
     "eslint-plugin-solid": "^0.14.1",
     "prettier": "^3.3.2"
-  }
+  },
+  "packageManager": "pnpm@9.4.0"
 }
