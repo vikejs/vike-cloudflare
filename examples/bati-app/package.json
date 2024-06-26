@@ -1,0 +1,34 @@
+{
+  "name": "my-app",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "NODE_ENV=production tsx ./hono-entry.ts",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "deploy": "wrangler pages deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@auth/core": "^0.34.1",
+    "@hono/vite-cloudflare-pages": "^0.4.1",
+    "@hono/vite-dev-server": "^0.12.2",
+    "@types/node": "^18.19.14",
+    "typescript": "^5.5.2",
+    "vike-cloudflare": "workspace:*",
+    "wrangler": "^3.61.0"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.11.4",
+    "cross-fetch": "^4.0.0",
+    "hono": "^4.4.7",
+    "solid-js": "^1.8.17",
+    "tsx": "^4.15.7",
+    "vike": "^0.4.177",
+    "vike-solid": "^0.6.1",
+    "vite": "^5.3.1"
+  }
+}
