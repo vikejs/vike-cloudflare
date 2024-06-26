@@ -4,11 +4,15 @@ export async function vikeHandler<Context extends Record<string | number | symbo
   request: Request,
   context?: Context,
 ): Promise<Response> {
-  const pageContextInit = { ...(context ?? {}), urlOriginal: request.url };
+  const pageContextInit = { ...context, urlOriginal: request.url };
   const pageContext = await renderPage(pageContextInit);
   const response = pageContext.httpResponse;
 
-  return new Response(response?.getReadableWebStream(), {
+  const { readable, writable } = new TransformStream();
+
+  response?.pipe(writable);
+
+  return new Response(readable, {
     status: response?.statusCode,
     headers: response?.headers,
   });
