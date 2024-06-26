@@ -1,0 +1,36 @@
+{
+  "name": "my-app",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "hattip serve ./hattip-entry.ts --client",
+    "build": "cross-env NODE_ENV=production hattip build ./hattip-entry.ts --target es2022 --client",
+    "preview": "pnpm run build && wrangler pages dev",
+    "deploy": "pnpm run build && wrangler pages deploy",
+    "test": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@auth/core": "^0.34.1",
+    "@hattip/adapter-cloudflare-workers": "^0.0.46",
+    "@hattip/adapter-node": "^0.0.46",
+    "@hattip/vite": "^0.0.46",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.5.2",
+    "vike-cloudflare": "^0.0.3",
+    "wrangler": "^3.61.0"
+  },
+  "dependencies": {
+    "@hattip/core": "^0.0.46",
+    "@hattip/router": "^0.0.46",
+    "cross-fetch": "^4.0.0",
+    "hattip": "^0.0.33",
+    "lowdb": "^7.0.1",
+    "solid-js": "^1.8.17",
+    "vike": "^0.4.177",
+    "vike-solid": "^0.6.2",
+    "vite": "^5.3.1"
+  }
+}
