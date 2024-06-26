@@ -53,6 +53,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
     },
     configResolved: async (config) => {
       resolvedConfig = config;
+      console.log(config);
     },
     options(inputOptions) {
       if (!resolvedConfig.build?.ssr) {

@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "hono-app",
   "private": true,
   "version": "0.0.1",
   "description": "",
@@ -7,12 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "NODE_ENV=production tsx ./hono-entry.ts",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "preview": "wrangler pages dev",
     "deploy": "wrangler pages deploy"
   },
   "keywords": [],
-  "author": "",
+  "author": "Joël Charles <joel.charles91@gmail.com>",
   "devDependencies": {
     "@auth/core": "^0.34.1",
     "@hono/vite-cloudflare-pages": "^0.4.1",

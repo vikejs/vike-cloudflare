@@ -27,7 +27,7 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
 
-  examples/bati-app:
+  examples/hono-app:
     dependencies:
       '@hono/node-server':
         specifier: ^1.11.4
