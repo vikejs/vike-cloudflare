@@ -5,7 +5,7 @@
 
 [Cloudflare](https://pages.cloudflare.com/) deployment target for Vike.
 
-- Docs at [`vike.dev/vike-cloudflare`](https://vike.dev/vike-cloudflare)
+- Docs at [`vike.dev/cloudflare-pages`](https://vike.dev/cloudflare-pages)
 - [Examples](https://github.com/vikejs/vike-cloudflare/tree/main/examples)
 - [CHANGELOG.md](https://github.com/vikejs/vike-cloudflare/tree/main/CHANGELOG.md)
 - Demos:
