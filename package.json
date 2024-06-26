@@ -2,7 +2,15 @@
   "name": "vike-cloudflare-monorepo",
   "private": true,
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "build": "cd packages/vike-cloudflare && pnpm run build",
+    "release": "cd packages/vike-cloudflare && pnpm run release",
+    "========= Formatting": "",
+    "format": "git ls-files | egrep '\\.(json|js|jsx|css|ts|tsx|vue|mjs|cjs)$' | grep --invert-match package.json | xargs pnpm exec prettier --write",
+    "lint": "eslint .",
+    "========= Only allow pnpm; forbid yarn & npm": "",
+    "preinstall": "npx only-allow pnpm"
+  },
   "keywords": [],
   "author": "",
   "devDependencies": {

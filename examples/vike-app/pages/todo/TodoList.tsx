@@ -32,11 +32,7 @@ export function TodoList(props: { initialTodoItems: { text: string }[] }) {
             }
           }}
         >
-          <input
-            type="text"
-            onChange={(ev) => setNewTodo(ev.target.value)}
-            value={newTodo()}
-          />{" "}
+          <input type="text" onChange={(ev) => setNewTodo(ev.target.value)} value={newTodo()} />{" "}
           <button type="submit">Add to-do</button>
         </form>
       </div>

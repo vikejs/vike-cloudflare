@@ -1,4 +1,3 @@
-
 interface TodoItem {
   text: string;
 }

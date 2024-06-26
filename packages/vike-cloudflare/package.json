@@ -5,11 +5,18 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "release": "LANG=en_US release-me patch",
+    "release:minor": "LANG=en_US release-me minor",
+    "release:commit": "LANG=en_US release-me commit"
   },
-  "keywords": ["vike", "cloudflare"],
+  "keywords": [
+    "vike",
+    "cloudflare"
+  ],
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "devDependencies": {
+    "@brillout/release-me": "^0.3.9",
     "esbuild-plugin-raw": "^0.1.8",
     "hono": "^4.4.7",
     "tsup": "^8.1.0",

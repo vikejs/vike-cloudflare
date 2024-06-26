@@ -1,5 +1,5 @@
-import type { Data } from "./+data";
 import { useData } from "vike-solid/useData";
+import type { Data } from "./+data";
 import { TodoList } from "./TodoList.js";
 
 export default function Page() {

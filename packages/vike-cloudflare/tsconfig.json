@@ -12,14 +12,8 @@
     "noEmit": true,
     "moduleResolution": "Bundler",
     "target": "ES2022",
-    "lib": [
-      "ESNext"
-    ],
-    "types": [
-      "vite/client"
-    ]
+    "lib": ["ESNext"],
+    "types": ["vite/client"]
   },
-  "exclude": [
-    "dist"
-  ]
+  "exclude": ["dist"]
 }
