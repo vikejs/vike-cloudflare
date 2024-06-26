@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "wrangler pages dev",
-    "deploy": "wrangler pages deploy"
+    "deploy": "wrangler pages deploy",
+    "test": "tsc --noEmit"
   },
   "keywords": [],
   "author": "Joël Charles <joel.charles91@gmail.com>",
