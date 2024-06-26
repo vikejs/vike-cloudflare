@@ -1,5 +1,5 @@
 import { cp, mkdir, rm, symlink, writeFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { normalizePath, Plugin, ResolvedConfig } from "vite";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
@@ -118,7 +118,7 @@ export default handler;
 
 async function symlinkOrCopy(target: string, path: string) {
   if (isWin || isCI) {
-    await cp(target, path, {
+    await cp(resolve(path, "..", target), path, {
       dereference: true,
       force: true,
       recursive: true,
