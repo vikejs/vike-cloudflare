@@ -1,3 +1,12 @@
+## [0.0.5](https://github.com/vikejs/vike-cloudflare/compare/v0.0.4...v0.0.5) (2024-08-08)
+
+
+### Bug Fixes
+
+* default build target to es2022 ([6935208](https://github.com/vikejs/vike-cloudflare/commit/69352087cf594c6cb48493685c6d36cf4fd96a1b))
+
+
+
 ## [0.0.4](https://github.com/vikejs/vike-cloudflare/compare/v0.0.3...v0.0.4) (2024-06-26)
 
 
