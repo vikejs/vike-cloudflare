@@ -57,6 +57,12 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
         return getAsset(options?.server?.kind);
       }
     },
+    config(userConfig) {
+      if (!userConfig.build?.target) {
+        userConfig.build ??= {};
+        userConfig.build.target = 'es2022';   
+      }
+    },
     configResolved: async (config) => {
       resolvedConfig = config;
     },
