@@ -133,3 +133,5 @@ dist
 
 # Cloudflare
 .wrangler/
+
+.idea
