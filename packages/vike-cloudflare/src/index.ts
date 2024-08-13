@@ -79,7 +79,8 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
           },
         },
         resolve: {
-          conditions: ["edge-light", "worker", "browser", "module", "import", "require"],
+          // https://github.com/cloudflare/workers-sdk/blob/515de6ab40ed6154a2e6579ff90b14b304809609/packages/wrangler/src/deployment-bundle/bundle.ts#L37
+          conditions: ["workerd", "worker", "browser", "module", "import", "require"],
         },
       };
     },
