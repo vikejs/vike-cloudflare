@@ -3,9 +3,7 @@ import { createMiddleware } from "hono/factory";
 import { createTodoHandler } from "./server/create-todo-handler.js";
 import { vikeHandler } from "./server/vike-handler";
 
-interface Middleware<Context extends Record<string | number | symbol, unknown>> {
-  (request: Request, context: Context): Response | void | Promise<Response> | Promise<void>;
-}
+type Middleware<Context extends Record<string | number | symbol, unknown>> = (request: Request, context: Context) => Response | void | Promise<Response> | Promise<void>
 
 export function handlerAdapter<Context extends Record<string | number | symbol, unknown>>(
   handler: Middleware<Context>,

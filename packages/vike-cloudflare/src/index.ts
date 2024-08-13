@@ -1,7 +1,7 @@
 import { cp, mkdir, rm, symlink, writeFile } from "node:fs/promises";
 import { builtinModules } from "node:module";
 import { dirname, join, resolve } from "node:path";
-import { normalizePath, Plugin, ResolvedConfig } from "vite";
+import { type Plugin, type ResolvedConfig, normalizePath } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
@@ -38,7 +38,7 @@ function getAsset(kind: SupportedServers | undefined) {
 export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
   const virtualEntryId = "virtual:vike-cloudflare-entry";
   const virtualServerId = "virtual:vike-cloudflare-server";
-  const resolvedVirtualServerId = "\0" + virtualServerId;
+  const resolvedVirtualServerId = `\0${virtualServerId}`;
   let resolvedConfig: ResolvedConfig;
 
   return {
@@ -131,9 +131,15 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
         );
 
         // 5. Create _worker.js
-        const [chunkPath] = Object.entries(bundle).find(([_, value]) => {
+        const res = Object.entries(bundle).find(([_, value]) => {
           return value.type === "chunk" && value.isEntry && value.name === WORKER_NAME;
-        })!;
+        });
+
+        if (!res) {
+          throw new Error(`Cannot find ${WORKER_NAME} entry`);
+        }
+
+        const [chunkPath] = res;
 
         await writeFile(
           join(outCloudflare, WORKER_JS_NAME),
