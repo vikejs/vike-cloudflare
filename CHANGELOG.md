@@ -1,3 +1,12 @@
+## [0.0.6](https://github.com/vikejs/vike-cloudflare/compare/v0.0.5...v0.0.6) (2024-08-13)
+
+
+### Bug Fixes
+
+* workspace package conditions ([e37f2b1](https://github.com/vikejs/vike-cloudflare/commit/e37f2b15088c1a828d427231280349a3b324db9f))
+
+
+
 ## [0.0.5](https://github.com/vikejs/vike-cloudflare/compare/v0.0.4...v0.0.5) (2024-08-08)
 
 
