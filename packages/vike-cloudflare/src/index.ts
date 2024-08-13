@@ -1,4 +1,5 @@
 import { cp, mkdir, rm, symlink, writeFile } from "node:fs/promises";
+import { builtinModules } from "node:module";
 import { dirname, join, resolve } from "node:path";
 import { normalizePath, Plugin, ResolvedConfig } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
@@ -43,6 +44,9 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
   return {
     name: NAME,
     enforce: "post",
+    apply(config) {
+      return !!config.build?.ssr;
+    },
     resolveId(id) {
       if (id === virtualEntryId) {
         assert(options?.server, `[${NAME}] server.entry is required when using a server`);
@@ -60,16 +64,29 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
     config(userConfig) {
       if (!userConfig.build?.target) {
         userConfig.build ??= {};
-        userConfig.build.target = 'es2022';   
+        userConfig.build.target = "es2022";
       }
+
+      // Vite bundles/inlines workspace packages by default.
+      // It needs to bundle the right exports.
+      return {
+        ssr: {
+          target: "webworker",
+        },
+        build: {
+          rollupOptions: {
+            external: [...builtinModules, /^node:/],
+          },
+        },
+        resolve: {
+          conditions: ["edge-light", "worker", "browser", "module", "import", "require"],
+        },
+      };
     },
     configResolved: async (config) => {
       resolvedConfig = config;
     },
     options(inputOptions) {
-      if (!resolvedConfig.build?.ssr) {
-        return;
-      }
       assert(
         typeof inputOptions.input === "object" && !Array.isArray(inputOptions.input),
         `[${NAME}] input should be an object. Aborting`,
@@ -85,9 +102,6 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin => {
       order: "post",
       sequential: true,
       async handler(_, bundle) {
-        if (!resolvedConfig.build?.ssr) {
-          return;
-        }
         const outCloudflare = getOutDir(resolvedConfig, "cloudflare");
 
         // 1. Ensure empty `dist/cloudflare` folder
