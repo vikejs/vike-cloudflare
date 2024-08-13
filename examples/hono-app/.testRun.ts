@@ -12,7 +12,7 @@ function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parame
   testUrl({
     url: "/",
     title: "My Vike App",
-    text: "built with https://github.com/vikejs/vike-solid",
+    text: "Rendered to HTML",
     textHydration: "Rendered to HTML",
   });
 

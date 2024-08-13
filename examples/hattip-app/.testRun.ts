@@ -2,17 +2,13 @@ import { expect, fetchHtml, getServerUrl, page, run, test } from "@brillout/test
 
 export { testRun };
 
-let isProd: boolean;
-
 function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parameters<typeof run>[1]) {
   run(cmd, options);
-
-  isProd = cmd !== "pnpm run dev";
 
   testUrl({
     url: "/",
     title: "My Vike App",
-    text: "built with https://github.com/vikejs/vike-solid",
+    text: "Rendered to HTML",
     textHydration: "Rendered to HTML",
   });
 

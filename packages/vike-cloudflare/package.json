@@ -16,21 +16,21 @@
   ],
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "devDependencies": {
-    "@brillout/release-me": "^0.3.9",
+    "@brillout/release-me": "^0.4.0",
     "@hattip/adapter-cloudflare-workers": "^0.0.46",
     "esbuild-plugin-raw": "^0.1.8",
-    "hono": "^4.4.7",
-    "tsup": "^8.1.0",
-    "typescript": "^5.5.2",
-    "vike": "^0.4.177",
-    "vite": "^5.3.1"
+    "hono": "^4.5.5",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
+    "vike": "^0.4.184",
+    "vite": "^5.4.0"
   },
   "peerDependencies": {
     "vike": "^0.4.174",
     "vite": "^5.3.0"
   },
   "optionalDependencies": {
-    "@hattip/adapter-cloudflare-workers": "^0.0.46"
+    "@hattip/adapter-cloudflare-workers": "^0.0.47"
   },
   "files": [
     "dist"
