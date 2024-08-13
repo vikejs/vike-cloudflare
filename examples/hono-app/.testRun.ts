@@ -12,7 +12,7 @@ function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parame
   testUrl({
     url: "/",
     title: "My Vike App",
-    text: "built with https://github.com/vikejs/vike-solid",
+    text: "Rendered to HTML",
     textHydration: "Rendered to HTML",
   });
 
@@ -43,14 +43,14 @@ function testUrl({
   counter?: true;
   noSSR?: true;
 }) {
-  test(url + " (HTML)", async () => {
+  test(`${url} (HTML)`, async () => {
     const html = await fetchHtml(url);
     if (!noSSR) {
       expect(html).toContain(text);
     }
     expect(getTitle(html)).toBe(title);
   });
-  test(url + " (Hydration)", async () => {
+  test(`${url} (Hydration)`, async () => {
     await page.goto(getServerUrl() + url);
     const body = await page.textContent("body");
     expect(body).toContain(textHydration ?? text);

@@ -14,7 +14,7 @@ async function handleSsr(url) {
   const { httpResponse } = pageContext;
   if (!httpResponse) {
     return new Response("Something went wrong", { status: 500 });
-  } else {
+  }
     const { statusCode: status, headers } = httpResponse;
 
     const { readable, writable } = new TransformStream();
@@ -25,7 +25,6 @@ async function handleSsr(url) {
       status,
       headers,
     });
-  }
 }
 
 export default {
