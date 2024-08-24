@@ -1,3 +1,7 @@
+# [0.1.0](https://github.com/vikejs/vike-cloudflare/compare/v0.0.6...v0.1.0) (2024-08-24)
+
+
+
 ## [0.0.6](https://github.com/vikejs/vike-cloudflare/compare/v0.0.5...v0.0.6) (2024-08-13)
 
 

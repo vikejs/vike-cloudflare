@@ -17,7 +17,7 @@
     "@auth/core": "^0.34.2",
     "@types/node": "^18.19.14",
     "typescript": "^5.5.4",
-    "vike-cloudflare": "^0.0.6",
+    "vike-cloudflare": "^0.1.0",
     "wrangler": "^3.72.2"
   },
   "dependencies": {
