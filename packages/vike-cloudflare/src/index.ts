@@ -2,7 +2,7 @@ import { cp, mkdir, rm, symlink, writeFile } from "node:fs/promises";
 import { builtinModules } from "node:module";
 import { dirname, isAbsolute, join, posix } from "node:path";
 import { prerender } from "vike/prerender";
-import { type Plugin, type ResolvedConfig, normalizePath } from "vite";
+import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
@@ -59,7 +59,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       name: NAME,
       enforce: "post",
       apply(config) {
-        return !!config.build?.ssr;
+        return Boolean(config.build?.ssr);
       },
       resolveId(id) {
         if (id === virtualEntryId) {
@@ -100,6 +100,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       },
       configResolved: async (config) => {
         resolvedConfig = config;
+        // biome-ignore lint/suspicious/noExplicitAny: TODO
         shouldPrerender = !!(await (config as any).configVikePromise).prerender;
       },
       options(inputOptions) {
@@ -216,6 +217,7 @@ function assert(condition: unknown, message: string): asserts condition {
 async function prerenderPages() {
   const filePaths: string[] = [];
   await prerender({
+    // biome-ignore lint/suspicious/noExplicitAny: TODO
     async onPagePrerender(page: any) {
       const result = page._prerenderResult;
       filePaths.push(result.filePath);

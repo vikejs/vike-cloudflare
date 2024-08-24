@@ -6,7 +6,7 @@
     "build": "cd packages/vike-cloudflare && pnpm run build",
     "release": "cd packages/vike-cloudflare && pnpm run release",
     "========= Test": "",
-    "test": "pnpm run test:units && pnpm run test:e2e && pnpm run test:types",
+    "test": "pnpm run lint && pnpm run test:units && pnpm run test:e2e && pnpm run test:types",
     "test:e2e": "test-e2e",
     "test:units": "pnpm --recursive --sequential --filter {packages/*} run test",
     "test:types": "test-types",
