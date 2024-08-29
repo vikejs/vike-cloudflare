@@ -7,12 +7,12 @@ let isProd: boolean;
 function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parameters<typeof run>[1]) {
   run(cmd, options);
 
-  isProd = cmd !== "pnpm run dev";
+  isProd = !cmd.startsWith("pnpm run dev");
 
   testUrl({
     url: "/",
     title: "My Vike App",
-    text: "Rendered to HTML",
+    text: "SSR running on Cloudflare",
     textHydration: "Rendered to HTML",
   });
 

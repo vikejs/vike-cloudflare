@@ -17,18 +17,20 @@
     "@hattip/adapter-cloudflare-workers": "^0.0.47",
     "@hattip/adapter-node": "^0.0.47",
     "@hattip/vite": "^0.0.47",
+    "@universal-middleware/core": "^0.2.6",
     "cross-env": "^7.0.3",
     "typescript": "^5.5.4",
     "vike-cloudflare": "^0.1.0",
-    "wrangler": "^3.72.2"
+    "wrangler": "^3.72.3"
   },
   "dependencies": {
     "@hattip/core": "^0.0.47",
     "@hattip/router": "^0.0.47",
+    "@universal-middleware/hattip": "^0.2.3",
     "cross-fetch": "^4.0.0",
     "hattip": "^0.0.33",
     "lowdb": "^7.0.1",
-    "solid-js": "^1.8.21",
+    "solid-js": "^1.8.22",
     "vike": "^0.4.193",
     "vike-solid": "^0.7.3",
     "vite": "^5.4.2"

@@ -1,10 +1,8 @@
+import type { UniversalHandler } from "@universal-middleware/core";
 import { renderPage } from "vike/server";
 
-export async function vikeHandler<Context extends Record<string | number | symbol, unknown>>(
-  request: Request,
-  context?: Context,
-): Promise<Response> {
-  const pageContextInit = { ...context, urlOriginal: request.url };
+export const vikeHandler = (async (request, context, runtime): Promise<Response> => {
+  const pageContextInit = { ...context, urlOriginal: request.url, headersOriginal: request.headers, ...runtime };
   const pageContext = await renderPage(pageContextInit);
   const response = pageContext.httpResponse;
 
@@ -16,4 +14,4 @@ export async function vikeHandler<Context extends Record<string | number | symbo
     status: response?.statusCode,
     headers: response?.headers,
   });
-}
+}) satisfies UniversalHandler;

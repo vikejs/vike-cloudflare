@@ -13,7 +13,7 @@
     "moduleResolution": "Bundler",
     "target": "ES2022",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client", "vike-solid/client"],
+    "types": ["vite/client", "vike-solid/client", "vike-cloudflare/types"],
     "jsx": "preserve",
     "jsxImportSource": "solid-js"
   },
