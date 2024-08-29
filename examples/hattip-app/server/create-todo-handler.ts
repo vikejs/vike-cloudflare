@@ -1,7 +1,6 @@
-export async function createTodoHandler<Context extends Record<string | number | symbol, unknown>>(
-  request: Request,
-  _context?: Context,
-): Promise<Response> {
+import type { UniversalHandler } from "@universal-middleware/core";
+
+export const createTodoHandler = (async (request: Request): Promise<Response> => {
   await request.json();
 
   return new Response(JSON.stringify({ status: "OK" }), {
@@ -10,4 +9,4 @@ export async function createTodoHandler<Context extends Record<string | number |
       "content-type": "application/json",
     },
   });
-}
+}) satisfies UniversalHandler;

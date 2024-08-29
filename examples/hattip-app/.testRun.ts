@@ -2,13 +2,17 @@ import { expect, fetchHtml, getServerUrl, page, run, test } from "@brillout/test
 
 export { testRun };
 
+let isProd: boolean;
+
 function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parameters<typeof run>[1]) {
   run(cmd, options);
+
+  isProd = !cmd.startsWith("pnpm run dev");
 
   testUrl({
     url: "/",
     title: "My Vike App",
-    text: "Rendered to HTML",
+    text: isProd ? "SSR running on Cloudflare" : "Rendered to HTML",
     textHydration: "Rendered to HTML",
   });
 

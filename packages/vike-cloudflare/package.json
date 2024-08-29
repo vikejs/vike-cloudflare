@@ -33,14 +33,19 @@
     "@hattip/adapter-cloudflare-workers": "^0.0.47"
   },
   "files": [
-    "dist"
+    "dist",
+    "vike.d.ts"
   ],
+  "types": "./vike.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "node": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./vike.d.ts"
     }
   },
   "repository": "github:vikejs/vike-cloudflare"
