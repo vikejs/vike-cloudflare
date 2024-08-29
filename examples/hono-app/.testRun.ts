@@ -12,7 +12,7 @@ function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parame
   testUrl({
     url: "/",
     title: "My Vike App",
-    text: isProd ? "SSR running on Cloudflare" : "Rendered to HTML",
+    text: "SSR running on Cloudflare",
     textHydration: "Rendered to HTML",
   });
 
