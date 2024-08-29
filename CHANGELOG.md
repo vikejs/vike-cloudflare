@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/vikejs/vike-cloudflare/compare/v0.1.0...v0.1.1) (2024-08-29)
+
+
+### Features
+
+* forward runtime context ([ea4bbfd](https://github.com/vikejs/vike-cloudflare/commit/ea4bbfdf9231d907d65ac1942a28133b4b2badb9))
+
+
+
 # [0.1.0](https://github.com/vikejs/vike-cloudflare/compare/v0.0.6...v0.1.0) (2024-08-24)
 
 
