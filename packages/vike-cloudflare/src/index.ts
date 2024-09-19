@@ -2,7 +2,7 @@ import { cp, mkdir, rm, symlink, writeFile } from "node:fs/promises";
 import { builtinModules } from "node:module";
 import { dirname, isAbsolute, join, posix } from "node:path";
 import { prerender } from "vike/prerender";
-import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
+import { type Plugin, type ResolvedConfig, normalizePath } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
@@ -142,7 +142,9 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
               await symlinkOrCopy(join(outClient, relPath), join(outCloudflare, relPath));
             }
 
-            staticRoutes = relPaths.map((m) => (m.endsWith(".html") ? m.slice(0, -5) : m));
+            staticRoutes = relPaths
+              .map((m) => `/${m.endsWith(".html") ? m.slice(0, -5) : m}`)
+              .map((m) => (m.endsWith("/index") ? m.slice(0, -5) : m));
           }
 
           // 5. Create _routes.json
