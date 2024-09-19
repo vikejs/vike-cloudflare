@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/vikejs/vike-cloudflare/compare/v0.1.1...v0.1.2) (2024-09-19)
+
+
+### Bug Fixes
+
+* malformed exclude rules when prerender: true. Fixes [#13](https://github.com/vikejs/vike-cloudflare/issues/13) ([44d1e00](https://github.com/vikejs/vike-cloudflare/commit/44d1e00076e1cd1408d9e40edecb2573085b3068))
+
+
+
 ## [0.1.1](https://github.com/vikejs/vike-cloudflare/compare/v0.1.0...v0.1.1) (2024-08-29)
 
 
