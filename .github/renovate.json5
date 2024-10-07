@@ -13,7 +13,8 @@
     "schedule:weekly",
     "group:allNonMajor",
 
-    ":pinAllExceptPeerDependencies",
+    // peerDependencies ranges should be left untouched/wide.
+    ":disablePeerDependencies"
   ],
   "ignorePaths": [
     "**/node_modules/**",
