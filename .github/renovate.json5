@@ -5,7 +5,6 @@
     // config:recommended without excluding folders
     ":dependencyDashboard",
     ":semanticPrefixFixDepsChoreOthers",
-    ":ignoreModulesAndTests",
     "group:monorepos",
     "group:recommended",
     "replacements:all",
