@@ -13,25 +13,25 @@
   "keywords": [],
   "author": "",
   "devDependencies": {
-    "@auth/core": "^0.36.0",
+    "@auth/core": "^0.37.0",
     "@hattip/adapter-cloudflare-workers": "^0.0.48",
     "@hattip/adapter-node": "^0.0.48",
     "@hattip/vite": "^0.0.48",
-    "@universal-middleware/core": "^0.2.11",
+    "@universal-middleware/core": "^0.2.13",
     "cross-env": "^7.0.3",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "vike-cloudflare": "^0.1.2",
-    "wrangler": "^3.80.0"
+    "wrangler": "^3.80.4"
   },
   "dependencies": {
     "@hattip/core": "^0.0.48",
     "@hattip/router": "^0.0.48",
-    "@universal-middleware/hattip": "^0.2.7",
+    "@universal-middleware/hattip": "^0.2.10",
     "cross-fetch": "^4.0.0",
     "hattip": "^0.0.33",
     "lowdb": "^7.0.1",
-    "solid-js": "^1.9.1",
-    "vike": "^0.4.198",
+    "solid-js": "^1.9.2",
+    "vike": "^0.4.199",
     "vike-solid": "^0.7.6",
     "vite": "^5.4.8"
   }
