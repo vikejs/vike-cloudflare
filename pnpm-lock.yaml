@@ -95,7 +95,7 @@ importers:
         version: 4.0.0
       hono:
         specifier: ^4.6.4
-        version: 4.6.4
+        version: 4.6.5
       solid-js:
         specifier: ^1.9.2
         version: 1.9.2
@@ -117,10 +117,10 @@ importers:
         version: 0.37.0
       '@hono/vite-cloudflare-pages':
         specifier: ^0.4.2
-        version: 0.4.2(hono@4.6.4)
+        version: 0.4.2(hono@4.6.5)
       '@hono/vite-dev-server':
         specifier: ^0.16.0
-        version: 0.16.0(hono@4.6.4)(miniflare@3.20241004.0)(wrangler@3.80.4)
+        version: 0.16.0(hono@4.6.5)(miniflare@3.20241004.0)(wrangler@3.80.4)
       '@types/node':
         specifier: ^18.19.54
         version: 18.19.54
@@ -188,7 +188,7 @@ importers:
         version: 0.1.8(esbuild@0.23.1)
       hono:
         specifier: ^4.6.4
-        version: 4.6.4
+        version: 4.6.5
       tsup:
         specifier: ^8.3.0
         version: 8.3.0(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.5.0)
@@ -1548,8 +1548,8 @@ packages:
   hattip@0.0.33:
     resolution: {integrity: sha512-FG0IHeOdoTceFF4ta0eZ+GKEXCvqvSzLgmX3RZi3ia/OtczKn74OwjYRfyL9fBtUiyc1Z27F9daiLowfzgZ/Gg==}
 
-  hono@4.6.4:
-    resolution: {integrity: sha512-T5WqBkTOcIQblqBKB5mpzaH/A+dSpvVe938xZJCHOmOuYfF7DSwE/9/10+BMvwSPq9N/f6LiQ38HxrZSQOsXKw==}
+  hono@4.6.5:
+    resolution: {integrity: sha512-qsmN3V5fgtwdKARGLgwwHvcdLKursMd+YOt69eGpl1dUCJb8mCd7hZfyZnBYjxCegBG7qkJRQRUy2oO25yHcyQ==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@7.0.2:
@@ -2915,18 +2915,18 @@ snapshots:
       cac: 6.7.14
       mime-types: 2.1.35
 
-  '@hono/node-server@1.12.2(hono@4.6.4)':
+  '@hono/node-server@1.12.2(hono@4.6.5)':
     dependencies:
-      hono: 4.6.4
+      hono: 4.6.5
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.4)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.5)':
     dependencies:
-      hono: 4.6.4
+      hono: 4.6.5
 
-  '@hono/vite-dev-server@0.16.0(hono@4.6.4)(miniflare@3.20241004.0)(wrangler@3.80.4)':
+  '@hono/vite-dev-server@0.16.0(hono@4.6.5)(miniflare@3.20241004.0)(wrangler@3.80.4)':
     dependencies:
-      '@hono/node-server': 1.12.2(hono@4.6.4)
-      hono: 4.6.4
+      '@hono/node-server': 1.12.2(hono@4.6.5)
+      hono: 4.6.5
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20241004.0
@@ -3604,7 +3604,7 @@ snapshots:
 
   hattip@0.0.33: {}
 
-  hono@4.6.4: {}
+  hono@4.6.5: {}
 
   hosted-git-info@7.0.2:
     dependencies:
