@@ -21,7 +21,7 @@
     "cross-env": "^7.0.3",
     "typescript": "^5.6.3",
     "vike-cloudflare": "^0.1.3",
-    "wrangler": "^3.81.0"
+    "wrangler": "^3.83.0"
   },
   "dependencies": {
     "@hattip/core": "^0.0.48",
@@ -30,9 +30,9 @@
     "cross-fetch": "^4.0.0",
     "hattip": "^0.0.33",
     "lowdb": "^7.0.1",
-    "solid-js": "^1.9.2",
+    "solid-js": "^1.9.3",
     "vike": "^0.4.199",
     "vike-solid": "^0.7.6",
-    "vite": "^5.4.9"
+    "vite": "^5.4.10"
   }
 }
