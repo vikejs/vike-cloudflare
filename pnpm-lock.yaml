@@ -27,10 +27,10 @@ importers:
   examples/hattip-app:
     dependencies:
       '@hattip/core':
-        specifier: ^0.0.49
+        specifier: ^0.0
         version: 0.0.49
       '@hattip/router':
-        specifier: ^0.0.49
+        specifier: ^0.0
         version: 0.0.49
       '@universal-middleware/hattip':
         specifier: ^0.2.10
@@ -39,7 +39,7 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       hattip:
-        specifier: ^0.0.33
+        specifier: ^0.0
         version: 0.0.33
       lowdb:
         specifier: ^7.0.1
