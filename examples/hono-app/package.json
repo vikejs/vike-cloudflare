@@ -14,10 +14,10 @@
   "keywords": [],
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "devDependencies": {
-    "@auth/core": "^0.37.2",
+    "@auth/core": "^0.37.3",
     "@hono/vite-cloudflare-pages": "^0.4.2",
     "@hono/vite-dev-server": "^0.16.0",
-    "@types/node": "^18.19.55",
+    "@types/node": "^18.19.64",
     "@universal-middleware/core": "^0.2.13",
     "typescript": "^5.6.3",
     "vike-cloudflare": "^0.1.3",

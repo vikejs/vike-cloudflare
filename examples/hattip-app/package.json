@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "",
   "devDependencies": {
-    "@auth/core": "^0.37.2",
+    "@auth/core": "^0.37.3",
     "@hattip/adapter-cloudflare-workers": "^0.0.49",
     "@hattip/adapter-node": "^0.0.49",
     "@hattip/vite": "^0.0.49",
@@ -24,11 +24,11 @@
     "wrangler": "^3.84.1"
   },
   "dependencies": {
-    "@hattip/core": "^0.0.49",
-    "@hattip/router": "^0.0.49",
+    "@hattip/core": "^0.0",
+    "@hattip/router": "^0.0",
     "@universal-middleware/hattip": "^0.2.10",
     "cross-fetch": "^4.0.0",
-    "hattip": "^0.0.33",
+    "hattip": "^0.0",
     "lowdb": "^7.0.1",
     "solid-js": "^1.9.3",
     "vike": "^0.4.200",
