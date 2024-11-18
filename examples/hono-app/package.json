@@ -14,23 +14,23 @@
   "keywords": [],
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "devDependencies": {
-    "@auth/core": "^0.37.3",
+    "@auth/core": "^0.37.4",
     "@hono/vite-cloudflare-pages": "^0.4.2",
-    "@hono/vite-dev-server": "^0.16.0",
+    "@hono/vite-dev-server": "^0.17.0",
     "@types/node": "^18.19.64",
     "@universal-middleware/core": "^0.2.13",
     "typescript": "^5.6.3",
     "vike-cloudflare": "^0.1.4",
-    "wrangler": "^3.86.0"
+    "wrangler": "^3.87.0"
   },
   "dependencies": {
     "@universal-middleware/hono": "^0.2.12",
     "cross-fetch": "^4.0.0",
-    "hono": "^4.6.9",
+    "hono": "^4.6.10",
     "solid-js": "^1.9.3",
     "tsx": "^4.19.2",
-    "vike": "^0.4.201",
+    "vike": "^0.4.203",
     "vike-solid": "^0.7.6",
-    "vite": "^5.4.10"
+    "vite": "^5.4.11"
   }
 }
