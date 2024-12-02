@@ -18,13 +18,13 @@
     "@types/node": "^18.19.64",
     "typescript": "^5.7.2",
     "vike-cloudflare": "^0.1.4",
-    "wrangler": "^3.90.0"
+    "wrangler": "^3.91.0"
   },
   "dependencies": {
     "cross-fetch": "^4.0.0",
     "solid-js": "^1.9.3",
     "tsx": "^4.19.2",
-    "vike": "^0.4.204",
+    "vike": "^0.4.206",
     "vike-solid": "^0.7.6",
     "vite": "^5.4.11"
   }
