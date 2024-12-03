@@ -1,4 +1,4 @@
-import { cp, mkdir, rm, symlink, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, rm, symlink, writeFile } from "node:fs/promises";
 import { builtinModules } from "node:module";
 import { dirname, isAbsolute, join, posix } from "node:path";
 import { prerender } from "vike/prerender";
@@ -94,7 +94,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
           },
           resolve: {
             // https://github.com/cloudflare/workers-sdk/blob/515de6ab40ed6154a2e6579ff90b14b304809609/packages/wrangler/src/deployment-bundle/bundle.ts#L37
-            conditions: ["workerd", "worker", "browser", "module", "import", "require"],
+            conditions: ["workerd", "worker", "browser", "module", "import", "require", "development|production"],
           },
         };
       },
@@ -118,7 +118,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       writeBundle: {
         order: "post",
         sequential: true,
-        async handler(_, bundle) {
+        async handler(opts, bundle) {
           const outCloudflare = getOutDir(resolvedConfig, "cloudflare");
           const outClient = getOutDir(resolvedConfig, "client");
           const outServer = getOutDir(resolvedConfig, "server");
@@ -127,13 +127,23 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
           await rm(outCloudflare, { recursive: true, force: true });
           await mkdir(outCloudflare, { recursive: true });
 
-          // 2. Symlink `dist/client/assets` to `dist/cloudflare/assets`
-          await symlinkOrCopy(join(outClient, "assets"), join(outCloudflare, "assets"));
+          let staticRoutes: string[] = [];
+
+          // 2. Symlink `dist/client/*` to `dist/cloudflare/*`
+          for (const file of await readdir(outClient, {
+            withFileTypes: true,
+          })) {
+            if (file.isDirectory()) {
+              staticRoutes.push(`/${file.name}/*`);
+            } else {
+              staticRoutes.push(`/${file.name}`);
+            }
+            await symlinkOrCopy(join(outClient, file.name), join(outCloudflare, file.name));
+          }
 
           // 3. Symlink `dist/server` to `dist/cloudflare/server`
           await symlinkOrCopy(outServer, join(outCloudflare, "server"));
 
-          let staticRoutes: string[] = [];
           if (shouldPrerender) {
             // 4. Prerender
             const filePaths = await prerenderPages();
@@ -154,7 +164,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
               {
                 version: 1,
                 include: ["/*"],
-                exclude: ["/assets/*", ...staticRoutes],
+                exclude: staticRoutes,
               },
               undefined,
               2,
