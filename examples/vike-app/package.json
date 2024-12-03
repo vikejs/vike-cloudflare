@@ -15,7 +15,7 @@
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "devDependencies": {
     "@auth/core": "^0.37.4",
-    "@types/node": "^18.19.64",
+    "@types/node": "^18.19.67",
     "typescript": "^5.7.2",
     "vike-cloudflare": "^0.1.4",
     "wrangler": "^3.91.0"
