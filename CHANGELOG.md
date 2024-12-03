@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/vikejs/vike-cloudflare/compare/v0.1.4...v0.1.5) (2024-12-03)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([e5ead60](https://github.com/vikejs/vike-cloudflare/commit/e5ead605401498d207a9f67efa46a48e76d2d5b8))
+
+
+
 ## [0.1.4](https://github.com/vikejs/vike-cloudflare/compare/v0.1.3...v0.1.4) (2024-11-04)
 
 
