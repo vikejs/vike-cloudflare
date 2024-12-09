@@ -1,6 +1,6 @@
 import { cp, mkdir, readdir, rm, symlink, writeFile } from "node:fs/promises";
 import { builtinModules } from "node:module";
-import { dirname, isAbsolute, join, posix } from "node:path";
+import { dirname, isAbsolute, join, posix, relative } from "node:path";
 import { prerender } from "vike/prerender";
 import { type Plugin, type ResolvedConfig, normalizePath } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
@@ -147,12 +147,13 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
           if (shouldPrerender) {
             // 4. Prerender
             const filePaths = await prerenderPages();
-            const relPaths = filePaths.map((path) => posix.relative(outClient, path));
+            const relPaths = filePaths.map((path) => relative(outClient, path));
             for (const relPath of relPaths) {
               await symlinkOrCopy(join(outClient, relPath), join(outCloudflare, relPath));
             }
 
             staticRoutes = relPaths
+              .map(normalizePath)
               .map((m) => `/${m.endsWith(".html") ? m.slice(0, -5) : m}`)
               .map((m) => (m.endsWith("/index") ? m.slice(0, -5) : m));
           }
