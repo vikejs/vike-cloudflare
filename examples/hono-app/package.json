@@ -18,15 +18,15 @@
     "@hono/vite-cloudflare-pages": "^0.4.2",
     "@hono/vite-dev-server": "^0.17.0",
     "@types/node": "^18.19.67",
-    "@universal-middleware/core": "^0.3.0",
+    "@universal-middleware/core": "^0.3.1",
     "typescript": "^5.7.2",
     "vike-cloudflare": "^0.1.5",
-    "wrangler": "^3.91.0"
+    "wrangler": "^3.93.0"
   },
   "dependencies": {
-    "@universal-middleware/hono": "^0.3.0",
+    "@universal-middleware/hono": "^0.3.1",
     "cross-fetch": "^4.0.0",
-    "hono": "^4.6.12",
+    "hono": "^4.6.13",
     "solid-js": "^1.9.3",
     "tsx": "^4.19.2",
     "vike": "^0.4.206",
