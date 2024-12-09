@@ -1,3 +1,12 @@
+## [0.1.6](https://github.com/vikejs/vike-cloudflare/compare/v0.1.5...v0.1.6) (2024-12-09)
+
+
+### Bug Fixes
+
+* wrong path computation on Windows. Fixes [#29](https://github.com/vikejs/vike-cloudflare/issues/29) ([83ac8d7](https://github.com/vikejs/vike-cloudflare/commit/83ac8d7b39185af20d09c75eae0935f6842d54ae))
+
+
+
 ## [0.1.5](https://github.com/vikejs/vike-cloudflare/compare/v0.1.4...v0.1.5) (2024-12-03)
 
 
