@@ -15,14 +15,14 @@ importers:
         specifier: ^1.9.4
         version: 1.9.4
       '@brillout/test-e2e':
-        specifier: ^0.5.36
-        version: 0.5.36
+        specifier: ^0.5.37
+        version: 0.5.37
       '@brillout/test-types':
         specifier: ^0.1.15
         version: 0.1.15(typescript@5.7.2)
       playwright:
-        specifier: ^1.49.0
-        version: 1.49.0
+        specifier: ^1.49.1
+        version: 1.49.1
 
   examples/hattip-app:
     dependencies:
@@ -33,8 +33,8 @@ importers:
         specifier: ^0.0.49
         version: 0.0.49
       '@universal-middleware/hattip':
-        specifier: ^0.3.1
-        version: 0.3.1(@hattip/core@0.0.49)(hono@4.6.13)
+        specifier: ^0.3.3
+        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.14)
       cross-fetch:
         specifier: ^4.0.0
         version: 4.0.0
@@ -48,11 +48,11 @@ importers:
         specifier: ^1.9.3
         version: 1.9.3
       vike:
-        specifier: ^0.4.206
-        version: 0.4.206(vite@5.4.11(@types/node@18.19.67))
+        specifier: ^0.4.209
+        version: 0.4.209(vite@5.4.11(@types/node@18.19.67))
       vike-solid:
-        specifier: ^0.7.6
-        version: 0.7.6(solid-js@1.9.3)(vike@0.4.206(vite@5.4.11(@types/node@18.19.67)))(vite@5.4.11(@types/node@18.19.67))
+        specifier: ^0.7.7
+        version: 0.7.7(solid-js@1.9.3)(vike@0.4.209(vite@5.4.11(@types/node@18.19.67)))(vite@5.4.11(@types/node@18.19.67))
       vite:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@18.19.67)
@@ -70,8 +70,8 @@ importers:
         specifier: ^0.0.49
         version: 0.0.49(vite@5.4.11(@types/node@18.19.67))
       '@universal-middleware/core':
-        specifier: ^0.3.1
-        version: 0.3.1(@hattip/core@0.0.49)(hono@4.6.13)
+        specifier: ^0.3.3
+        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.14)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -82,20 +82,20 @@ importers:
         specifier: link:../../packages/vike-cloudflare
         version: link:../../packages/vike-cloudflare
       wrangler:
-        specifier: ^3.93.0
-        version: 3.93.0
+        specifier: ^3.95.0
+        version: 3.95.0
 
   examples/hono-app:
     dependencies:
       '@universal-middleware/hono':
-        specifier: ^0.3.1
-        version: 0.3.1(@hattip/core@0.0.49)(hono@4.6.13)
+        specifier: ^0.3.3
+        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.14)
       cross-fetch:
         specifier: ^4.0.0
         version: 4.0.0
       hono:
-        specifier: ^4.6.13
-        version: 4.6.13
+        specifier: ^4.6.14
+        version: 4.6.14
       solid-js:
         specifier: ^1.9.3
         version: 1.9.3
@@ -103,11 +103,11 @@ importers:
         specifier: ^4.19.2
         version: 4.19.2
       vike:
-        specifier: ^0.4.206
-        version: 0.4.206(vite@5.4.11(@types/node@18.19.67))
+        specifier: ^0.4.209
+        version: 0.4.209(vite@5.4.11(@types/node@18.19.67))
       vike-solid:
-        specifier: ^0.7.6
-        version: 0.7.6(solid-js@1.9.3)(vike@0.4.206(vite@5.4.11(@types/node@18.19.67)))(vite@5.4.11(@types/node@18.19.67))
+        specifier: ^0.7.7
+        version: 0.7.7(solid-js@1.9.3)(vike@0.4.209(vite@5.4.11(@types/node@18.19.67)))(vite@5.4.11(@types/node@18.19.67))
       vite:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@18.19.67)
@@ -117,16 +117,16 @@ importers:
         version: 0.37.4
       '@hono/vite-cloudflare-pages':
         specifier: ^0.4.2
-        version: 0.4.2(hono@4.6.13)
+        version: 0.4.2(hono@4.6.14)
       '@hono/vite-dev-server':
         specifier: ^0.17.0
-        version: 0.17.0(hono@4.6.13)(miniflare@3.20241205.0)(wrangler@3.93.0)
+        version: 0.17.0(hono@4.6.14)(miniflare@3.20241205.0)(wrangler@3.95.0)
       '@types/node':
         specifier: ^18.19.67
         version: 18.19.67
       '@universal-middleware/core':
-        specifier: ^0.3.1
-        version: 0.3.1(@hattip/core@0.0.49)(hono@4.6.13)
+        specifier: ^0.3.3
+        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.14)
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -134,8 +134,8 @@ importers:
         specifier: link:../../packages/vike-cloudflare
         version: link:../../packages/vike-cloudflare
       wrangler:
-        specifier: ^3.93.0
-        version: 3.93.0
+        specifier: ^3.95.0
+        version: 3.95.0
 
   examples/vike-app:
     dependencies:
@@ -149,11 +149,11 @@ importers:
         specifier: ^4.19.2
         version: 4.19.2
       vike:
-        specifier: ^0.4.206
-        version: 0.4.206(vite@5.4.11(@types/node@18.19.67))
+        specifier: ^0.4.209
+        version: 0.4.209(vite@5.4.11(@types/node@18.19.67))
       vike-solid:
-        specifier: ^0.7.6
-        version: 0.7.6(solid-js@1.9.3)(vike@0.4.206(vite@5.4.11(@types/node@18.19.67)))(vite@5.4.11(@types/node@18.19.67))
+        specifier: ^0.7.7
+        version: 0.7.7(solid-js@1.9.3)(vike@0.4.209(vite@5.4.11(@types/node@18.19.67)))(vite@5.4.11(@types/node@18.19.67))
       vite:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@18.19.67)
@@ -171,8 +171,8 @@ importers:
         specifier: link:../../packages/vike-cloudflare
         version: link:../../packages/vike-cloudflare
       wrangler:
-        specifier: ^3.93.0
-        version: 3.93.0
+        specifier: ^3.95.0
+        version: 3.95.0
 
   packages/vike-cloudflare:
     optionalDependencies:
@@ -187,8 +187,8 @@ importers:
         specifier: ^0.1.8
         version: 0.1.8(esbuild@0.24.0)
       hono:
-        specifier: ^4.6.13
-        version: 4.6.13
+        specifier: ^4.6.14
+        version: 4.6.14
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(postcss@8.4.49)(tsx@4.19.2)(typescript@5.7.2)
@@ -196,8 +196,8 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
       vike:
-        specifier: ^0.4.206
-        version: 0.4.206(vite@5.4.11(@types/node@18.19.67))
+        specifier: ^0.4.209
+        version: 0.4.209(vite@5.4.11(@types/node@18.19.67))
       vite:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@18.19.67)
@@ -355,8 +355,8 @@ packages:
   '@brillout/import@0.2.3':
     resolution: {integrity: sha512-1T8WlD75eeFSMrptGy8jiLHmfHgMmSjWvLOIUvHmSVZt+6k0eQqYUoK4KbmE4T9pVLIfxvZSOm2D68VEqKRHRw==}
 
-  '@brillout/json-serializer@0.5.13':
-    resolution: {integrity: sha512-9FpmgpuoSISw6fAPVB2qwW1dGAADN28YbWpfwOErfcZxpBH4lsnejuY89qcivInnWXYJvyyPwghCuOTbtuaYFg==}
+  '@brillout/json-serializer@0.5.15':
+    resolution: {integrity: sha512-iLAyV1HNC3nG07ypBwCJohFrajY1HeZdfBBgGuRtMH/JPddgG9bPmoSI18A1RBx67vRmY6/8rgisjR5YfTvZHA==}
 
   '@brillout/part-regex@0.1.4':
     resolution: {integrity: sha512-PQy5LfRmIueEfGwhvMedsnj6KulDfxlfvUaTsUchBqA7nTge4C7taG/V6np2uCHVxxE4+cSmwM4COn9aNcMn7g==}
@@ -371,8 +371,8 @@ packages:
   '@brillout/require-shim@0.1.2':
     resolution: {integrity: sha512-3I4LRHnVZXoSAsEoni5mosq9l6eiJED58d9V954W4CIZ88AUfYBanWGBGbJG3NztaRTpFHEA6wB3Hn93BmmJdg==}
 
-  '@brillout/test-e2e@0.5.36':
-    resolution: {integrity: sha512-9iPeBOSbhh7jNFNLUcnzKsdDOwsYW71rw2atB/FRU8j6u8bsvyVJkcSKz6jp54jFefXyUzvgah1xZsDqqSA8IA==}
+  '@brillout/test-e2e@0.5.37':
+    resolution: {integrity: sha512-ZnZ6M9fAk0NsWaAngow2LwlHLcxQFi9qs1Blq9i92ZE9qTOVRtPpxYb6IhSDiBqWUKEspZOkq3ozOxLmB6mhFQ==}
     hasBin: true
 
   '@brillout/test-types@0.1.15':
@@ -381,8 +381,8 @@ packages:
     peerDependencies:
       typescript: '>=4.0.0'
 
-  '@brillout/vite-plugin-server-entry@0.5.4':
-    resolution: {integrity: sha512-bgTKEs9xkWV+ouzUNOOLjGsMHpEm7lXVT8+jH4GdUVvaAQokTz/+tdWvwSo/R2zp715HxG/lrpxY6ZzAhX3bWw==}
+  '@brillout/vite-plugin-server-entry@0.5.6':
+    resolution: {integrity: sha512-lxgvTQhQBucZehhkvq9x2C7IUfrkAhp+YkW8S0MVR5EYkf6EWBg+bYZWB0//mDfbmUcc8aAEe3uRto7pOg35Ig==}
 
   '@cloudflare/kv-asset-handler@0.3.4':
     resolution: {integrity: sha512-YLPHc8yASwjNkmcDMQMY35yiWjoKAKnhUbPRszBRS0YgH+IXtsMp61j+yTcnCE3oO2DgP0U3iejLC8FTtKDC8Q==}
@@ -418,8 +418,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-shared@0.10.0':
-    resolution: {integrity: sha512-j3EwZBc9ctavmFVOQT1gqztRO/Plx4ZR0LMEEOif+5YoCcuD1P7/NEjlODPMc5a1w+8+7A/H+Ci8Ihd55+x0Zw==}
+  '@cloudflare/workers-shared@0.11.0':
+    resolution: {integrity: sha512-A+lQ8xp7992qSeMmuQ0ssL6CPmm+ZmAv6Ddikan0n1jjpMAic+97l7xtVIsswSn9iLMFPYQ9uNN/8Fl0AgARIQ==}
     engines: {node: '>=16.7.0'}
 
   '@cloudflare/workers-types@4.20241202.0':
@@ -1222,8 +1222,8 @@ packages:
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
 
-  '@universal-middleware/core@0.3.1':
-    resolution: {integrity: sha512-S0JJJtZiHJa6BTFCFwi/PXgRUlCpLFYeTs8oPYuuB5Ja3DXLSQH73WoC3BwlKI6/IJQaf/uo3c2eXc9Dl7Abtg==}
+  '@universal-middleware/core@0.3.3':
+    resolution: {integrity: sha512-wh4qRSeRHp3ZvyDJQjSY9z42DUObAHfhhVdegR0YaUxPJpUXyJtCwz58M0+2q802p0Ad+lRmjplzqIP8PdHmag==}
     peerDependencies:
       '@cloudflare/workers-types': ^4.20241202.0
       '@hattip/core': ^0.0.49
@@ -1248,11 +1248,11 @@ packages:
       hono:
         optional: true
 
-  '@universal-middleware/hattip@0.3.1':
-    resolution: {integrity: sha512-k2X8yz3Y230+XbepOTackcjm9vUF9EeFVnGXOGcCvnPbBZGKPk6RzNOzLYFxGjqHPKzs2gEmxhy/1pNLuQv4YA==}
+  '@universal-middleware/hattip@0.3.3':
+    resolution: {integrity: sha512-ra2HPZM63O1HB1JvUGTQOkZhSgpiZa7fj8YWX7Rl1rXrD6rBwoCZ7nvioHEnLCGbI1lvc62RakLf9Hd59X48sg==}
 
-  '@universal-middleware/hono@0.3.1':
-    resolution: {integrity: sha512-pab85GElZ9s0lcUZjg6uxquXAqrDquNtO7T2quSYZqQpmb31ZAKW2poqR9lBzrO592ybtTVcl1NjSUPXa2Lbbw==}
+  '@universal-middleware/hono@0.3.3':
+    resolution: {integrity: sha512-pmQXIymg0RWIrBL0n3QSfjVNWWTLG0tip/aM8SOJp3vt+MDsNpmIsvvpGnfnZjdfKWZp+6npEAqPUsZsFrnquA==}
 
   '@vavite/connect@5.1.0':
     resolution: {integrity: sha512-45FfwXeMUU4SOIZNAerRwoW1agE2l2cd614Pxk0DE+YZN5xhKym/z9oGB0ueuxtFM4IhuhITUgkHZG7MOm/hlg==}
@@ -1686,8 +1686,8 @@ packages:
   hattip@0.0.33:
     resolution: {integrity: sha512-FG0IHeOdoTceFF4ta0eZ+GKEXCvqvSzLgmX3RZi3ia/OtczKn74OwjYRfyL9fBtUiyc1Z27F9daiLowfzgZ/Gg==}
 
-  hono@4.6.13:
-    resolution: {integrity: sha512-haV0gaMdSjy9URCRN9hxBPlqHa7fMm/T72kAImIxvw4eQLbNz1rgjN4hHElLJSieDiNuiIAXC//cC6YGz2KCbg==}
+  hono@4.6.14:
+    resolution: {integrity: sha512-j4VkyUp2xazGJ8eCCLN1Vm/bxdvm/j5ZuU9AIjLu9vapn2M44p9L3Ktr9Vnb2RN2QtcR/wVjZVMlT5k7GJQgPw==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@7.0.2:
@@ -2007,8 +2007,13 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.49.0:
-    resolution: {integrity: sha512-eKpmys0UFDnfNb3vfsf8Vx2LEOtflgRebl0Im2eQQnYMA4Aqd+Zw8bEOB+7ZKvN76901mRnqdsiOGKxzVTbi7A==}
+  playwright-core@1.49.1:
+    resolution: {integrity: sha512-BzmpVcs4kE2CH15rWfzpjzVGhWERJfmnXmniSyKeRZUs9Ws65m+RGIi7mjJK/euCegfn3i7jvqWeWyHe9y3Vgg==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.49.1:
+    resolution: {integrity: sha512-VYL8zLoNTBxVOrJBbDuRgDWa3i+mfQgDTrL8Ah9QXZ7ax4Dsj0MSq5bYgytRnDVVe+njoKnfsYkH3HzqVj5UZA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2360,15 +2365,15 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vike-solid@0.7.6:
-    resolution: {integrity: sha512-ENy7BwCYLpYsasQQkd6TVzaphAdqH2ieexlKRaRIDvGztlqdp/XSgCzC90bpjJZO58pKYCF6P+Yl2RHwpVqxbA==}
+  vike-solid@0.7.7:
+    resolution: {integrity: sha512-RSC2H5uqdRkL7lqq/1k0qDt6i4JlmwUkD+4QFMcedhxK3MOp3FWumiR5wsHNg8KYlrcj5tMGj3WL5eLcniAwmw==}
     peerDependencies:
       solid-js: ^1.8.7
       vike: '>=0.4.195'
       vite: '>=5.0.0'
 
-  vike@0.4.206:
-    resolution: {integrity: sha512-D2kb2MO2vxznFakdhxqsAk5htSs3RRVVo7ykYGFXyl0NObrEFY63bxOla0Q2CImwfkPGoLat0pv6Y22gkzs0BA==}
+  vike@0.4.209:
+    resolution: {integrity: sha512-/BetrVqwfoAPnZ2um95843bdJGirwbt+MKL79saRz7Hy9OMiq0BXiAatsGsb9nPfOrTcm2zeb1dwC5d33iabeg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -2452,8 +2457,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.93.0:
-    resolution: {integrity: sha512-+wfxjOrtm6YgDS+NdJkB6aiBIS3ED97mNRQmfrEShRJW4pVo4sWY6oQ1FsGT+j4tGHplrTbWCE6U5yTgjNW/lw==}
+  wrangler@3.95.0:
+    resolution: {integrity: sha512-3w5852i3FNyDz421K2Qk4v5L8jjwegO5O8E1+VAQmjnm82HFNxpIRUBq0bmM7CTLvOPI/Jjcmj/eAWjQBL7QYg==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -2659,7 +2664,7 @@ snapshots:
 
   '@brillout/import@0.2.3': {}
 
-  '@brillout/json-serializer@0.5.13': {}
+  '@brillout/json-serializer@0.5.15': {}
 
   '@brillout/part-regex@0.1.4': {}
 
@@ -2675,7 +2680,7 @@ snapshots:
 
   '@brillout/require-shim@0.1.2': {}
 
-  '@brillout/test-e2e@0.5.36':
+  '@brillout/test-e2e@0.5.37':
     dependencies:
       '@brillout/part-regex': 0.1.4
       '@brillout/picocolors': 1.0.15
@@ -2698,9 +2703,10 @@ snapshots:
       source-map-support: 0.5.21
       typescript: 5.7.2
 
-  '@brillout/vite-plugin-server-entry@0.5.4':
+  '@brillout/vite-plugin-server-entry@0.5.6':
     dependencies:
       '@brillout/import': 0.2.3
+      '@brillout/picocolors': 1.0.15
 
   '@cloudflare/kv-asset-handler@0.3.4':
     dependencies:
@@ -2721,7 +2727,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20241205.0':
     optional: true
 
-  '@cloudflare/workers-shared@0.10.0':
+  '@cloudflare/workers-shared@0.11.0':
     dependencies:
       mime: 3.0.0
       zod: 3.23.8
@@ -3074,22 +3080,22 @@ snapshots:
       cac: 6.7.14
       mime-types: 2.1.35
 
-  '@hono/node-server@1.13.7(hono@4.6.13)':
+  '@hono/node-server@1.13.7(hono@4.6.14)':
     dependencies:
-      hono: 4.6.13
+      hono: 4.6.14
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.13)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.14)':
     dependencies:
-      hono: 4.6.13
+      hono: 4.6.14
 
-  '@hono/vite-dev-server@0.17.0(hono@4.6.13)(miniflare@3.20241205.0)(wrangler@3.93.0)':
+  '@hono/vite-dev-server@0.17.0(hono@4.6.14)(miniflare@3.20241205.0)(wrangler@3.95.0)':
     dependencies:
-      '@hono/node-server': 1.13.7(hono@4.6.13)
-      hono: 4.6.13
+      '@hono/node-server': 1.13.7(hono@4.6.14)
+      hono: 4.6.14
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20241205.0
-      wrangler: 3.93.0
+      wrangler: 3.95.0
 
   '@hutson/parse-repository-url@5.0.0': {}
 
@@ -3230,17 +3236,17 @@ snapshots:
 
   '@types/normalize-package-data@2.4.4': {}
 
-  '@universal-middleware/core@0.3.1(@hattip/core@0.0.49)(hono@4.6.13)':
+  '@universal-middleware/core@0.3.3(@hattip/core@0.0.49)(hono@4.6.14)':
     dependencies:
       regexparam: 3.0.0
       tough-cookie: 5.0.0
     optionalDependencies:
       '@hattip/core': 0.0.49
-      hono: 4.6.13
+      hono: 4.6.14
 
-  '@universal-middleware/hattip@0.3.1(@hattip/core@0.0.49)(hono@4.6.13)':
+  '@universal-middleware/hattip@0.3.3(@hattip/core@0.0.49)(hono@4.6.14)':
     dependencies:
-      '@universal-middleware/core': 0.3.1(@hattip/core@0.0.49)(hono@4.6.13)
+      '@universal-middleware/core': 0.3.3(@hattip/core@0.0.49)(hono@4.6.14)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@hattip/core'
@@ -3250,9 +3256,9 @@ snapshots:
       - h3
       - hono
 
-  '@universal-middleware/hono@0.3.1(@hattip/core@0.0.49)(hono@4.6.13)':
+  '@universal-middleware/hono@0.3.3(@hattip/core@0.0.49)(hono@4.6.14)':
     dependencies:
-      '@universal-middleware/core': 0.3.1(@hattip/core@0.0.49)(hono@4.6.13)
+      '@universal-middleware/core': 0.3.3(@hattip/core@0.0.49)(hono@4.6.14)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@hattip/core'
@@ -3774,7 +3780,7 @@ snapshots:
 
   hattip@0.0.33: {}
 
-  hono@4.6.13: {}
+  hono@4.6.14: {}
 
   hosted-git-info@7.0.2:
     dependencies:
@@ -4025,9 +4031,11 @@ snapshots:
 
   playwright-core@1.49.0: {}
 
-  playwright@1.49.0:
+  playwright-core@1.49.1: {}
+
+  playwright@1.49.1:
     dependencies:
-      playwright-core: 1.49.0
+      playwright-core: 1.49.1
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -4367,24 +4375,24 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vike-solid@0.7.6(solid-js@1.9.3)(vike@0.4.206(vite@5.4.11(@types/node@18.19.67)))(vite@5.4.11(@types/node@18.19.67)):
+  vike-solid@0.7.7(solid-js@1.9.3)(vike@0.4.209(vite@5.4.11(@types/node@18.19.67)))(vite@5.4.11(@types/node@18.19.67)):
     dependencies:
       isbot-fast: 1.2.0
       solid-js: 1.9.3
-      vike: 0.4.206(vite@5.4.11(@types/node@18.19.67))
+      vike: 0.4.209(vite@5.4.11(@types/node@18.19.67))
       vite: 5.4.11(@types/node@18.19.67)
       vite-plugin-solid: 2.11.0(solid-js@1.9.3)(vite@5.4.11(@types/node@18.19.67))
     transitivePeerDependencies:
       - '@testing-library/jest-dom'
       - supports-color
 
-  vike@0.4.206(vite@5.4.11(@types/node@18.19.67)):
+  vike@0.4.209(vite@5.4.11(@types/node@18.19.67)):
     dependencies:
       '@brillout/import': 0.2.3
-      '@brillout/json-serializer': 0.5.13
+      '@brillout/json-serializer': 0.5.15
       '@brillout/picocolors': 1.0.15
       '@brillout/require-shim': 0.1.2
-      '@brillout/vite-plugin-server-entry': 0.5.4
+      '@brillout/vite-plugin-server-entry': 0.5.6
       acorn: 8.14.0
       cac: 6.7.14
       es-module-lexer: 1.5.4
@@ -4449,10 +4457,10 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20241205.0
       '@cloudflare/workerd-windows-64': 1.20241205.0
 
-  wrangler@3.93.0:
+  wrangler@3.95.0:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
-      '@cloudflare/workers-shared': 0.10.0
+      '@cloudflare/workers-shared': 0.11.0
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)
       '@esbuild-plugins/node-modules-polyfill': 0.2.2(esbuild@0.17.19)
       blake3-wasm: 2.1.5
