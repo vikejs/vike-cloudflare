@@ -1,5 +1,6 @@
 import { testRun } from "./.testRun";
 
-testRun("pnpm run dev", {
-  serverIsReadyMessage: "Development server is running",
+testRun("pnpm run dev --port 3000", {
+  serverIsReadyMessage: "Local:",
+  additionalTimeout: 1000,
 });
