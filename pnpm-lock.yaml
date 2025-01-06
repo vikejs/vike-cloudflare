@@ -34,7 +34,7 @@ importers:
         version: 0.0.49
       '@universal-middleware/hattip':
         specifier: ^0.3.3
-        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.15)
+        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.16)
       cross-fetch:
         specifier: ^4.1.0
         version: 4.1.0
@@ -48,14 +48,14 @@ importers:
         specifier: ^1.9.3
         version: 1.9.3
       vike:
-        specifier: ^0.4.211
-        version: 0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+        specifier: ^0.4.212
+        version: 0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       vike-solid:
         specifier: ^0.7.8
-        version: 0.7.8(solid-js@1.9.3)(vike@0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2)))(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+        version: 0.7.8(solid-js@1.9.3)(vike@0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2)))(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       vite:
-        specifier: ^6.0.6
-        version: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+        specifier: ^6.0.7
+        version: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
     devDependencies:
       '@auth/core':
         specifier: ^0.37.4
@@ -68,10 +68,10 @@ importers:
         version: 0.0.49
       '@hattip/vite':
         specifier: ^0.0.49
-        version: 0.0.49(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+        version: 0.0.49(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       '@universal-middleware/core':
         specifier: ^0.3.3
-        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.15)
+        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.16)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -89,13 +89,13 @@ importers:
     dependencies:
       '@universal-middleware/hono':
         specifier: ^0.3.3
-        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.15)
+        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.16)
       cross-fetch:
         specifier: ^4.1.0
         version: 4.1.0
       hono:
-        specifier: ^4.6.15
-        version: 4.6.15
+        specifier: ^4.6.16
+        version: 4.6.16
       solid-js:
         specifier: ^1.9.3
         version: 1.9.3
@@ -103,30 +103,30 @@ importers:
         specifier: ^4.19.2
         version: 4.19.2
       vike:
-        specifier: ^0.4.211
-        version: 0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+        specifier: ^0.4.212
+        version: 0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       vike-solid:
         specifier: ^0.7.8
-        version: 0.7.8(solid-js@1.9.3)(vike@0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2)))(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+        version: 0.7.8(solid-js@1.9.3)(vike@0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2)))(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       vite:
-        specifier: ^6.0.6
-        version: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+        specifier: ^6.0.7
+        version: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
     devDependencies:
       '@auth/core':
         specifier: ^0.37.4
         version: 0.37.4
       '@hono/vite-cloudflare-pages':
         specifier: ^0.4.2
-        version: 0.4.2(hono@4.6.15)
+        version: 0.4.2(hono@4.6.16)
       '@hono/vite-dev-server':
-        specifier: ^0.17.0
-        version: 0.17.0(hono@4.6.15)(miniflare@3.20241218.0)(wrangler@3.99.0)
+        specifier: ^0.18.0
+        version: 0.18.0(hono@4.6.16)(miniflare@3.20241218.0)(wrangler@3.99.0)
       '@types/node':
         specifier: ^18.19.68
         version: 18.19.68
       '@universal-middleware/core':
         specifier: ^0.3.3
-        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.15)
+        version: 0.3.3(@hattip/core@0.0.49)(hono@4.6.16)
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -149,14 +149,14 @@ importers:
         specifier: ^4.19.2
         version: 4.19.2
       vike:
-        specifier: ^0.4.211
-        version: 0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+        specifier: ^0.4.212
+        version: 0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       vike-solid:
         specifier: ^0.7.8
-        version: 0.7.8(solid-js@1.9.3)(vike@0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2)))(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+        version: 0.7.8(solid-js@1.9.3)(vike@0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2)))(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       vite:
-        specifier: ^6.0.6
-        version: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+        specifier: ^6.0.7
+        version: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
     devDependencies:
       '@auth/core':
         specifier: ^0.37.4
@@ -187,8 +187,8 @@ importers:
         specifier: ^0.1.8
         version: 0.1.8(esbuild@0.24.0)
       hono:
-        specifier: ^4.6.15
-        version: 4.6.15
+        specifier: ^4.6.16
+        version: 4.6.16
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(postcss@8.4.49)(tsx@4.19.2)(typescript@5.7.2)
@@ -196,11 +196,11 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
       vike:
-        specifier: ^0.4.211
-        version: 0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+        specifier: ^0.4.212
+        version: 0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       vite:
-        specifier: ^6.0.6
-        version: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+        specifier: ^6.0.7
+        version: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
 
 packages:
 
@@ -1052,8 +1052,8 @@ packages:
     peerDependencies:
       hono: '*'
 
-  '@hono/vite-dev-server@0.17.0':
-    resolution: {integrity: sha512-EvGOIj1MoY9uV94onXXz88yWaTxzUK+Mv8LiIEsR/9eSFoVUnHVR0B7l7iNIsxfHYRN7tbPDMWBSnD2RQun3yw==}
+  '@hono/vite-dev-server@0.18.0':
+    resolution: {integrity: sha512-CVHgDYk3haRnWUI/I2tNydgIIXI2lSczseko5Qvu/n1K6I9GyXzRW4rJFUlLClz3LDLOCgRCW+kDW4YT3BVSLA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -1694,8 +1694,8 @@ packages:
   hattip@0.0.33:
     resolution: {integrity: sha512-FG0IHeOdoTceFF4ta0eZ+GKEXCvqvSzLgmX3RZi3ia/OtczKn74OwjYRfyL9fBtUiyc1Z27F9daiLowfzgZ/Gg==}
 
-  hono@4.6.15:
-    resolution: {integrity: sha512-OiQwvAOAaI2JrABBH69z5rsctHDzFzIKJge0nYXgtzGJ0KftwLWcBXm1upJC23/omNRtnqM0gjRMbtXshPdqhQ==}
+  hono@4.6.16:
+    resolution: {integrity: sha512-iE6xOPwDYlfnZFwk6BfIMMIH4WZm3pPhz6rc1uJM/OPew0pjG5K6p8WTLaMBY1/szF/T0TaEjprMpwn16BA0NQ==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@7.0.2:
@@ -2380,8 +2380,8 @@ packages:
       vike: '>=0.4.195'
       vite: '>=5.0.0'
 
-  vike@0.4.211:
-    resolution: {integrity: sha512-W7HbzTqwuIhLm/HmOl5rjCX4ZuOhxTgI/h0bqBkVOeCwrO8Ixo545oQJeXQ+3MojpDThLQFMeBvwdN9T03wVrw==}
+  vike@0.4.212:
+    resolution: {integrity: sha512-xTCKSagYQNdjECPSGGrHKI/eiHgf1Ch0PEODP3BrLE+O9aGr3nCNZOEG2A+7l6dZjEeUSRaU0L5m4DMGvZSchA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -2401,8 +2401,8 @@ packages:
       '@testing-library/jest-dom':
         optional: true
 
-  vite@6.0.6:
-    resolution: {integrity: sha512-NSjmUuckPmDU18bHz7QZ+bTYhRR0iA72cs2QAxCqDpafJ0S6qetco0LB3WW2OxlMHS0JmAv+yZ/R3uPmMyGTjQ==}
+  vite@6.0.7:
+    resolution: {integrity: sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -3080,17 +3080,17 @@ snapshots:
       '@hattip/compose': 0.0.49
       '@hattip/core': 0.0.49
 
-  '@hattip/vite@0.0.49(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))':
+  '@hattip/vite@0.0.49(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))':
     dependencies:
       '@hattip/adapter-node': 0.0.49
-      '@vavite/connect': 5.1.0(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
-      '@vavite/multibuild': 5.1.0(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
-      '@vavite/node-loader': 5.1.0(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+      '@vavite/connect': 5.1.0(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
+      '@vavite/multibuild': 5.1.0(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
+      '@vavite/node-loader': 5.1.0(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
       cac: 6.7.14
       import-meta-resolve: 4.1.0
       picocolors: 1.1.1
       resolve.exports: 2.0.3
-      vite: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+      vite: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
 
   '@hattip/walk@0.0.49':
     dependencies:
@@ -3098,18 +3098,18 @@ snapshots:
       cac: 6.7.14
       mime-types: 2.1.35
 
-  '@hono/node-server@1.13.7(hono@4.6.15)':
+  '@hono/node-server@1.13.7(hono@4.6.16)':
     dependencies:
-      hono: 4.6.15
+      hono: 4.6.16
 
-  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.15)':
+  '@hono/vite-cloudflare-pages@0.4.2(hono@4.6.16)':
     dependencies:
-      hono: 4.6.15
+      hono: 4.6.16
 
-  '@hono/vite-dev-server@0.17.0(hono@4.6.15)(miniflare@3.20241218.0)(wrangler@3.99.0)':
+  '@hono/vite-dev-server@0.18.0(hono@4.6.16)(miniflare@3.20241218.0)(wrangler@3.99.0)':
     dependencies:
-      '@hono/node-server': 1.13.7(hono@4.6.15)
-      hono: 4.6.15
+      '@hono/node-server': 1.13.7(hono@4.6.16)
+      hono: 4.6.16
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 3.20241218.0
@@ -3254,17 +3254,17 @@ snapshots:
 
   '@types/normalize-package-data@2.4.4': {}
 
-  '@universal-middleware/core@0.3.3(@hattip/core@0.0.49)(hono@4.6.15)':
+  '@universal-middleware/core@0.3.3(@hattip/core@0.0.49)(hono@4.6.16)':
     dependencies:
       regexparam: 3.0.0
       tough-cookie: 5.0.0
     optionalDependencies:
       '@hattip/core': 0.0.49
-      hono: 4.6.15
+      hono: 4.6.16
 
-  '@universal-middleware/hattip@0.3.3(@hattip/core@0.0.49)(hono@4.6.15)':
+  '@universal-middleware/hattip@0.3.3(@hattip/core@0.0.49)(hono@4.6.16)':
     dependencies:
-      '@universal-middleware/core': 0.3.3(@hattip/core@0.0.49)(hono@4.6.15)
+      '@universal-middleware/core': 0.3.3(@hattip/core@0.0.49)(hono@4.6.16)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@hattip/core'
@@ -3274,9 +3274,9 @@ snapshots:
       - h3
       - hono
 
-  '@universal-middleware/hono@0.3.3(@hattip/core@0.0.49)(hono@4.6.15)':
+  '@universal-middleware/hono@0.3.3(@hattip/core@0.0.49)(hono@4.6.16)':
     dependencies:
-      '@universal-middleware/core': 0.3.3(@hattip/core@0.0.49)(hono@4.6.15)
+      '@universal-middleware/core': 0.3.3(@hattip/core@0.0.49)(hono@4.6.16)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@hattip/core'
@@ -3286,21 +3286,21 @@ snapshots:
       - h3
       - hono
 
-  '@vavite/connect@5.1.0(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))':
+  '@vavite/connect@5.1.0(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))':
     dependencies:
       '@types/node': 18.19.68
-      vite: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+      vite: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
 
-  '@vavite/multibuild@5.1.0(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))':
+  '@vavite/multibuild@5.1.0(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))':
     dependencies:
       '@types/node': 18.19.68
       cac: 6.7.14
       picocolors: 1.1.1
-      vite: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+      vite: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
 
-  '@vavite/node-loader@5.1.0(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))':
+  '@vavite/node-loader@5.1.0(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))':
     dependencies:
-      vite: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+      vite: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
 
   '@whatwg-node/fetch@0.9.23':
     dependencies:
@@ -3800,7 +3800,7 @@ snapshots:
 
   hattip@0.0.33: {}
 
-  hono@4.6.15: {}
+  hono@4.6.16: {}
 
   hosted-git-info@7.0.2:
     dependencies:
@@ -4395,18 +4395,18 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vike-solid@0.7.8(solid-js@1.9.3)(vike@0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2)))(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2)):
+  vike-solid@0.7.8(solid-js@1.9.3)(vike@0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2)))(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2)):
     dependencies:
       isbot-fast: 1.2.0
       solid-js: 1.9.3
-      vike: 0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
-      vite: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
-      vite-plugin-solid: 2.11.0(solid-js@1.9.3)(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+      vike: 0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
+      vite: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
+      vite-plugin-solid: 2.11.0(solid-js@1.9.3)(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
     transitivePeerDependencies:
       - '@testing-library/jest-dom'
       - supports-color
 
-  vike@0.4.211(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2)):
+  vike@0.4.212(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2)):
     dependencies:
       '@brillout/import': 0.2.3
       '@brillout/json-serializer': 0.5.15
@@ -4416,13 +4416,13 @@ snapshots:
       acorn: 8.14.0
       cac: 6.7.14
       es-module-lexer: 1.5.4
-      esbuild: 0.24.0
+      esbuild: 0.24.2
       fast-glob: 3.3.2
       semver: 7.6.3
       source-map-support: 0.5.21
-      vite: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+      vite: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
 
-  vite-plugin-solid@2.11.0(solid-js@1.9.3)(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2)):
+  vite-plugin-solid@2.11.0(solid-js@1.9.3)(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2)):
     dependencies:
       '@babel/core': 7.26.0
       '@types/babel__core': 7.20.5
@@ -4430,12 +4430,12 @@ snapshots:
       merge-anything: 5.1.7
       solid-js: 1.9.3
       solid-refresh: 0.6.3(solid-js@1.9.3)
-      vite: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
-      vitefu: 1.0.4(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2))
+      vite: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
+      vitefu: 1.0.4(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2))
     transitivePeerDependencies:
       - supports-color
 
-  vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2):
+  vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.4.49
@@ -4445,9 +4445,9 @@ snapshots:
       fsevents: 2.3.3
       tsx: 4.19.2
 
-  vitefu@1.0.4(vite@6.0.6(@types/node@18.19.68)(tsx@4.19.2)):
+  vitefu@1.0.4(vite@6.0.7(@types/node@18.19.68)(tsx@4.19.2)):
     optionalDependencies:
-      vite: 6.0.6(@types/node@18.19.68)(tsx@4.19.2)
+      vite: 6.0.7(@types/node@18.19.68)(tsx@4.19.2)
 
   webidl-conversions@3.0.1: {}
 

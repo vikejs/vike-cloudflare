@@ -16,7 +16,7 @@
   "devDependencies": {
     "@auth/core": "^0.37.4",
     "@hono/vite-cloudflare-pages": "^0.4.2",
-    "@hono/vite-dev-server": "^0.17.0",
+    "@hono/vite-dev-server": "^0.18.0",
     "@types/node": "^18.19.68",
     "@universal-middleware/core": "^0.3.3",
     "typescript": "^5.7.2",
@@ -26,11 +26,11 @@
   "dependencies": {
     "@universal-middleware/hono": "^0.3.3",
     "cross-fetch": "^4.1.0",
-    "hono": "^4.6.15",
+    "hono": "^4.6.16",
     "solid-js": "^1.9.3",
     "tsx": "^4.19.2",
-    "vike": "^0.4.211",
+    "vike": "^0.4.212",
     "vike-solid": "^0.7.8",
-    "vite": "^6.0.6"
+    "vite": "^6.0.7"
   }
 }
