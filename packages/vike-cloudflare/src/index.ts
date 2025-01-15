@@ -1,8 +1,8 @@
 import { cp, mkdir, readdir, rm, symlink, writeFile } from "node:fs/promises";
 import { builtinModules } from "node:module";
 import { dirname, isAbsolute, join, posix, relative } from "node:path";
-import { prerender } from "vike/prerender";
-import { type Plugin, type ResolvedConfig, normalizePath } from "vite";
+import { prerender } from "vike/api";
+import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";

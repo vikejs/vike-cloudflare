@@ -5,26 +5,26 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite build && wrangler pages dev",
-    "deploy": "vite build && wrangler pages deploy",
+    "dev": "vike dev",
+    "build": "vike build",
+    "preview": "vike build && wrangler pages dev",
+    "deploy": "vike build && wrangler pages deploy",
     "test": "tsc --noEmit"
   },
   "keywords": [],
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "devDependencies": {
     "@auth/core": "^0.37.4",
-    "@types/node": "^18.19.68",
-    "typescript": "^5.7.2",
+    "@types/node": "^18.19.70",
+    "typescript": "^5.7.3",
     "vike-cloudflare": "^0.1.6",
-    "wrangler": "^3.99.0"
+    "wrangler": "^3.102.0"
   },
   "dependencies": {
     "cross-fetch": "^4.1.0",
-    "solid-js": "^1.9.3",
+    "solid-js": "^1.9.4",
     "tsx": "^4.19.2",
-    "vike": "^0.4.212",
+    "vike": "^0.4.215",
     "vike-solid": "^0.7.8",
     "vite": "^6.0.7"
   }

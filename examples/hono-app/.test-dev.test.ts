@@ -1,5 +1,6 @@
 import { testRun } from "./.testRun";
 
-testRun("pnpm run dev --port 3000", {
+process.env.VITE_CONFIG = "{server:{port:3000}}";
+testRun("pnpm run dev", {
   serverIsReadyMessage: "Local:",
 });
