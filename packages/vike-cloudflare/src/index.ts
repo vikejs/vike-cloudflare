@@ -6,6 +6,20 @@ import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
+import type { Config } from "vike/types";
+
+declare module "vite" {
+  interface UserConfig {
+    // TODO:
+    // - Re-use declaration merging done by Vike
+    // - Extend ResolvedConfig ?
+    vike?: {
+      global: {
+        config: Config;
+      };
+    };
+  }
+}
 
 const NAME = "vike-cloudflare";
 const WORKER_JS_NAME = "_worker.js";
@@ -36,11 +50,12 @@ function getAsset(kind: SupportedServers | undefined) {
   }
 }
 
-export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
+export const pages = (): any => {
   const virtualEntryId = "virtual:vike-cloudflare-entry";
   const virtualServerId = "virtual:vike-cloudflare-server";
   const resolvedVirtualServerId = `\0${virtualServerId}`;
   let resolvedConfig: ResolvedConfig;
+  let options: VikeCloudflarePagesOptions;
 
   return [
     {
@@ -99,6 +114,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       },
       configResolved: async (config) => {
         resolvedConfig = config;
+        options = { server: config.vike!.global.config.server };
       },
       options(inputOptions) {
         assert(
@@ -108,7 +124,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
 
         inputOptions.input[WORKER_NAME] = virtualServerId;
 
-        if (options?.server?.entry) {
+        if (resolvedConfig.vike!.global.config.server?.entry) {
           inputOptions.input["cloudflare-server-entry"] = virtualEntryId;
         }
       },
@@ -191,7 +207,7 @@ export default handler;
         },
       },
     },
-  ];
+  ] satisfies Plugin[];
 };
 
 async function symlinkOrCopy(target: string, path: string) {

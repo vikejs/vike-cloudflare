@@ -1,6 +1,5 @@
 import devServer from "@hono/vite-dev-server";
 import adapter from "@hono/vite-dev-server/cloudflare";
-import { pages } from "vike-cloudflare";
 import vikeSolid from "vike-solid/vite";
 import vike from "vike/plugin";
 import { defineConfig } from "vite";
@@ -28,11 +27,5 @@ export default defineConfig({
     }),
     vike({}),
     vikeSolid(),
-    pages({
-      server: {
-        kind: "hono",
-        entry: "hono-entry.ts",
-      },
-    }),
   ],
 });

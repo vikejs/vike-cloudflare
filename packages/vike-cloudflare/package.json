@@ -44,6 +44,7 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./config": "./dist/config.js",
     "./types": {
       "types": "./vike.d.ts"
     }
