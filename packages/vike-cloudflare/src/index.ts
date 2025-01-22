@@ -2,7 +2,6 @@ import { cp, mkdir, readdir, rm, symlink, writeFile } from "node:fs/promises";
 import { builtinModules } from "node:module";
 import { dirname, isAbsolute, join, posix, relative } from "node:path";
 import { prerender } from "vike/api";
-import { getGlobalContextAsync } from "vike/server";
 import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
@@ -35,12 +34,6 @@ function getAsset(kind: SupportedServers | undefined) {
     default:
       return vikeAsset;
   }
-}
-
-async function shouldPrerender() {
-  const globalContext = await getGlobalContextAsync(true);
-  console.log("globalContext", globalContext);
-  return true;
 }
 
 export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
@@ -148,7 +141,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
           // 3. Symlink `dist/server` to `dist/cloudflare/server`
           await symlinkOrCopy(outServer, join(outCloudflare, "server"));
 
-          if (await shouldPrerender()) {
+          if (true as boolean) {
             // 4. Prerender
             const filePaths = await prerenderPages();
             const relPaths = filePaths.map((path) => relative(outClient, path));
