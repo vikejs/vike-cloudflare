@@ -20,7 +20,7 @@
   "author": "",
   "pnpm": {
     "overrides": {
-      "vike": "link:../../code/vike/vike/",
+      "vike": "0.4.218-commit-01a099d",
       "vike-cloudflare": "link:./packages/vike-cloudflare/"
     }
   },
