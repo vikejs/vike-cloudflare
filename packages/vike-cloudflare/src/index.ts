@@ -6,6 +6,20 @@ import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
+import type { Config } from "vike/types";
+
+declare module "vite" {
+  interface UserConfig {
+    // TODO/now:
+    // - Re-use declaration merging done by Vike
+    // - Extend ResolvedConfig ?
+    vike?: {
+      global: {
+        config: Config;
+      };
+    };
+  }
+}
 
 const NAME = "vike-cloudflare";
 const WORKER_JS_NAME = "_worker.js";
@@ -36,25 +50,17 @@ function getAsset(kind: SupportedServers | undefined) {
   }
 }
 
-export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
+export const pages = (): any => {
   const virtualEntryId = "virtual:vike-cloudflare-entry";
   const virtualServerId = "virtual:vike-cloudflare-server";
   const resolvedVirtualServerId = `\0${virtualServerId}`;
   let resolvedConfig: ResolvedConfig;
   let shouldPrerender = false;
+  let options: VikeCloudflarePagesOptions;
 
   return [
     {
       name: `${NAME}:disableAutoFullBuild`,
-      // @ts-ignore
-      config() {
-        return {
-          // TODO/next-major-release: remove this and require >=vike@0.4.219
-          vitePluginSsr: {
-            disableAutoFullBuild: "prerender",
-          },
-        };
-      },
     },
     {
       name: NAME,
@@ -101,9 +107,8 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       },
       configResolved: async (config) => {
         resolvedConfig = config;
-        // TODO/next-major-release: remove this and require >=vike@0.4.219
-        // biome-ignore lint/suspicious/noExplicitAny:
-        shouldPrerender = !!(await (config as any).configVikePromise).prerender;
+        options = { server: config.vike!.global.config.server };
+        shouldPrerender = !!config.vike!.global.config.prerender;
       },
       options(inputOptions) {
         assert(
@@ -196,7 +201,7 @@ export default handler;
         },
       },
     },
-  ];
+  ] satisfies Plugin[];
 };
 
 async function symlinkOrCopy(target: string, path: string) {

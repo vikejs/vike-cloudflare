@@ -5,7 +5,7 @@ export default defineConfig({
   target: "node18",
   format: "esm",
   dts: true,
-  entry: ["src/index.ts"],
+  entry: ["src/index.ts", "src/config.ts"],
   clean: true,
   esbuildPlugins: [RawPlugin()],
 });
