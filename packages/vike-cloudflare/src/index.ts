@@ -124,7 +124,7 @@ export const pages = (): any => {
 
         inputOptions.input[WORKER_NAME] = virtualServerId;
 
-        if (resolvedConfig.vike!.global.config.server?.entry) {
+        if (options.server?.entry) {
           inputOptions.input["cloudflare-server-entry"] = virtualEntryId;
         }
       },
