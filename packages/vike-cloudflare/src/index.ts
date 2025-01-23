@@ -55,6 +55,7 @@ export const pages = (): any => {
   const virtualServerId = "virtual:vike-cloudflare-server";
   const resolvedVirtualServerId = `\0${virtualServerId}`;
   let resolvedConfig: ResolvedConfig;
+  let shouldPrerender = false;
   let options: VikeCloudflarePagesOptions;
 
   return [
@@ -115,6 +116,7 @@ export const pages = (): any => {
       configResolved: async (config) => {
         resolvedConfig = config;
         options = { server: config.vike!.global.config.server };
+        shouldPrerender = !!config.vike!.global.config.prerender;
       },
       options(inputOptions) {
         assert(
@@ -157,7 +159,7 @@ export const pages = (): any => {
           // 3. Symlink `dist/server` to `dist/cloudflare/server`
           await symlinkOrCopy(outServer, join(outCloudflare, "server"));
 
-          if (true as boolean) {
+          if (shouldPrerender) {
             // 4. Prerender
             const filePaths = await prerenderPages();
             const relPaths = filePaths.map((path) => relative(outClient, path));
