@@ -1,3 +1,13 @@
+## [0.1.7](https://github.com/vikejs/vike-cloudflare/compare/v0.1.6...v0.1.7) (2025-01-24)
+
+
+### Bug Fixes
+
+* correctly disable pre-rendering auto run ([e4331de](https://github.com/vikejs/vike-cloudflare/commit/e4331de9f0c4dad2be6aa1d520b59682d9df599d))
+* **deps:** update all non-major dependencies ([#31](https://github.com/vikejs/vike-cloudflare/issues/31)) ([f659036](https://github.com/vikejs/vike-cloudflare/commit/f65903656c9012d127b5a5463a44a68ccdcca138))
+
+
+
 ## [0.1.6](https://github.com/vikejs/vike-cloudflare/compare/v0.1.5...v0.1.6) (2024-12-09)
 
 
