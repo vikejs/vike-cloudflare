@@ -49,6 +49,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       // @ts-ignore
       config() {
         return {
+          // TODO/next-major-release: remove this and require >=vike@0.4.219
           vike: {
             disableAutoFullBuild: "prerender",
           },
@@ -100,7 +101,8 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       },
       configResolved: async (config) => {
         resolvedConfig = config;
-        // biome-ignore lint/suspicious/noExplicitAny: TODO
+        // TODO/next-major-release: remove this and require >=vike@0.4.219
+        // biome-ignore lint/suspicious/noExplicitAny:
         shouldPrerender = !!(await (config as any).configVikePromise).prerender;
       },
       options(inputOptions) {
