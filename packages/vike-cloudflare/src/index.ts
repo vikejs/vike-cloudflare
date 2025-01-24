@@ -50,7 +50,7 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       config() {
         return {
           // TODO/next-major-release: remove this and require >=vike@0.4.219
-          vike: {
+          vitePluginSsr: {
             disableAutoFullBuild: "prerender",
           },
         };
