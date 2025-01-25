@@ -50,6 +50,7 @@ function getAsset(kind: SupportedServers | undefined) {
   }
 }
 
+// biome-ignore lint/suspicious/noExplicitAny:
 export const pages = (): any => {
   const virtualEntryId = "virtual:vike-cloudflare-entry";
   const virtualServerId = "virtual:vike-cloudflare-server";
@@ -107,8 +108,9 @@ export const pages = (): any => {
       },
       configResolved: async (config) => {
         resolvedConfig = config;
-        options = { server: config.vike!.global.config.server };
-        shouldPrerender = !!config.vike!.global.config.prerender;
+        assert(config.vike, "[Bug] Reach out to a maintainer");
+        options = { server: config.vike.global.config.server };
+        shouldPrerender = !!config.vike.global.config.prerender;
       },
       options(inputOptions) {
         assert(
