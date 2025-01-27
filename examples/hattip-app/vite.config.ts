@@ -7,5 +7,11 @@ export default defineConfig({
   build: {
     target: "es2022",
   },
-  plugins: [hattip(), vike(), vikeSolid()],
+  plugins: [
+    hattip({
+      hattipEntry: "./hattip-entry.ts",
+    }),
+    vike(),
+    vikeSolid(),
+  ],
 });
