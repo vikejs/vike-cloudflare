@@ -27,11 +27,11 @@
     "@universal-middleware/hono": "^0.4.0",
     "cross-env": "^7.0.3",
     "cross-fetch": "^4.1.0",
-    "hono": "^4.6.20",
+    "hono": "^4.7.0",
     "solid-js": "^1.9.4",
     "tsx": "^4.19.2",
     "vike": "^0.4.220",
     "vike-solid": "^0.7.8",
-    "vite": "^6.0.7"
+    "vite": "^6.1.0"
   }
 }
