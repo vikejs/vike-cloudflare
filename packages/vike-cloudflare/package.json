@@ -22,7 +22,7 @@
     "hono": "^4.6.16",
     "tsup": "^8.3.5",
     "typescript": "^5.7.3",
-    "vike": "^0.4.219",
+    "vike": "^0.4.224",
     "vite": "^6.0.7"
   },
   "peerDependencies": {
