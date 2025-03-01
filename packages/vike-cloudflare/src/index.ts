@@ -6,20 +6,7 @@ import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
-import type { Config } from "vike/types";
-
-declare module "vite" {
-  interface UserConfig {
-    // TODO/now:
-    // - Re-use declaration merging done by Vike
-    // - Extend ResolvedConfig ?
-    vike?: {
-      global: {
-        config: Config;
-      };
-    };
-  }
-}
+import { getVikeConfig } from "vike/plugin";
 
 const NAME = "vike-cloudflare";
 const WORKER_JS_NAME = "_worker.js";
@@ -60,9 +47,6 @@ export const pages = (): any => {
   let options: VikeCloudflarePagesOptions;
 
   return [
-    {
-      name: `${NAME}:disableAutoFullBuild`,
-    },
     {
       name: NAME,
       enforce: "post",
@@ -108,9 +92,10 @@ export const pages = (): any => {
       },
       configResolved: async (config) => {
         resolvedConfig = config;
-        assert(config.vike, "[Bug] Reach out to a maintainer");
-        options = { server: config.vike.global.config.server };
-        shouldPrerender = !!config.vike.global.config.prerender;
+        const vike = getVikeConfig(config);
+        assert2(vike);
+        options = { server: vike.config.server };
+        shouldPrerender = isPrerenderEnabled(vike);
       },
       options(inputOptions) {
         assert(
@@ -248,4 +233,24 @@ async function prerenderPages() {
     },
   });
   return filePaths;
+}
+
+type VikeConfig = ReturnType<typeof getVikeConfig>;
+type PrerenderSeting = VikeConfig["config"]["prerender"];
+function isPrerenderEnabled(vike: VikeConfig): boolean {
+  return (
+    isPrerenderValueEnabling(vike.config.prerender) ||
+    Object.values(vike.pages).some((page) => isPrerenderValueEnabling(page.config.prerender))
+  );
+}
+function isPrerenderValueEnabling(prerender: PrerenderSeting): boolean {
+  const val = prerender?.[0];
+  if (isObject(val)) return val.value === undefined || val.value === true;
+  return !!val;
+}
+function isObject(val: unknown): val is object {
+  return typeof val === "object" && val !== null;
+}
+function assert2(condition: unknown): asserts condition {
+  assert(condition, "[Bug] Reach out to a maintainer");
 }
