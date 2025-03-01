@@ -236,17 +236,17 @@ async function prerenderPages() {
 }
 
 type VikeConfig = ReturnType<typeof getVikeConfig>;
-type PrerenderSeting = VikeConfig["config"]["prerender"];
+type PrerenderSetting = VikeConfig["config"]["prerender"];
 function isPrerenderEnabled(vike: VikeConfig): boolean {
   return (
     isPrerenderValueEnabling(vike.config.prerender) ||
     Object.values(vike.pages).some((page) => isPrerenderValueEnabling(page.config.prerender))
   );
 }
-function isPrerenderValueEnabling(prerender: PrerenderSeting): boolean {
+function isPrerenderValueEnabling(prerender: PrerenderSetting): boolean {
   const val = prerender?.[0];
   if (isObject(val)) return val.value === undefined || val.value === true;
-  return !!val;
+  return val === true;
 }
 function isObject(val: unknown): val is object {
   return typeof val === "object" && val !== null;
