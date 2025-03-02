@@ -22,11 +22,11 @@
     "hono": "^4.7.2",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3",
-    "vike": "^0.4.223",
+    "vike": "^0.4.224",
     "vite": "^6.1.1"
   },
   "peerDependencies": {
-    "vike": "^0.4.174",
+    "vike": ">=0.4.224",
     "vite": ">=5.3.0"
   },
   "optionalDependencies": {
@@ -44,6 +44,7 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./config": "./dist/config.js",
     "./types": {
       "types": "./vike.d.ts"
     }
