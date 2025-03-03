@@ -6,6 +6,7 @@ import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
 import hattipAsset from "../assets/hattip.js?raw";
 import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
+import { getVikeConfig } from "vike/plugin";
 
 const NAME = "vike-cloudflare";
 const WORKER_JS_NAME = "_worker.js";
@@ -36,26 +37,16 @@ function getAsset(kind: SupportedServers | undefined) {
   }
 }
 
-export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
+// biome-ignore lint/suspicious/noExplicitAny:
+export const pages = (): any => {
   const virtualEntryId = "virtual:vike-cloudflare-entry";
   const virtualServerId = "virtual:vike-cloudflare-server";
   const resolvedVirtualServerId = `\0${virtualServerId}`;
   let resolvedConfig: ResolvedConfig;
   let shouldPrerender = false;
+  let options: VikeCloudflarePagesOptions;
 
   return [
-    {
-      name: `${NAME}:disableAutoFullBuild`,
-      // @ts-ignore
-      config() {
-        return {
-          // TODO/next-major-release: remove this and require >=vike@0.4.219
-          vitePluginSsr: {
-            disableAutoFullBuild: "prerender",
-          },
-        };
-      },
-    },
     {
       name: NAME,
       enforce: "post",
@@ -101,9 +92,10 @@ export const pages = (options?: VikeCloudflarePagesOptions): Plugin[] => {
       },
       configResolved: async (config) => {
         resolvedConfig = config;
-        // TODO/next-major-release: remove this and require >=vike@0.4.219
-        // biome-ignore lint/suspicious/noExplicitAny:
-        shouldPrerender = !!(await (config as any).configVikePromise).prerender;
+        const vike = getVikeConfig(config);
+        assert2(vike);
+        options = { server: vike.config.server };
+        shouldPrerender = isPrerenderEnabled(vike);
       },
       options(inputOptions) {
         assert(
@@ -196,7 +188,7 @@ export default handler;
         },
       },
     },
-  ];
+  ] satisfies Plugin[];
 };
 
 async function symlinkOrCopy(target: string, path: string) {
@@ -241,4 +233,24 @@ async function prerenderPages() {
     },
   });
   return filePaths;
+}
+
+type VikeConfig = ReturnType<typeof getVikeConfig>;
+type PrerenderSetting = VikeConfig["config"]["prerender"];
+function isPrerenderEnabled(vike: VikeConfig): boolean {
+  return (
+    isPrerenderValueEnabling(vike.config.prerender) ||
+    Object.values(vike.pages).some((page) => isPrerenderValueEnabling(page.config.prerender))
+  );
+}
+function isPrerenderValueEnabling(prerender: PrerenderSetting): boolean {
+  const val = prerender?.[0];
+  if (isObject(val)) return val.value === undefined || val.value === true;
+  return val === true;
+}
+function isObject(val: unknown): val is object {
+  return typeof val === "object" && val !== null;
+}
+function assert2(condition: unknown): asserts condition {
+  assert(condition, "[Bug] Reach out to a maintainer");
 }
