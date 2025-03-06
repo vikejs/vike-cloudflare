@@ -8,140 +8,144 @@ import honoAsset from "../assets/hono.js?raw";
 import vikeAsset from "../assets/vike.js?raw";
 import { getVikeConfig } from "vike/plugin";
 
-const NAME = "vike-cloudflare";
-const WORKER_JS_NAME = "_worker.js";
-const WORKER_NAME = "cloudflare-worker";
-const ROUTES_JSON_NAME = "_routes.json";
-const isWin = process.platform === "win32";
-const isCI = Boolean(process.env.CI);
+const NAME = 'vike-cloudflare'
+const WORKER_JS_NAME = '_worker.js'
+const WORKER_NAME = 'cloudflare-worker'
+const ROUTES_JSON_NAME = '_routes.json'
+const isWin = process.platform === 'win32'
+const isCI = Boolean(process.env.CI)
 
-export type SupportedServers = "hono" | "hattip";
+export type SupportedServers = 'hono' | 'hattip'
 
 export interface VikeCloudflarePagesOptions {
   server?: {
-    kind: SupportedServers;
-    entry: string;
-  };
+    kind: SupportedServers
+    entry: string
+  }
 }
 
 function getAsset(kind: SupportedServers | undefined) {
   switch (kind) {
-    case "hono": {
-      return honoAsset;
+    case 'hono': {
+      return honoAsset
     }
-    case "hattip": {
-      return hattipAsset;
+    case 'hattip': {
+      return hattipAsset
     }
     default:
-      return vikeAsset;
+      return vikeAsset
   }
 }
 
 // biome-ignore lint/suspicious/noExplicitAny:
 export const pages = (): any[] => {
-  const virtualEntryId = "virtual:vike-cloudflare-entry";
-  const virtualEntryAuto = "virtual:vike-cloudflare-auto";
-  const virtualServerId = "virtual:vike-cloudflare-server";
-  const resolvedVirtualServerId = `\0${virtualServerId}`;
-  let resolvedConfig: ResolvedConfig;
-  let shouldPrerender = false;
-  let options: VikeCloudflarePagesOptions;
+  const virtualEntryId = 'virtual:vike-cloudflare-entry'
+  const virtualEntryAuto = 'virtual:vike-cloudflare-auto'
+  const virtualServerId = 'virtual:vike-cloudflare-server'
+  const resolvedVirtualServerId = `\0${virtualServerId}`
+  let resolvedConfig: ResolvedConfig
+  let shouldPrerender = false
+  let options: VikeCloudflarePagesOptions
 
   return [
     {
+      name: `${NAME}:config`,
+      enforce: 'pre',
+      configResolved: async (config) => {
+        resolvedConfig = config
+        const vike = getVikeConfig(config)
+        assert2(vike)
+        // FIXME src/index.ts(97,41): error TS2339: Property 'server' does not exist on type 'ConfigResolved'.
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        options = { server: (vike.config as any).server }
+        shouldPrerender = isPrerenderEnabled(vike)
+      }
+    },
+    {
       name: NAME,
-      enforce: "post",
+      enforce: 'post',
       apply(config) {
-        return Boolean(config.build?.ssr);
+        return Boolean(config.build?.ssr)
       },
       config(userConfig) {
         if (!userConfig.build?.target) {
-          userConfig.build ??= {};
-          userConfig.build.target = "es2022";
+          userConfig.build ??= {}
+          userConfig.build.target = 'es2022'
         }
 
         // Vite bundles/inlines workspace packages by default.
         // It needs to bundle the right exports.
         return {
           ssr: {
-            target: "webworker",
+            target: 'webworker'
           },
           define: {
-            __DEV__: JSON.stringify(true),
+            __DEV__: JSON.stringify(true)
           },
           build: {
             rollupOptions: {
-              external: [...builtinModules, /^node:/],
-            },
+              external: [...builtinModules, /^node:/]
+            }
           },
           resolve: {
             // https://github.com/cloudflare/workers-sdk/blob/515de6ab40ed6154a2e6579ff90b14b304809609/packages/wrangler/src/deployment-bundle/bundle.ts#L37
-            conditions: ["workerd", "worker", "browser", "module", "import", "require", "development|production"],
-          },
-        };
-      },
-      configResolved: async (config) => {
-        resolvedConfig = config;
-        const vike = getVikeConfig(config);
-        assert2(vike);
-        // FIXME src/index.ts(97,41): error TS2339: Property 'server' does not exist on type 'ConfigResolved'.
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-        options = { server: (vike.config as any).server };
-        shouldPrerender = isPrerenderEnabled(vike);
+            conditions: ['workerd', 'worker', 'browser', 'module', 'import', 'require', 'development|production']
+          }
+        }
       },
       options(inputOptions) {
         assert(
-          typeof inputOptions.input === "object" && !Array.isArray(inputOptions.input),
-          `[${NAME}] input should be an object. Aborting`,
-        );
+          typeof inputOptions.input === 'object' && !Array.isArray(inputOptions.input),
+          `[${NAME}] input should be an object. Aborting`
+        )
 
-        inputOptions.input[WORKER_NAME] = virtualServerId;
+        inputOptions.input[WORKER_NAME] = virtualServerId
 
         if (options?.server?.entry) {
-          inputOptions.input["cloudflare-server-entry"] = virtualEntryId;
+          inputOptions.input['cloudflare-server-entry'] = virtualEntryId
         }
       },
       writeBundle: {
-        order: "post",
+        order: 'post',
         sequential: true,
         async handler(opts, bundle) {
-          const outCloudflare = getOutDir(resolvedConfig, "cloudflare");
-          const outClient = getOutDir(resolvedConfig, "client");
-          const outServer = getOutDir(resolvedConfig, "server");
+          const outCloudflare = getOutDir(resolvedConfig, 'cloudflare')
+          const outClient = getOutDir(resolvedConfig, 'client')
+          const outServer = getOutDir(resolvedConfig, 'server')
 
           // 1. Ensure empty `dist/cloudflare` folder
-          await rm(outCloudflare, { recursive: true, force: true });
-          await mkdir(outCloudflare, { recursive: true });
+          await rm(outCloudflare, { recursive: true, force: true })
+          await mkdir(outCloudflare, { recursive: true })
 
-          let staticRoutes: string[] = [];
+          let staticRoutes: string[] = []
 
           // 2. Symlink `dist/client/*` to `dist/cloudflare/*`
           for (const file of await readdir(outClient, {
-            withFileTypes: true,
+            withFileTypes: true
           })) {
             if (file.isDirectory()) {
-              staticRoutes.push(`/${file.name}/*`);
+              staticRoutes.push(`/${file.name}/*`)
             } else {
-              staticRoutes.push(`/${file.name}`);
+              staticRoutes.push(`/${file.name}`)
             }
-            await symlinkOrCopy(join(outClient, file.name), join(outCloudflare, file.name));
+            await symlinkOrCopy(join(outClient, file.name), join(outCloudflare, file.name))
           }
 
           // 3. Symlink `dist/server` to `dist/cloudflare/server`
-          await symlinkOrCopy(outServer, join(outCloudflare, "server"));
+          await symlinkOrCopy(outServer, join(outCloudflare, 'server'))
 
           if (shouldPrerender) {
             // 4. Prerender
-            const filePaths = await prerenderPages();
-            const relPaths = filePaths.map((path) => relative(outClient, path));
+            const filePaths = await prerenderPages()
+            const relPaths = filePaths.map((path) => relative(outClient, path))
             for (const relPath of relPaths) {
-              await symlinkOrCopy(join(outClient, relPath), join(outCloudflare, relPath));
+              await symlinkOrCopy(join(outClient, relPath), join(outCloudflare, relPath))
             }
 
             staticRoutes = relPaths
               .map(normalizePath)
-              .map((m) => `/${m.endsWith(".html") ? m.slice(0, -5) : m}`)
-              .map((m) => (m.endsWith("/index") ? m.slice(0, -5) : m));
+              .map((m) => `/${m.endsWith('.html') ? m.slice(0, -5) : m}`)
+              .map((m) => (m.endsWith('/index') ? m.slice(0, -5) : m))
           }
 
           // 5. Create _routes.json
@@ -150,138 +154,126 @@ export const pages = (): any[] => {
             JSON.stringify(
               {
                 version: 1,
-                include: ["/*"],
-                exclude: staticRoutes,
+                include: ['/*'],
+                exclude: staticRoutes
               },
               undefined,
-              2,
+              2
             ),
-            "utf-8",
-          );
+            'utf-8'
+          )
 
           // 6. Create _worker.js
           const res = Object.entries(bundle).find(([_, value]) => {
-            return value.type === "chunk" && value.isEntry && value.name === WORKER_NAME;
-          });
+            return value.type === 'chunk' && value.isEntry && value.name === WORKER_NAME
+          })
 
           if (!res) {
-            throw new Error(`Cannot find ${WORKER_NAME} entry`);
+            throw new Error(`Cannot find ${WORKER_NAME} entry`)
           }
 
-          const [chunkPath] = res;
+          const [chunkPath] = res
 
           await writeFile(
             join(outCloudflare, WORKER_JS_NAME),
             `import handler from "./server/${chunkPath}";
 export default handler;
 `,
-            "utf-8",
-          );
-        },
-      },
+            'utf-8'
+          )
+        }
+      }
     },
     {
       name: `${NAME}:resolve`,
-      // FIXME: dedupe
-      configResolved: async (config) => {
-        resolvedConfig = config;
-        const vike = getVikeConfig(config);
-        assert2(vike);
-        // FIXME src/index.ts(97,41): error TS2339: Property 'server' does not exist on type 'ConfigResolved'.
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-        options = { server: (vike.config as any).server };
-        shouldPrerender = isPrerenderEnabled(vike);
-      },
       async resolveId(id) {
         if (id === virtualEntryAuto) {
           // In dev, resolve to virtualEntryId, during build, resolve to virtualServerId
-          id = resolvedConfig.command === "serve" ? virtualEntryId : virtualServerId;
+          id = resolvedConfig.command === 'serve' ? virtualEntryId : virtualServerId
         }
         if (id === virtualEntryId) {
-          assert(options?.server, `[${NAME}] server.entry is required when using a server`);
-          const resolved = await this.resolve(options.server.entry);
+          assert(options?.server, `[${NAME}] server.entry is required when using a server`)
+          const resolved = await this.resolve(options.server.entry)
 
-          console.log("RESOLVED", resolved);
+          assert(resolved, `[${NAME}] Cannot resolve ${options.server.entry}`)
 
-          assert(resolved, `[${NAME}] Cannot resolve ${options.server.entry}`);
-
-          return resolved;
+          return resolved
         }
         if (id === virtualServerId) {
-          console.log("RESOLVE", id);
-          return resolvedVirtualServerId;
+          console.log('RESOLVE', id)
+          return resolvedVirtualServerId
         }
       },
       load(id) {
         if (id === resolvedVirtualServerId) {
-          console.log("LOAD", id);
-          return getAsset(options?.server?.kind);
+          console.log('LOAD', id)
+          return getAsset(options?.server?.kind)
         }
-      },
-    },
-  ] satisfies Plugin[];
-};
+      }
+    }
+  ] satisfies Plugin[]
+}
 
 async function symlinkOrCopy(target: string, path: string) {
-  assert(isAbsolute(target), `[${NAME}] target should be an absolute path. Aborting`);
-  assert(isAbsolute(path), `[${NAME}] path should be an absolute path. Aborting`);
+  assert(isAbsolute(target), `[${NAME}] target should be an absolute path. Aborting`)
+  assert(isAbsolute(path), `[${NAME}] path should be an absolute path. Aborting`)
 
   if (isWin || isCI) {
     await cp(target, path, {
       dereference: true,
       force: true,
-      recursive: true,
-    });
+      recursive: true
+    })
   } else {
-    const parent = dirname(path);
-    await mkdir(parent, { recursive: true }).catch(() => {});
-    await symlink(posix.relative(parent, target), path);
+    const parent = dirname(path)
+    await mkdir(parent, { recursive: true }).catch(() => {})
+    await symlink(posix.relative(parent, target), path)
   }
 }
 
-function getOutDir(config: ResolvedConfig, force?: "client" | "server" | "cloudflare"): string {
-  const p = join(config.root, normalizePath(config.build.outDir));
-  if (!force) return p;
-  return join(dirname(p), force);
+function getOutDir(config: ResolvedConfig, force?: 'client' | 'server' | 'cloudflare'): string {
+  const p = join(config.root, normalizePath(config.build.outDir))
+  if (!force) return p
+  return join(dirname(p), force)
 }
 
 function assert(condition: unknown, message: string): asserts condition {
   if (condition) {
-    return;
+    return
   }
-  throw new Error(message);
+  throw new Error(message)
 }
 
 async function prerenderPages() {
-  const filePaths: string[] = [];
+  const filePaths: string[] = []
   await prerender({
     // biome-ignore lint/suspicious/noExplicitAny: TODO
     async onPagePrerender(page: any) {
-      const result = page._prerenderResult;
-      filePaths.push(result.filePath);
-      await mkdir(dirname(result.filePath), { recursive: true }).catch(() => {});
-      await writeFile(result.filePath, result.fileContent, "utf-8");
-    },
-  });
-  return filePaths;
+      const result = page._prerenderResult
+      filePaths.push(result.filePath)
+      await mkdir(dirname(result.filePath), { recursive: true }).catch(() => {})
+      await writeFile(result.filePath, result.fileContent, 'utf-8')
+    }
+  })
+  return filePaths
 }
 
-type VikeConfig = ReturnType<typeof getVikeConfig>;
-type PrerenderSetting = VikeConfig["config"]["prerender"];
+type VikeConfig = ReturnType<typeof getVikeConfig>
+type PrerenderSetting = VikeConfig['config']['prerender']
 function isPrerenderEnabled(vike: VikeConfig): boolean {
   return (
     isPrerenderValueEnabling(vike.config.prerender) ||
     Object.values(vike.pages).some((page) => isPrerenderValueEnabling(page.config.prerender))
-  );
+  )
 }
 function isPrerenderValueEnabling(prerender: PrerenderSetting): boolean {
-  const val = prerender?.[0];
-  if (isObject(val)) return val.value === undefined || val.value === true;
-  return val === true;
+  const val = prerender?.[0]
+  if (isObject(val)) return val.value === undefined || val.value === true
+  return val === true
 }
 function isObject(val: unknown): val is object {
-  return typeof val === "object" && val !== null;
+  return typeof val === 'object' && val !== null
 }
 function assert2(condition: unknown): asserts condition {
-  assert(condition, "[Bug] Reach out to a maintainer");
+  assert(condition, '[Bug] Reach out to a maintainer')
 }
