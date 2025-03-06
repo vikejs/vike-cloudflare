@@ -79,9 +79,6 @@ export const pages = (): any[] => {
           ssr: {
             target: 'webworker'
           },
-          define: {
-            __DEV__: JSON.stringify(true)
-          },
           build: {
             rollupOptions: {
               external: [...builtinModules, /^node:/]
