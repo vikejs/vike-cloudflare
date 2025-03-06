@@ -200,13 +200,11 @@ export default handler;
           return resolved
         }
         if (id === virtualServerId) {
-          console.log('RESOLVE', id)
           return resolvedVirtualServerId
         }
       },
       load(id) {
         if (id === resolvedVirtualServerId) {
-          console.log('LOAD', id)
           return getAsset(options?.server?.kind)
         }
       }
