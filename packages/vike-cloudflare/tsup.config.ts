@@ -5,7 +5,11 @@ export default defineConfig({
   target: "node18",
   format: "esm",
   dts: true,
-  entry: ["src/index.ts", "src/config.ts"],
+  entry: {
+    index: "src/index.ts",
+    config: "src/config.ts",
+    hono: "src/hono.ts",
+  },
   clean: true,
   esbuildPlugins: [RawPlugin()],
 });

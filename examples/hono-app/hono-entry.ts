@@ -1,17 +1,20 @@
-import { createHandler } from "@universal-middleware/hono";
+// import { createHandler } from "@universal-middleware/hono";
+// import { createTodoHandler } from "./server/create-todo-handler.js";
 import { Hono } from "hono";
-import { createTodoHandler } from "./server/create-todo-handler.js";
-import { vikeHandler } from "./server/vike-handler";
+import { apply } from "vike-cloudflare/hono";
 
-const app = new Hono();
+// FIXME move to +middleware
+// app.post('/api/todo/create', createHandler(() => createTodoHandler)())
 
-app.post("/api/todo/create", createHandler(() => createTodoHandler)());
+function startServer() {
+  const app = new Hono();
+  const port = process.env.PORT || 3000;
 
-/**
- * Vike route
- *
- * @link {@see https://vike.dev}
- **/
-app.all("*", createHandler(() => vikeHandler)());
+  const { serve } = apply(app);
 
-export default app;
+  console.log(process.env.VIKE_RUNTIME);
+
+  return serve({ port: +port });
+}
+
+export default startServer();

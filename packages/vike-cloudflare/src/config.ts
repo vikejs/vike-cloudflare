@@ -2,6 +2,7 @@ export { config as default };
 
 import { pages as plugin, type VikeCloudflarePagesOptions } from "./index";
 import type { Config } from "vike/types";
+import server from "vike-server/plugin";
 
 const config = {
   name: "vike-cloudflare",
@@ -9,7 +10,15 @@ const config = {
     vike: ">=0.4.224",
   },
   vite: {
-    plugins: [plugin()],
+    plugins: [
+      ...plugin(),
+      server({
+        entry: "virtual:vike-cloudflare-auto",
+        // FIXME
+        // standalone: true,
+        runtime: "workerd",
+      }),
+    ],
   },
   prerender: {
     value: null,

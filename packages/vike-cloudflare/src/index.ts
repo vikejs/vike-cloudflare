@@ -38,8 +38,9 @@ function getAsset(kind: SupportedServers | undefined) {
 }
 
 // biome-ignore lint/suspicious/noExplicitAny:
-export const pages = (): any => {
+export const pages = (): any[] => {
   const virtualEntryId = "virtual:vike-cloudflare-entry";
+  const virtualEntryAuto = "virtual:vike-cloudflare-auto";
   const virtualServerId = "virtual:vike-cloudflare-server";
   const resolvedVirtualServerId = `\0${virtualServerId}`;
   let resolvedConfig: ResolvedConfig;
@@ -53,20 +54,6 @@ export const pages = (): any => {
       apply(config) {
         return Boolean(config.build?.ssr);
       },
-      resolveId(id) {
-        if (id === virtualEntryId) {
-          assert(options?.server, `[${NAME}] server.entry is required when using a server`);
-          return options.server.entry;
-        }
-        if (id === virtualServerId) {
-          return resolvedVirtualServerId;
-        }
-      },
-      load(id) {
-        if (id === resolvedVirtualServerId) {
-          return getAsset(options?.server?.kind);
-        }
-      },
       config(userConfig) {
         if (!userConfig.build?.target) {
           userConfig.build ??= {};
@@ -78,6 +65,9 @@ export const pages = (): any => {
         return {
           ssr: {
             target: "webworker",
+          },
+          define: {
+            __DEV__: JSON.stringify(true),
           },
           build: {
             rollupOptions: {
@@ -94,7 +84,9 @@ export const pages = (): any => {
         resolvedConfig = config;
         const vike = getVikeConfig(config);
         assert2(vike);
-        options = { server: vike.config.server };
+        // FIXME src/index.ts(97,41): error TS2339: Property 'server' does not exist on type 'ConfigResolved'.
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        options = { server: (vike.config as any).server };
         shouldPrerender = isPrerenderEnabled(vike);
       },
       options(inputOptions) {
@@ -186,6 +178,45 @@ export default handler;
             "utf-8",
           );
         },
+      },
+    },
+    {
+      name: `${NAME}:resolve`,
+      // FIXME: dedupe
+      configResolved: async (config) => {
+        resolvedConfig = config;
+        const vike = getVikeConfig(config);
+        assert2(vike);
+        // FIXME src/index.ts(97,41): error TS2339: Property 'server' does not exist on type 'ConfigResolved'.
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+        options = { server: (vike.config as any).server };
+        shouldPrerender = isPrerenderEnabled(vike);
+      },
+      async resolveId(id) {
+        if (id === virtualEntryAuto) {
+          // In dev, resolve to virtualEntryId, during build, resolve to virtualServerId
+          id = resolvedConfig.command === "serve" ? virtualEntryId : virtualServerId;
+        }
+        if (id === virtualEntryId) {
+          assert(options?.server, `[${NAME}] server.entry is required when using a server`);
+          const resolved = await this.resolve(options.server.entry);
+
+          console.log("RESOLVED", resolved);
+
+          assert(resolved, `[${NAME}] Cannot resolve ${options.server.entry}`);
+
+          return resolved;
+        }
+        if (id === virtualServerId) {
+          console.log("RESOLVE", id);
+          return resolvedVirtualServerId;
+        }
+      },
+      load(id) {
+        if (id === resolvedVirtualServerId) {
+          console.log("LOAD", id);
+          return getAsset(options?.server?.kind);
+        }
       },
     },
   ] satisfies Plugin[];
