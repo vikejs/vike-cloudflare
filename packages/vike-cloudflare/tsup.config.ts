@@ -8,7 +8,8 @@ export default defineConfig({
   entry: {
     index: "src/index.ts",
     config: "src/config.ts",
-    hono: "src/hono.ts",
+    hono: "src/hono/index.ts",
+    "hono/serve": "src/hono/serve.ts",
   },
   clean: true,
   esbuildPlugins: [RawPlugin()],

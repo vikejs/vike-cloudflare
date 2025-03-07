@@ -178,8 +178,8 @@ importers:
   packages/vike-cloudflare:
     dependencies:
       vike-server:
-        specifier: 0.3.7-commit-14588e2
-        version: 0.3.7-commit-14588e2(@hattip/core@0.0.49)(hono@4.7.4)(rollup@4.34.9)(vike@0.4.224(vite@6.2.1(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.1(@types/node@18.19.70)(tsx@4.19.3))
+        specifier: 0.3.7-commit-78d820a
+        version: 0.3.7-commit-78d820a(@hattip/core@0.0.49)(hono@4.7.4)(rollup@4.34.9)(vike@0.4.224(vite@6.2.1(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.1(@types/node@18.19.70)(tsx@4.19.3))
     optionalDependencies:
       '@hattip/adapter-cloudflare-workers':
         specifier: ^0.0.49
@@ -2193,8 +2193,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vike-server@0.3.7-commit-14588e2:
-    resolution: {integrity: sha512-4ZDx6FAX+MbBLdg9W7Fn1rXVnD2p4rBcUTtBgZ5vSAWEXSd/GbIE/c2l58R+RfnX88BpwclrBYxL+mdl4N+jhw==}
+  vike-server@0.3.7-commit-78d820a:
+    resolution: {integrity: sha512-zuAh+t8DJrXbLPagFCjgBqTWbP99xgRExkP7sziPaIcQw629Os3FBgrhc5QokxFb/Z0nC1k56DBLTmoyZpRwjA==}
     peerDependencies:
       vike: ^0.4.213
       vite: '>=5.0.10'
@@ -4233,7 +4233,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vike-server@0.3.7-commit-14588e2(@hattip/core@0.0.49)(hono@4.7.4)(rollup@4.34.9)(vike@0.4.224(vite@6.2.1(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.1(@types/node@18.19.70)(tsx@4.19.3)):
+  vike-server@0.3.7-commit-78d820a(@hattip/core@0.0.49)(hono@4.7.4)(rollup@4.34.9)(vike@0.4.224(vite@6.2.1(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.1(@types/node@18.19.70)(tsx@4.19.3)):
     dependencies:
       '@brillout/picocolors': 1.0.26
       '@universal-middleware/compress': 0.2.21

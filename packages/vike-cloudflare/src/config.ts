@@ -1,37 +1,37 @@
-export { config as default }
+export { config as default };
 
 import { pages as plugin, type VikeCloudflarePagesOptions } from "./index";
 import type { Config } from "vike/types";
 import server from "vike-server/plugin";
 
 const config = {
-  name: 'vike-cloudflare',
+  name: "vike-cloudflare",
   require: {
-    vike: '>=0.4.224'
+    vike: ">=0.4.224",
   },
   vite: {
     plugins: [
       ...plugin(),
       server({
-        entry: 'virtual:vike-cloudflare-auto',
-        standalone: true,
-        runtime: 'workerd'
-      })
-    ]
+        entry: "virtual:vike-cloudflare-auto",
+        standalone: false,
+        runtime: "workerd",
+      }),
+    ],
   },
   prerender: {
     value: null,
-    disableAutoRun: true
+    disableAutoRun: true,
   },
   meta: {
-    server: { env: { config: true }, global: true }
-  }
-} satisfies Config
+    server: { env: { config: true }, global: true },
+  },
+} satisfies Config;
 
 declare global {
   namespace Vike {
     interface Config {
-      server?: VikeCloudflarePagesOptions['server']
+      server?: VikeCloudflarePagesOptions["server"];
     }
   }
 }

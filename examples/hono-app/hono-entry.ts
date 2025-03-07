@@ -1,13 +1,14 @@
 import { Hono } from "hono";
 import { apply } from "vike-cloudflare/hono";
+import { serve } from "vike-cloudflare/hono/serve";
 
 function startServer() {
   const app = new Hono();
   const port = process.env.PORT || 3000;
 
-  const { serve } = apply(app);
+  apply(app);
 
-  return serve({ port: +port });
+  return serve(app, { port: +port });
 }
 
 export default startServer();
