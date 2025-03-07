@@ -20,7 +20,8 @@
   "author": "",
   "pnpm": {
     "overrides": {
-      "vike-cloudflare": "link:./packages/vike-cloudflare/"
+      "vike-cloudflare": "link:./packages/vike-cloudflare/",
+      "esbuild": "^0.25.0"
     }
   },
   "devDependencies": {

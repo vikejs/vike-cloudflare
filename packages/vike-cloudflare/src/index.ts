@@ -87,9 +87,16 @@ export const pages = (): any[] => {
           ssr: {
             target: "webworker",
           },
+          esbuild: {
+            ignoreAnnotations: false,
+          },
           build: {
             rollupOptions: {
               external: [...builtinModules, /^node:/],
+              treeshake: {
+                preset: "smallest",
+                moduleSideEffects: false,
+              },
             },
           },
           resolve: {
@@ -233,6 +240,8 @@ export default handler;
               graph.add(imp);
             }
           }
+
+          // TODO Error if not found AND user provided an entry
 
           console.log("FOUND", found);
           return getAsset(found);
