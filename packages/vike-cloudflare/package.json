@@ -16,7 +16,7 @@
   ],
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "dependencies": {
-    "vike-server": "0.3.7-commit-f3aad17"
+    "vike-server": "0.3.7-commit-14588e2"
   },
   "devDependencies": {
     "@brillout/release-me": "^0.4.3",
