@@ -14,6 +14,7 @@ const config = {
       ...plugin(),
       server({
         entry: "virtual:vike-cloudflare-auto",
+
         standalone: false,
         runtime: "workerd",
       }),
