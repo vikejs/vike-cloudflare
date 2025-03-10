@@ -17,22 +17,22 @@
     "@hattip/adapter-cloudflare-workers": "^0.0.49",
     "@hattip/adapter-node": "^0.0.49",
     "@hattip/vite": "^0.0.49",
-    "@universal-middleware/core": "^0.4.1",
+    "@universal-middleware/core": "^0.4.4",
     "cross-env": "^7.0.3",
     "typescript": "^5.8.2",
     "vike-cloudflare": "^0.1.7",
-    "wrangler": "^3.111.0"
+    "wrangler": "^3.114.0"
   },
   "dependencies": {
     "@hattip/core": "^0.0.49",
     "@hattip/router": "^0.0.49",
-    "@universal-middleware/hattip": "^0.4.1",
+    "@universal-middleware/hattip": "^0.4.5",
     "cross-fetch": "^4.1.0",
     "hattip": "^0.0.33",
     "lowdb": "^7.0.1",
     "solid-js": "^1.9.5",
     "vike": "^0.4.224",
     "vike-solid": "^0.7.8",
-    "vite": "^6.2.0"
+    "vite": "^6.2.1"
   }
 }
