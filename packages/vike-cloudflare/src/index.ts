@@ -94,6 +94,18 @@ export const pages = (): any[] => {
       },
     },
     {
+      name: `${NAME}:define`,
+      apply: "build",
+      config() {
+        return {
+          define: {
+            "process.env.NODE_ENV": JSON.stringify("production"),
+          },
+        };
+      },
+    },
+
+    {
       name: NAME,
       enforce: "post",
       apply(config) {
@@ -217,6 +229,7 @@ export default handler;
       async resolveId(id, importer, opts) {
         if (id === virtualEntryAuto) {
           // In dev, resolve to virtualEntryId, during build, resolve to virtualServerId
+          // biome-ignore lint/style/noParameterAssign: <explanation>
           id = resolvedConfig.command === "serve" ? virtualEntryId : virtualServerId;
         }
         if (id === virtualEntryId) {
@@ -241,8 +254,11 @@ export default handler;
       },
       async load(id) {
         if (id === resolvedVirtualServerId) {
+          // FIXME must work without a server
+          assert(options.server, `[${NAME}] No server is specified`);
+
           // Resolve entry graph until we find a plugin
-          const loaded = await this.load({ id: (options.server as any).entry, resolveDependencies: true });
+          const loaded = await this.load({ id: options.server.entry, resolveDependencies: true });
           const graph = new Set([...loaded.importedIdResolutions, ...loaded.dynamicallyImportedIdResolutions]);
 
           let found: SupportedServers | undefined;
