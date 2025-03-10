@@ -56,6 +56,14 @@
       "types": "./dist/hono/serve.d.ts",
       "default": "./dist/hono/serve.js"
     },
+    "./hattip": {
+      "types": "./dist/hattip.d.ts",
+      "default": "./dist/hattip.js"
+    },
+    "./hattip/serve": {
+      "types": "./dist/hattip/serve.d.ts",
+      "default": "./dist/hattip/serve.js"
+    },
     "./types": {
       "types": "./vike.d.ts"
     }
