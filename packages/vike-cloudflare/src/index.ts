@@ -126,6 +126,7 @@ export const pages = (): any[] => {
               external: [...builtinModules, /^node:/],
               treeshake: {
                 preset: "recommended",
+                moduleSideEffects: "no-external",
               },
             },
           },
