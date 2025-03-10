@@ -125,7 +125,7 @@ export const pages = (): any[] => {
             rollupOptions: {
               external: [...builtinModules, /^node:/],
               treeshake: {
-                preset: "recommended",
+                preset: "smallest",
                 moduleSideEffects: "no-external",
               },
             },
