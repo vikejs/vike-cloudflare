@@ -14,7 +14,7 @@ const config = {
       ...plugin(),
       server({
         entry: "virtual:vike-cloudflare-auto",
-
+        // We're using rollup's noExternal instead
         standalone: false,
         runtime: "workerd",
       }),
