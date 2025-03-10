@@ -1,4 +1,5 @@
 /// <reference lib="webworker" />
+import "virtual:@brillout/vite-plugin-server-entry:serverEntry";
 import { renderPage } from "vike/server";
 
 /**

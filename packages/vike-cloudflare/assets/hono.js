@@ -1,3 +1,4 @@
+import "virtual:@brillout/vite-plugin-server-entry:serverEntry";
 import { Hono } from "hono";
 import app from "virtual:vike-cloudflare-entry";
 
