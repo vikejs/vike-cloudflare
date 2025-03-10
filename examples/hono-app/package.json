@@ -24,7 +24,6 @@
   "dependencies": {
     "@universal-middleware/hono": "^0.4.6",
     "cross-env": "^7.0.3",
-    "cross-fetch": "^4.1.0",
     "hono": "^4.7.4",
     "solid-js": "^1.9.5",
     "tsx": "^4.19.3",
