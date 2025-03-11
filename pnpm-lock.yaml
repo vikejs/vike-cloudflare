@@ -61,12 +61,6 @@ importers:
       '@hattip/adapter-cloudflare-workers':
         specifier: ^0.0.49
         version: 0.0.49
-      '@hattip/adapter-node':
-        specifier: ^0.0.49
-        version: 0.0.49
-      '@hattip/vite':
-        specifier: ^0.0.49
-        version: 0.0.49(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))
       '@universal-middleware/core':
         specifier: ^0.4.4
         version: 0.4.4(@cloudflare/workers-types@4.20250303.0)(@hattip/core@0.0.49)(hono@4.7.4)
@@ -169,8 +163,8 @@ importers:
   packages/vike-cloudflare:
     dependencies:
       vike-server:
-        specifier: 0.3.7-commit-367bb74
-        version: 0.3.7-commit-367bb74(@cloudflare/workers-types@4.20250303.0)(@hattip/core@0.0.49)(hono@4.7.4)(vike@0.4.224(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3)))(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))
+        specifier: 0.3.7-commit-37b88e5
+        version: 0.3.7-commit-37b88e5(@cloudflare/workers-types@4.20250303.0)(@hattip/core@0.0.49)(hono@4.7.4)(vike@0.4.224(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3)))(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))
     optionalDependencies:
       '@hattip/adapter-cloudflare-workers':
         specifier: ^0.0.49
@@ -591,33 +585,14 @@ packages:
   '@hattip/adapter-cloudflare-workers@0.0.49':
     resolution: {integrity: sha512-FtCarhqmAgSW0b4LOCMzWGyN6B/z6zZhL4yJgZBETKMEnXywVNYYrnEbYEKIY/l6f7aWD1vTZ9jNcKS5RZeUww==}
 
-  '@hattip/adapter-node@0.0.49':
-    resolution: {integrity: sha512-BE+Y8Q4U0YcH34FZUYU4DssGKOaZLbNL0zK57Z41UZp0m9kS79ZIolBmjjpPhTVpIlRY3Rs+uhXbVXKk7mUcJA==}
-
   '@hattip/compose@0.0.49':
     resolution: {integrity: sha512-jEJGi6EdHpLJGxpFMqcF2J6cNYKGhkDyepXtR7Esxthk5rWC37lFQEl19rWsYOqByn4zpwq87W8qGgsl940dWQ==}
 
   '@hattip/core@0.0.49':
     resolution: {integrity: sha512-3/ZJtC17cv8m6Sph8+nw4exUp9yhEf2Shi7HK6AHSUSBtaaQXZ9rJBVxTfZj3PGNOR/P49UBXOym/52WYKFTJQ==}
 
-  '@hattip/headers@0.0.49':
-    resolution: {integrity: sha512-rrB2lEhTf0+MNVt5WdW184Ky706F1Ze9Aazn/R8c+/FMUYF9yjem2CgXp49csPt3dALsecrnAUOHFiV0LrrHXA==}
-
-  '@hattip/polyfills@0.0.49':
-    resolution: {integrity: sha512-5g7W5s6Gq+HDxwULGFQ861yAnEx3yd9V8GDwS96HBZ1nM1u93vN+KTuwXvNsV7Z3FJmCrD/pgU8WakvchclYuA==}
-
   '@hattip/router@0.0.49':
     resolution: {integrity: sha512-DcPTUdEFHATUK71kBgjuz4kNpvGqsIIvp391t5fiERbsR0oAKUSRzpI6rVQGJo3WwX64sFd9eHr7P/h4UgxGYg==}
-
-  '@hattip/vite@0.0.49':
-    resolution: {integrity: sha512-yJDbSZJdTjbGhXJsVUBw864VREAWA1AV0XzTEjiA1KjoJujm0Ib36v++RYn0BBOLhlTwwHULsaJVYqXLmNvLfg==}
-    hasBin: true
-    peerDependencies:
-      vite: ^4 || ^5
-
-  '@hattip/walk@0.0.49':
-    resolution: {integrity: sha512-AgJgKLooZyQnzMfoFg5Mo/aHM+HGBC9ExpXIjNqGimYTRgNbL/K7X5EM1kR2JY90BNKk9lo6Usq1T/nWFdT7TQ==}
-    hasBin: true
 
   '@hutson/parse-repository-url@5.0.0':
     resolution: {integrity: sha512-e5+YUKENATs1JgYHMzTr2MW/NDcXGfYFAuOQU8gJgF/kEh4EqKgfGrfLI67bMD4tbhZVlkigz/9YYwWcbOFthg==}
@@ -752,9 +727,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
-
-  '@kamilkisiela/fast-url-parser@1.1.4':
-    resolution: {integrity: sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -941,30 +913,6 @@ packages:
   '@universal-middleware/sirv@0.1.12':
     resolution: {integrity: sha512-21AVNZVMoNEhUz1w83wxXzj9nGJEgCvCNuQD6txj3gJWVT/ogqFaTNYjbZNTeGR5nMsrcH1ZUv4vSDPfXRQd9w==}
 
-  '@vavite/connect@5.1.0':
-    resolution: {integrity: sha512-45FfwXeMUU4SOIZNAerRwoW1agE2l2cd614Pxk0DE+YZN5xhKym/z9oGB0ueuxtFM4IhuhITUgkHZG7MOm/hlg==}
-    peerDependencies:
-      vite: ^2.8.1 || 3 || 4 || 5 || 6
-
-  '@vavite/multibuild@5.1.0':
-    resolution: {integrity: sha512-xhJS6oAhQqDCRFFmpZWNCcAJw7145pvlfKX/IOCQX7oqulbw9amH9rdrNXmwz79UeYgOwxXpWfEavyYTPLY1KQ==}
-    peerDependencies:
-      vite: ^2.8.1 || 3 || 4 || 5 || 6
-
-  '@vavite/node-loader@5.1.0':
-    resolution: {integrity: sha512-1cYxl6zDS661if6nudr8vWGC3uAZ5yaFTzHUaEBk4tsssjAsQ3ibHAQ3lLz0Vy/CsPRzoe7wTdRtl6NRAX8Iug==}
-    hasBin: true
-    peerDependencies:
-      vite: ^2.8.1 || 3 || 4 || 5 || 6
-
-  '@whatwg-node/fetch@0.9.23':
-    resolution: {integrity: sha512-7xlqWel9JsmxahJnYVUj/LLxWcnA93DR4c9xlw3U814jWTiYalryiH1qToik1hOxweKKRLi4haXHM5ycRksPBA==}
-    engines: {node: '>=18.0.0'}
-
-  '@whatwg-node/node-fetch@0.6.0':
-    resolution: {integrity: sha512-tcZAhrpx6oVlkEsRngeTEEE7I5/QdLjeEz4IlekabGaESP7+Dkm/6a9KcF1KdCBB7mO9PXtBkwCuTCt8+UPg8Q==}
-    engines: {node: '>=18.0.0'}
-
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
     hasBin: true
@@ -1050,10 +998,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     peerDependencies:
       esbuild: ^0.25.0
-
-  busboy@1.6.0:
-    resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
-    engines: {node: '>=10.16.0'}
 
   bytes@3.1.2:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
@@ -1276,15 +1220,9 @@ packages:
     resolution: {integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==}
     engines: {node: '>=6'}
 
-  fast-decode-uri-component@1.0.1:
-    resolution: {integrity: sha512-WKgKWg5eUxvRZGwW8FvfbaH7AXSh2cL+3j5fMGzUMCxWBJ3dV3a7Wz8y2f/uQ0e3B6WmodD3oS54jTQ9HVTIIg==}
-
   fast-glob@3.3.3:
     resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
     engines: {node: '>=8.6.0'}
-
-  fast-querystring@1.1.2:
-    resolution: {integrity: sha512-g6KuKWmFXc0fID8WWH0jit4g0AGBoJhCkJMb1RmbsSEUNvQ+ZC8D6CUZ+GtF8nMzSPXnhiePyyqqipzNNEnHjg==}
 
   fastify-plugin@5.0.1:
     resolution: {integrity: sha512-HCxs+YnRaWzCl+cWRYFnHmeRFyR5GVnJTAaCJQiYzQSDwK9MgJdyAsuL3nh0EWRCYMgQ5MeziymvmAhUHYHDUQ==}
@@ -1398,9 +1336,6 @@ packages:
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
-
-  import-meta-resolve@4.1.0:
-    resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -1541,14 +1476,6 @@ packages:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
 
-  mime-db@1.52.0:
-    resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
-    engines: {node: '>= 0.6'}
-
-  mime-types@2.1.35:
-    resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
-    engines: {node: '>= 0.6'}
-
   mime@3.0.0:
     resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
     engines: {node: '>=10.0.0'}
@@ -1598,9 +1525,6 @@ packages:
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
-
-  node-fetch-native@1.6.6:
-    resolution: {integrity: sha512-8Mc2HhqPdlIfedsuZoc3yioPuzp6b+L5jRCRY1QzuWZh2EGJVQrGppC6V6cF0bLdbW0+O2YpqCA25aF/1lvipQ==}
 
   node-fetch@2.7.0:
     resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
@@ -1786,10 +1710,6 @@ packages:
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
 
-  resolve.exports@2.0.3:
-    resolution: {integrity: sha512-OcXjMsGdhL4XnbShKpAcSqPMzQoYkYyhbEaeSko47MjRP9NfEQMhZkXL1DoFlt9LWQn4YttrdnV6X2OiyzBi+A==}
-    engines: {node: '>=10'}
-
   reusify@1.1.0:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
@@ -1919,10 +1839,6 @@ packages:
   stoppable@1.1.0:
     resolution: {integrity: sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==}
     engines: {node: '>=4', npm: '>=6'}
-
-  streamsearch@1.1.0:
-    resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
-    engines: {node: '>=10.0.0'}
 
   string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
@@ -2081,17 +1997,14 @@ packages:
     peerDependencies:
       browserslist: '>= 4.21.0'
 
-  urlpattern-polyfill@10.0.0:
-    resolution: {integrity: sha512-H/A06tKD7sS1O1X2SshBVeA5FLycRpjqiBeqGKmBwBDBy28EnRjORxTNe269KSSr5un5qyWi1iL61wLxpd+ZOg==}
-
   validate-html-nesting@1.2.2:
     resolution: {integrity: sha512-hGdgQozCsQJMyfK5urgFcWEqsSSrK63Awe0t/IMR0bZ0QMtnuaiHzThW81guu3qx9abLi99NEuiaN6P9gVYsNg==}
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vike-server@0.3.7-commit-367bb74:
-    resolution: {integrity: sha512-6GomSXZSDfm2NXZSFDJm7XBocHckCxt5pR4rTDiIDaeUHtSGA62knJuhK1DubPYjJOCEN2GCGwydj3zKIXfbFA==}
+  vike-server@0.3.7-commit-37b88e5:
+    resolution: {integrity: sha512-bGjVLa3Y08bBbGQ2Aic/RMcYaJtQwOEqKRelfsVrF7Da5j4pqfhlaYsUwPh2f8/M8Vmo2XpuqMYHIiySYRLjJw==}
     peerDependencies:
       vike: ^0.4.213
       vite: '>=5.0.10'
@@ -2573,50 +2486,16 @@ snapshots:
       '@cloudflare/workers-types': 4.20250303.0
       '@hattip/core': 0.0.49
 
-  '@hattip/adapter-node@0.0.49':
-    dependencies:
-      '@hattip/core': 0.0.49
-      '@hattip/polyfills': 0.0.49
-      '@hattip/walk': 0.0.49
-
   '@hattip/compose@0.0.49':
     dependencies:
       '@hattip/core': 0.0.49
 
   '@hattip/core@0.0.49': {}
 
-  '@hattip/headers@0.0.49':
-    dependencies:
-      '@hattip/core': 0.0.49
-
-  '@hattip/polyfills@0.0.49':
-    dependencies:
-      '@hattip/core': 0.0.49
-      '@whatwg-node/fetch': 0.9.23
-      node-fetch-native: 1.6.6
-
   '@hattip/router@0.0.49':
     dependencies:
       '@hattip/compose': 0.0.49
       '@hattip/core': 0.0.49
-
-  '@hattip/vite@0.0.49(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))':
-    dependencies:
-      '@hattip/adapter-node': 0.0.49
-      '@vavite/connect': 5.1.0(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))
-      '@vavite/multibuild': 5.1.0(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))
-      '@vavite/node-loader': 5.1.0(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))
-      cac: 6.7.14
-      import-meta-resolve: 4.1.0
-      picocolors: 1.1.1
-      resolve.exports: 2.0.3
-      vite: 6.2.1(@types/node@18.19.80)(tsx@4.19.3)
-
-  '@hattip/walk@0.0.49':
-    dependencies:
-      '@hattip/headers': 0.0.49
-      cac: 6.7.14
-      mime-types: 2.1.35
 
   '@hutson/parse-repository-url@5.0.0': {}
 
@@ -2725,8 +2604,6 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
-
-  '@kamilkisiela/fast-url-parser@1.1.4': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -2921,34 +2798,6 @@ snapshots:
       mrmime: 2.0.1
       totalist: 3.0.1
 
-  '@vavite/connect@5.1.0(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))':
-    dependencies:
-      '@types/node': 18.19.80
-      vite: 6.2.1(@types/node@18.19.80)(tsx@4.19.3)
-
-  '@vavite/multibuild@5.1.0(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))':
-    dependencies:
-      '@types/node': 18.19.80
-      cac: 6.7.14
-      picocolors: 1.1.1
-      vite: 6.2.1(@types/node@18.19.80)(tsx@4.19.3)
-
-  '@vavite/node-loader@5.1.0(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3))':
-    dependencies:
-      vite: 6.2.1(@types/node@18.19.80)(tsx@4.19.3)
-
-  '@whatwg-node/fetch@0.9.23':
-    dependencies:
-      '@whatwg-node/node-fetch': 0.6.0
-      urlpattern-polyfill: 10.0.0
-
-  '@whatwg-node/node-fetch@0.6.0':
-    dependencies:
-      '@kamilkisiela/fast-url-parser': 1.1.4
-      busboy: 1.6.0
-      fast-querystring: 1.1.2
-      tslib: 2.8.1
-
   JSONStream@1.3.5:
     dependencies:
       jsonparse: 1.3.1
@@ -3022,10 +2871,6 @@ snapshots:
     dependencies:
       esbuild: 0.25.1
       load-tsconfig: 0.2.5
-
-  busboy@1.6.0:
-    dependencies:
-      streamsearch: 1.1.0
 
   bytes@3.1.2: {}
 
@@ -3260,8 +3105,6 @@ snapshots:
 
   exit-hook@2.2.1: {}
 
-  fast-decode-uri-component@1.0.1: {}
-
   fast-glob@3.3.3:
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -3269,10 +3112,6 @@ snapshots:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.8
-
-  fast-querystring@1.1.2:
-    dependencies:
-      fast-decode-uri-component: 1.0.1
 
   fastify-plugin@5.0.1: {}
 
@@ -3386,8 +3225,6 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  import-meta-resolve@4.1.0: {}
-
   inherits@2.0.4: {}
 
   is-arrayish@0.2.1: {}
@@ -3488,12 +3325,6 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  mime-db@1.52.0: {}
-
-  mime-types@2.1.35:
-    dependencies:
-      mime-db: 1.52.0
-
   mime@3.0.0: {}
 
   mimic-fn@2.1.0: {}
@@ -3545,8 +3376,6 @@ snapshots:
   nanoid@3.3.9: {}
 
   neo-async@2.6.2: {}
-
-  node-fetch-native@1.6.6: {}
 
   node-fetch@2.7.0:
     dependencies:
@@ -3697,8 +3526,6 @@ snapshots:
   resolve-from@5.0.0: {}
 
   resolve-pkg-maps@1.0.0: {}
-
-  resolve.exports@2.0.3: {}
 
   reusify@1.1.0: {}
 
@@ -3860,8 +3687,6 @@ snapshots:
 
   stoppable@1.1.0: {}
 
-  streamsearch@1.1.0: {}
-
   string-width@4.2.3:
     dependencies:
       emoji-regex: 8.0.0
@@ -3941,7 +3766,8 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  tslib@2.8.1: {}
+  tslib@2.8.1:
+    optional: true
 
   tsup@8.4.0(postcss@8.5.3)(tsx@4.19.3)(typescript@5.8.2):
     dependencies:
@@ -4019,8 +3845,6 @@ snapshots:
       escalade: 3.2.0
       picocolors: 1.1.1
 
-  urlpattern-polyfill@10.0.0: {}
-
   validate-html-nesting@1.2.2: {}
 
   validate-npm-package-license@3.0.4:
@@ -4028,7 +3852,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vike-server@0.3.7-commit-367bb74(@cloudflare/workers-types@4.20250303.0)(@hattip/core@0.0.49)(hono@4.7.4)(vike@0.4.224(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3)))(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3)):
+  vike-server@0.3.7-commit-37b88e5(@cloudflare/workers-types@4.20250303.0)(@hattip/core@0.0.49)(hono@4.7.4)(vike@0.4.224(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3)))(vite@6.2.1(@types/node@18.19.80)(tsx@4.19.3)):
     dependencies:
       '@brillout/picocolors': 1.0.26
       '@universal-middleware/compress': 0.2.21

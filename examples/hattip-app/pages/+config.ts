@@ -9,7 +9,6 @@ export default {
   Layout,
   Head,
   title: "My Vike App",
-  stream: "web",
   server: {
     entry: "hattip-entry.ts",
   },
