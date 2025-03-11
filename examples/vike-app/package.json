@@ -24,7 +24,7 @@
     "cross-env": "^7.0.3",
     "solid-js": "^1.9.5",
     "tsx": "^4.19.3",
-    "vike": "^0.4.224",
+    "vike": "0.4.224-commit-f0d0f8a",
     "vike-solid": "^0.7.8",
     "vite": "^6.2.1"
   }
