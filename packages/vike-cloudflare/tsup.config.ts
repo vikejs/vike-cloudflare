@@ -6,7 +6,7 @@ export default defineConfig({
   format: "esm",
   dts: true,
   entry: {
-    index: "src/index.ts",
+    index: "src/plugins/index.ts",
     config: "src/config.ts",
     hono: "src/hono/index.ts",
     "hono/serve": "src/hono/serve.ts",
