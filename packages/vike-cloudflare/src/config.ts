@@ -12,7 +12,7 @@ const config = {
     plugins: [plugin()],
   },
   prerender: {
-    value: null,
+    enable: null,
     disableAutoRun: true,
   },
   meta: {
