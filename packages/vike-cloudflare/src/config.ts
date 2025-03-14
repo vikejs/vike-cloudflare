@@ -1,9 +1,8 @@
 export { config as default };
 
 import { pages as plugin } from "./plugins";
-import type { VikeCloudflarePagesOptions } from "./types";
 import type { Config } from "vike/types";
-import server from "vike-server/plugin";
+import server from "vike-server/config";
 
 const config = {
   name: "vike-cloudflare",
@@ -11,29 +10,17 @@ const config = {
     vike: ">=0.4.224",
   },
   vite: {
-    plugins: [
-      ...plugin(),
-      server({
-        entry: "virtual:vike-cloudflare:auto-entry",
-        // We're using rollup's noExternal instead
-        standalone: false,
-        runtime: "workerd",
-      }),
-    ],
+    plugins: [...plugin()],
   },
+  extends: [server],
   prerender: {
     value: null,
     disableAutoRun: true,
   },
-  meta: {
-    server: { env: { config: true }, global: true },
+  server: {
+    entry: "virtual:vike-cloudflare:auto-entry",
+    // We're using rollup's noExternal instead
+    standalone: false,
+    runtime: "workerd",
   },
 } satisfies Config;
-
-declare global {
-  namespace Vike {
-    interface Config {
-      server?: VikeCloudflarePagesOptions["server"];
-    }
-  }
-}
