@@ -9,9 +9,9 @@ import Layout from "../layouts/LayoutDefault.js"; // Default config (can be over
 export default {
   Layout,
   Head,
-  title: 'My Vike App',
+  title: "My Vike App",
   server: {
-    entry: 'hattip-entry.ts'
+    entry: "hattip-entry.ts",
   },
-  extends: [vikeSolid, vikeServer, vikeCloudflare]
-} satisfies Config
+  extends: [vikeSolid, vikeServer, vikeCloudflare],
+} satisfies Config;

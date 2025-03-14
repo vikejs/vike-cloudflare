@@ -1,26 +1,26 @@
 /// <reference types="vike-server/config" />
-export { config as default }
+export { config as default };
 
-import { pages as plugin } from './plugins'
-import type { Config } from 'vike/types'
+import { pages as plugin } from "./plugins";
+import type { Config } from "vike/types";
 
 const config = {
-  name: 'vike-cloudflare',
+  name: "vike-cloudflare",
   require: {
-    vike: '>=0.4.224'
+    vike: ">=0.4.224",
   },
   vite: {
-    plugins: [...plugin()]
+    plugins: [...plugin()],
   },
-  extends: ['import:vike-server/config'],
+  extends: ["import:vike-server/config"],
   prerender: {
     value: null,
-    disableAutoRun: true
+    disableAutoRun: true,
   },
   server: {
-    entry: 'virtual:vike-cloudflare:auto-entry',
+    entry: "virtual:vike-cloudflare:auto-entry",
     // We're using rollup's noExternal instead
     standalone: false,
-    runtime: 'workerd'
-  }
-} satisfies Config
+    runtime: "workerd",
+  },
+} satisfies Config;
