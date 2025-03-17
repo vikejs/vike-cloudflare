@@ -1,4 +1,3 @@
-/// <reference types="vike-server/config" />
 export { config as default };
 
 import { pages as plugin } from "./plugins";
@@ -20,7 +19,22 @@ const config = {
   server: {
     entry: "virtual:vike-cloudflare:auto-entry",
     // We're using rollup's noExternal instead
+    // @ts-ignore
     standalone: false,
-    runtime: "workerd",
   },
 } satisfies Config;
+
+declare global {
+  namespace Vike {
+    interface Config {
+      server?: {
+        entry: string;
+      };
+    }
+    interface ConfigResolved {
+      server?: {
+        entry: string;
+      }[];
+    }
+  }
+}

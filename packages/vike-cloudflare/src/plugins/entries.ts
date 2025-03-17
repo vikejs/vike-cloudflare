@@ -7,23 +7,14 @@ import {
   virtualProdEntryId,
   virtualUserEntryId,
 } from "./const";
-import type { SupportedServers, VikeCloudflarePagesOptions } from "../types";
-import { getVikeConfig } from "vike/plugin";
+import type { SupportedServers } from "../types";
 import { getAsset } from "../assets";
+import { getUserServerConfig } from "./utils/resolveServerConfig";
 
 export function entriesPlugin(): Plugin[] {
   const resolvedPlugins = new Map<string, SupportedServers>();
-  let options: VikeCloudflarePagesOptions;
 
   return [
-    {
-      name: `${NAME}:resolve-entries:config`,
-      enforce: "pre",
-      configResolved: async (config) => {
-        const vike = getVikeConfig(config);
-        options = { server: vike.config.server };
-      },
-    },
     {
       name: `${NAME}:resolve-entries:pre`,
       enforce: "pre",
@@ -47,9 +38,11 @@ export function entriesPlugin(): Plugin[] {
       },
       async load(id) {
         if (id === resolvedVirtualProdEntryId) {
-          if (options.server) {
+          const server = getUserServerConfig(this.environment.config);
+
+          if (server) {
             // Resolve entry graph until we find a plugin
-            const loaded = await this.load({ id: options.server.entry, resolveDependencies: true });
+            const loaded = await this.load({ id: server.entry.index, resolveDependencies: true });
             const graph = new Set([...loaded.importedIdResolutions, ...loaded.dynamicallyImportedIdResolutions]);
 
             let found: SupportedServers | undefined;
@@ -76,10 +69,11 @@ export function entriesPlugin(): Plugin[] {
       name: `${NAME}:resolve-entries:user`,
       async resolveId(id) {
         if (id === virtualEntryAuto || id === virtualUserEntryId || id === resolvedVirtualUserEntryId) {
-          if (options.server) {
-            const resolved = await this.resolve(options.server.entry);
+          const server = getUserServerConfig(this.environment.config);
 
-            assert(resolved, `[${NAME}] Cannot resolve ${options.server.entry}`);
+          if (server) {
+            const resolved = await this.resolve(server.entry.index);
+            assert(resolved, `[${NAME}] Cannot resolve ${server.entry.index}`);
 
             return resolved;
           }
@@ -90,7 +84,8 @@ export function entriesPlugin(): Plugin[] {
       },
       async load(id) {
         if (id === resolvedVirtualUserEntryId) {
-          if (options.server) {
+          const server = getUserServerConfig(this.environment.config);
+          if (server) {
             // Should have already been resolved by resolveId hook
             assert(false);
           }

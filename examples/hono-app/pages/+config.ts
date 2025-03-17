@@ -1,5 +1,4 @@
 import vikeSolid from "vike-solid/config";
-import vikeServer from "vike-server/config";
 import vikeCloudflare from "vike-cloudflare/config";
 import type { Config } from "vike/types";
 import Head from "../layouts/HeadDefault.js";
@@ -14,5 +13,5 @@ export default {
   server: {
     entry: "hono-entry.ts",
   },
-  extends: [vikeSolid, vikeServer, vikeCloudflare],
+  extends: [vikeSolid, vikeCloudflare],
 } satisfies Config;

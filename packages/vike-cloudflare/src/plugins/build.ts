@@ -14,24 +14,22 @@ import { builtinModules } from "node:module";
 import { dirname, isAbsolute, join, posix, relative } from "node:path";
 import { prerender } from "vike/api";
 import { getVikeConfig } from "vike/plugin";
-import type { VikeCloudflarePagesOptions } from "../types";
+import { getUserServerConfig } from "./utils/resolveServerConfig";
 
 export function buildPlugin(): Plugin {
   let resolvedConfig: ResolvedConfig;
   let shouldPrerender = false;
-  let options: VikeCloudflarePagesOptions;
 
   return {
     name: NAME,
     enforce: "post",
-    apply(config) {
-      return Boolean(config.build?.ssr);
+    applyToEnvironment(env) {
+      return env.name === "ssr";
     },
-    configResolved: async (config) => {
+    async configResolved(config) {
       resolvedConfig = config;
       const vike = getVikeConfig(config);
       assert2(vike);
-      options = { server: vike.config.server };
       shouldPrerender = isPrerenderEnabled(vike);
     },
     config() {
@@ -56,6 +54,8 @@ export function buildPlugin(): Plugin {
       };
     },
     options(inputOptions) {
+      inputOptions.input ??= {};
+      // FIXME use emitFile
       assert(
         typeof inputOptions.input === "object" && !Array.isArray(inputOptions.input),
         `[${NAME}] input should be an object. Aborting`,
@@ -63,7 +63,8 @@ export function buildPlugin(): Plugin {
 
       inputOptions.input[WORKER_NAME] = virtualProdEntryId;
 
-      if (options?.server?.entry) {
+      const server = getUserServerConfig(this.environment.config);
+      if (server) {
         inputOptions.input["cloudflare-server-entry"] = virtualUserEntryId;
       }
     },
