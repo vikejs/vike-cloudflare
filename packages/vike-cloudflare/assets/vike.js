@@ -1,4 +1,5 @@
 /// <reference lib="webworker" />
+import "virtual:@brillout/vite-plugin-server-entry:serverEntry";
 import { renderPage } from "vike/server";
 
 /**
@@ -14,16 +15,9 @@ async function handleSsr(url, ctx) {
   };
   const pageContext = await renderPage(pageContextInit);
   const { httpResponse } = pageContext;
-  if (!httpResponse) {
-    return new Response("Something went wrong", { status: 500 });
-  }
   const { statusCode: status, headers } = httpResponse;
 
-  const { readable, writable } = new TransformStream();
-
-  httpResponse.pipe(writable);
-
-  return new Response(readable, {
+  return new Response(httpResponse.getReadableWebStream(), {
     status,
     headers,
   });

@@ -1,4 +1,3 @@
-import { hattip } from "@hattip/vite";
 import vikeSolid from "vike-solid/vite";
 import vike from "vike/plugin";
 import { defineConfig } from "vite";
@@ -7,11 +6,5 @@ export default defineConfig({
   build: {
     target: "es2022",
   },
-  plugins: [
-    hattip({
-      hattipEntry: "./hattip-entry.ts",
-    }),
-    vike(),
-    vikeSolid(),
-  ],
+  plugins: [vike(), vikeSolid()],
 });

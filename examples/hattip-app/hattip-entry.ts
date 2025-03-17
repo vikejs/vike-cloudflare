@@ -1,18 +1,14 @@
-import type { HattipHandler } from "@hattip/core";
 import { createRouter } from "@hattip/router";
-import { createHandler } from "@universal-middleware/hattip";
-import { createTodoHandler } from "./server/create-todo-handler";
-import { vikeHandler } from "./server/vike-handler";
+import { apply } from "vike-cloudflare/hattip";
+import { serve } from "vike-cloudflare/hattip/serve";
 
-const router = createRouter();
+function startServer() {
+  const router = createRouter();
+  const port = process.env.PORT || 3000;
 
-router.post("/api/todo/create", createHandler(() => createTodoHandler)());
+  apply(router);
 
-/**
- * Vike route
- *
- * @link {@see https://vike.dev}
- **/
-router.use(createHandler(() => vikeHandler)());
+  return serve(router, { port: +port });
+}
 
-export default router.buildHandler() as HattipHandler;
+export default startServer();
