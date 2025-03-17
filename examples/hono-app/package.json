@@ -21,7 +21,7 @@
     "@universal-middleware/core": "^0.4.4",
     "typescript": "^5.8.2",
     "vike-cloudflare": "^0.1.7",
-    "wrangler": "^3.114.0"
+    "wrangler": "^4.0.0"
   },
   "dependencies": {
     "@universal-middleware/hono": "^0.4.6",
