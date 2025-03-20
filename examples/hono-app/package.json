@@ -21,7 +21,7 @@
     "@universal-middleware/core": "^0.4.4",
     "typescript": "^5.8.2",
     "vike-cloudflare": "^0.1.7",
-    "wrangler": "^3.114.0"
+    "wrangler": "^4.0.0"
   },
   "dependencies": {
     "@universal-middleware/hono": "^0.4.6",
@@ -30,8 +30,8 @@
     "hono": "^4.7.4",
     "solid-js": "^1.9.5",
     "tsx": "^4.19.3",
-    "vike": "^0.4.224",
-    "vike-solid": "^0.7.8",
-    "vite": "^6.2.1"
+    "vike": "^0.4.225",
+    "vike-solid": "^0.7.9",
+    "vite": "^6.2.2"
   }
 }
