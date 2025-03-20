@@ -245,7 +245,7 @@ function isPrerenderEnabled(vike: VikeConfig): boolean {
 }
 function isPrerenderValueEnabling(prerender: PrerenderSetting): boolean {
   const val = prerender?.[0];
-  if (isObject(val)) return val.value === undefined || val.value === true;
+  if (isObject(val)) return val.enable === undefined || val.enable === true;
   return val === true;
 }
 function isObject(val: unknown): val is object {
