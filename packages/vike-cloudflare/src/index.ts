@@ -94,7 +94,7 @@ export const pages = (): any => {
         resolvedConfig = config;
         const vike = getVikeConfig(config);
         assert2(vike!.prerenderContext);
-        shouldPrerender = vike.prerenderContext.isPrerenderingEnabled
+        shouldPrerender = vike.prerenderContext.isPrerenderingEnabled;
         options = { server: vike.config.server };
       },
       options(inputOptions) {
