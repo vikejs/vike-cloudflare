@@ -48,11 +48,11 @@ importers:
         specifier: ^1.9.5
         version: 1.9.5
       vike:
-        specifier: ^0.4.225
-        version: 0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
+        specifier: ^0.4.226
+        version: 0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
       vike-solid:
         specifier: ^0.7.9
-        version: 0.7.9(solid-js@1.9.5)(vike@0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
+        version: 0.7.9(solid-js@1.9.5)(vike@0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
       vite:
         specifier: ^6.2.2
         version: 6.2.2(@types/node@18.19.70)(tsx@4.19.3)
@@ -106,11 +106,11 @@ importers:
         specifier: ^4.19.3
         version: 4.19.3
       vike:
-        specifier: ^0.4.225
-        version: 0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
+        specifier: ^0.4.226
+        version: 0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
       vike-solid:
         specifier: ^0.7.9
-        version: 0.7.9(solid-js@1.9.5)(vike@0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
+        version: 0.7.9(solid-js@1.9.5)(vike@0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
       vite:
         specifier: ^6.2.2
         version: 6.2.2(@types/node@18.19.70)(tsx@4.19.3)
@@ -155,11 +155,11 @@ importers:
         specifier: ^4.19.3
         version: 4.19.3
       vike:
-        specifier: ^0.4.225
-        version: 0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
+        specifier: ^0.4.226
+        version: 0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
       vike-solid:
         specifier: ^0.7.9
-        version: 0.7.9(solid-js@1.9.5)(vike@0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
+        version: 0.7.9(solid-js@1.9.5)(vike@0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
       vite:
         specifier: ^6.2.2
         version: 6.2.2(@types/node@18.19.70)(tsx@4.19.3)
@@ -202,8 +202,8 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
       vike:
-        specifier: ^0.4.225
-        version: 0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
+        specifier: ^0.4.226
+        version: 0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
       vite:
         specifier: ^6.2.2
         version: 6.2.2(@types/node@18.19.70)(tsx@4.19.3)
@@ -387,8 +387,8 @@ packages:
     peerDependencies:
       typescript: '>=4.0.0'
 
-  '@brillout/vite-plugin-server-entry@0.6.3':
-    resolution: {integrity: sha512-uSbzC4d0xIBxnt8JbrZiUb0iylHsHXyDNIi1sYf7bnr4HY6FcNMnSTE2C5FLIH1pc0qQXnvZzdw6tn/jEGM/6A==}
+  '@brillout/vite-plugin-server-entry@0.7.1':
+    resolution: {integrity: sha512-f4Mf4/5Lc8ScQwx15EkVfp34Zmt0o4pDG6zvNWxMNyCToUTs31RDCiXtIGTWck2AOIAiBkEeuM6vK0cA7cuU1Q==}
 
   '@cloudflare/kv-asset-handler@0.3.4':
     resolution: {integrity: sha512-YLPHc8yASwjNkmcDMQMY35yiWjoKAKnhUbPRszBRS0YgH+IXtsMp61j+yTcnCE3oO2DgP0U3iejLC8FTtKDC8Q==}
@@ -2344,8 +2344,8 @@ packages:
       vike: '>=0.4.195'
       vite: '>=5.0.0'
 
-  vike@0.4.225:
-    resolution: {integrity: sha512-p8rAj7O9aZcV3dduwFKd6Thg/olrK7I+2Gr52GFYBUjgEYy24dZUTQYc7L79/j5n5QeGN6Alknq7uSW6QwmB3w==}
+  vike@0.4.226:
+    resolution: {integrity: sha512-n21oo+bzqukfhnzLVntZvt3NlrzpVCR9CFGtbi2a9h1wnX4HcTcq1O4SyK5WDLWiFC4ejtvdWYa/qo8ZPK0NFg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -2683,7 +2683,7 @@ snapshots:
       source-map-support: 0.5.21
       typescript: 5.8.2
 
-  '@brillout/vite-plugin-server-entry@0.6.3':
+  '@brillout/vite-plugin-server-entry@0.7.1':
     dependencies:
       '@brillout/import': 0.2.6
       '@brillout/picocolors': 1.0.26
@@ -4350,24 +4350,24 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vike-solid@0.7.9(solid-js@1.9.5)(vike@0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)):
+  vike-solid@0.7.9(solid-js@1.9.5)(vike@0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)))(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)):
     dependencies:
       isbot-fast: 1.2.0
       solid-js: 1.9.5
-      vike: 0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
+      vike: 0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
       vite: 6.2.2(@types/node@18.19.70)(tsx@4.19.3)
       vite-plugin-solid: 2.11.6(solid-js@1.9.5)(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3))
     transitivePeerDependencies:
       - '@testing-library/jest-dom'
       - supports-color
 
-  vike@0.4.225(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)):
+  vike@0.4.226(vite@6.2.2(@types/node@18.19.70)(tsx@4.19.3)):
     dependencies:
       '@brillout/import': 0.2.6
       '@brillout/json-serializer': 0.5.15
       '@brillout/picocolors': 1.0.26
       '@brillout/require-shim': 0.1.2
-      '@brillout/vite-plugin-server-entry': 0.6.3
+      '@brillout/vite-plugin-server-entry': 0.7.1
       acorn: 8.14.0
       cac: 6.7.14
       es-module-lexer: 1.5.4
