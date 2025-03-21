@@ -93,9 +93,9 @@ export const pages = (): any => {
       configResolved: async (config) => {
         resolvedConfig = config;
         const vike = getVikeConfig(config);
-        assert2(vike);
+        assert2(vike!.prerenderContext);
+        shouldPrerender = vike.prerenderContext.isPrerenderingEnabled
         options = { server: vike.config.server };
-        shouldPrerender = isPrerenderEnabled(vike);
       },
       options(inputOptions) {
         assert(
@@ -112,7 +112,7 @@ export const pages = (): any => {
       writeBundle: {
         order: "post",
         sequential: true,
-        async handler(opts, bundle) {
+        async handler(_opts, bundle) {
           const outCloudflare = getOutDir(resolvedConfig, "cloudflare");
           const outClient = getOutDir(resolvedConfig, "client");
           const outServer = getOutDir(resolvedConfig, "server");
@@ -235,22 +235,6 @@ async function prerenderPages() {
   return filePaths;
 }
 
-type VikeConfig = ReturnType<typeof getVikeConfig>;
-type PrerenderSetting = VikeConfig["config"]["prerender"];
-function isPrerenderEnabled(vike: VikeConfig): boolean {
-  return (
-    isPrerenderValueEnabling(vike.config.prerender) ||
-    Object.values(vike.pages).some((page) => isPrerenderValueEnabling(page.config.prerender))
-  );
-}
-function isPrerenderValueEnabling(prerender: PrerenderSetting): boolean {
-  const val = prerender?.[0];
-  if (isObject(val)) return val.enable === undefined || val.enable === true;
-  return val === true;
-}
-function isObject(val: unknown): val is object {
-  return typeof val === "object" && val !== null;
-}
 function assert2(condition: unknown): asserts condition {
   assert(condition, "[Bug] Reach out to a maintainer");
 }
