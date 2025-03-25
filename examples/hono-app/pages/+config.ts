@@ -11,8 +11,8 @@ export default {
   // <title>
   title: "My Vike App",
   server: {
-    kind: "hono",
     entry: "hono-entry.ts",
   },
+  stream: "web",
   extends: [vikeSolid, vikeCloudflare],
 } satisfies Config;

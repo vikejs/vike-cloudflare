@@ -1,6 +1,4 @@
 // https://vike.dev/data
-
-import fetch from "cross-fetch";
 import type { PageContextServer } from "vike/types";
 import type { MovieDetails } from "../types.js";
 
