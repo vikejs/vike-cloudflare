@@ -74,8 +74,8 @@ importers:
         specifier: link:../../packages/vike-cloudflare
         version: link:../../packages/vike-cloudflare
       vike-server:
-        specifier: 1.0.0-beta.2-commit-a10cdd2
-        version: 1.0.0-beta.2-commit-a10cdd2(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3))
+        specifier: 1.0.0-beta.2-commit-0df9cef
+        version: 1.0.0-beta.2-commit-0df9cef(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3))
       wrangler:
         specifier: ^4.4.0
         version: 4.4.0(@cloudflare/workers-types@4.20250321.0)
@@ -123,8 +123,8 @@ importers:
         specifier: link:../../packages/vike-cloudflare
         version: link:../../packages/vike-cloudflare
       vike-server:
-        specifier: 1.0.0-beta.2-commit-a10cdd2
-        version: 1.0.0-beta.2-commit-a10cdd2(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3))
+        specifier: 1.0.0-beta.2-commit-0df9cef
+        version: 1.0.0-beta.2-commit-0df9cef(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3))
       wrangler:
         specifier: ^4.4.0
         version: 4.4.0(@cloudflare/workers-types@4.20250321.0)
@@ -166,8 +166,8 @@ importers:
         specifier: link:../../packages/vike-cloudflare
         version: link:../../packages/vike-cloudflare
       vike-server:
-        specifier: 1.0.0-beta.2-commit-a10cdd2
-        version: 1.0.0-beta.2-commit-a10cdd2(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3))
+        specifier: 1.0.0-beta.2-commit-0df9cef
+        version: 1.0.0-beta.2-commit-0df9cef(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3))
       wrangler:
         specifier: ^4.4.0
         version: 4.4.0(@cloudflare/workers-types@4.20250321.0)
@@ -178,8 +178,8 @@ importers:
         specifier: ^4.7.4
         version: 4.7.5
       vike-server:
-        specifier: 1.0.0-beta.2-commit-a10cdd2
-        version: 1.0.0-beta.2-commit-a10cdd2(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3))
+        specifier: 1.0.0-beta.2-commit-0df9cef
+        version: 1.0.0-beta.2-commit-0df9cef(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3))
     optionalDependencies:
       '@hattip/adapter-cloudflare-workers':
         specifier: ^0.0.49
@@ -1994,8 +1994,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vike-server@1.0.0-beta.2-commit-a10cdd2:
-    resolution: {integrity: sha512-8tzVSoAQ1rATWZC5YNSIEhub4qnOyKKRVePGLWFVIakMGsOhvei+QMmHVpQ7xMO0hQQJkOQbD76IfFF5riMKEA==}
+  vike-server@1.0.0-beta.2-commit-0df9cef:
+    resolution: {integrity: sha512-g2eSKUpMLk2yt0AtOuxlH2hCxkFdDYp0SQWwph2aCpQooWlwroyAfN0Uf+gazzCzUBetGIIhB6eRwrbMFZo3Jw==}
     peerDependencies:
       vike: ^0.4.227
       vite: '>=6'
@@ -3809,7 +3809,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vike-server@1.0.0-beta.2-commit-a10cdd2(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)):
+  vike-server@1.0.0-beta.2-commit-0df9cef(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.227(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.3(@types/node@18.19.83)(tsx@4.19.3)):
     dependencies:
       '@brillout/picocolors': 1.0.26
       '@brillout/vite-plugin-server-entry': 0.7.1

@@ -14,16 +14,25 @@ export function resolveConditionsPlugin(): Plugin {
     name: `${NAME}:resolve-conditions`,
     config(_config, env) {
       const isDev = env.command === "serve";
-      return {
-        ssr: {
-          ...(isDev ? {} : { noExternal: true }),
-          resolve: {
-            // https://github.com/cloudflare/workers-sdk/blob/515de6ab40ed6154a2e6579ff90b14b304809609/packages/wrangler/src/deployment-bundle/bundle.ts#L37
-            conditions: ["workerd", "worker", "browser", "development|production"],
-            builtins: [...cloudflareBuiltInModules],
-          },
-        },
-      };
+
+      return isDev
+        ? {
+            ssr: {
+              resolve: {
+                builtins: [...cloudflareBuiltInModules],
+              },
+            },
+          }
+        : {
+            ssr: {
+              noExternal: true,
+              resolve: {
+                // https://github.com/cloudflare/workers-sdk/blob/515de6ab40ed6154a2e6579ff90b14b304809609/packages/wrangler/src/deployment-bundle/bundle.ts#L37
+                conditions: ["workerd", "worker", "browser", "development|production"],
+                builtins: [...cloudflareBuiltInModules],
+              },
+            },
+          };
     },
   };
 }
