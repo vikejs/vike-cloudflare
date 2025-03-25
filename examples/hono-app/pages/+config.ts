@@ -13,5 +13,6 @@ export default {
   server: {
     entry: "hono-entry.ts",
   },
+  stream: "web",
   extends: [vikeSolid, vikeCloudflare],
 } satisfies Config;

@@ -13,5 +13,6 @@ export default {
   server: {
     entry: "hattip-entry.ts",
   },
+  stream: "web",
   extends: [vikeSolid, vikeServer, vikeCloudflare],
 } satisfies Config;
