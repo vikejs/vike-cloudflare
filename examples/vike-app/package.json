@@ -18,7 +18,7 @@
     "@types/node": "^18.19.70",
     "typescript": "^5.8.2",
     "vike-cloudflare": "^0.1.7",
-    "wrangler": "^4.0.0"
+    "wrangler": "^4.4.0"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
@@ -27,6 +27,6 @@
     "tsx": "^4.19.3",
     "vike": "^0.4.227",
     "vike-solid": "^0.7.9",
-    "vite": "^6.2.2"
+    "vite": "^6.2.3"
   }
 }
