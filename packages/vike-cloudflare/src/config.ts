@@ -6,14 +6,14 @@ import type { Config } from "vike/types";
 const config = {
   name: "vike-cloudflare",
   require: {
-    vike: ">=0.4.225",
+    vike: ">=0.4.226",
   },
   vite: {
     plugins: [...plugin()],
   },
   extends: ["import:vike-server/config"],
   prerender: {
-    value: null,
+    enable: null,
     disableAutoRun: true,
   },
   server: {

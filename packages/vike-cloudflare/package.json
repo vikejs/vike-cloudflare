@@ -25,11 +25,11 @@
     "esbuild-plugin-raw": "^0.1.8",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
-    "vike": "^0.4.225",
-    "vite": "^6.2.2"
+    "vike": "^0.4.226",
+    "vite": "^6.2.3"
   },
   "peerDependencies": {
-    "vike": ">=0.4.225",
+    "vike": ">=0.4.226",
     "vite": ">=5.3.0"
   },
   "optionalDependencies": {
