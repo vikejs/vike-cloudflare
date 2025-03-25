@@ -1,3 +1,49 @@
+# [0.2.0](https://github.com/vikejs/vike-cloudflare/compare/v0.1.7...v0.2.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* make `vike-cloudflare` a real Vike extension ([#37](https://github.com/vikejs/vike-cloudflare/issues/37)) ([#39](https://github.com/vikejs/vike-cloudflare/issues/39)) ([a003432](https://github.com/vikejs/vike-cloudflare/commit/a0034326f9dac1e7de100b4f44d401cb76a77795))
+* use `vike@>=0.4.227` ([#50](https://github.com/vikejs/vike-cloudflare/issues/50)) ([6064d3b](https://github.com/vikejs/vike-cloudflare/commit/6064d3b621b78c1e6179311d0c3272b53f7d9e3c))
+
+
+### Features
+
+* use `vike-server` ([#45](https://github.com/vikejs/vike-cloudflare/issues/45)) ([c140354](https://github.com/vikejs/vike-cloudflare/commit/c14035456ae9b5f71e60ed3bb431d6d2e3fe0cd4))
+
+
+### BREAKING CHANGES
+
+* `vike-cloudflare` is now a Vike extension. Check [migrating from `0.1.x` to `0.2.x`](https://vike.dev/migration/vike-cloudflare)
+* Use `vike@0.4.227` or above.
+* update vike to `>=0.4.219`
+
+* lint
+
+* fix: fix hattip build
+
+* chore: vike@^0.4.224
+
+* update
+
+* update peer dep
+
+* minor refactor
+
+* pnpm dedupe
+
+* re-run CI
+
+* re-run CI
+
+* re-run CI
+
+* re-run CI
+
+* re-run CI
+
+
+
 ## [0.1.7](https://github.com/vikejs/vike-cloudflare/compare/v0.1.6...v0.1.7) (2025-01-24)
 
 
