@@ -16,31 +16,6 @@
 
 * `vike-cloudflare` is now a Vike extension. Check [migrating from `0.1.x` to `0.2.x`](https://vike.dev/migration/vike-cloudflare)
 * Use `vike@0.4.227` or above.
-* update vike to `>=0.4.219`
-
-* lint
-
-* fix: fix hattip build
-
-* chore: vike@^0.4.224
-
-* update
-
-* update peer dep
-
-* minor refactor
-
-* pnpm dedupe
-
-* re-run CI
-
-* re-run CI
-
-* re-run CI
-
-* re-run CI
-
-* re-run CI
 
 
 
