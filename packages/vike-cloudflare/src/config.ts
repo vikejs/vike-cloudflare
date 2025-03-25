@@ -6,7 +6,7 @@ import type { Config } from "vike/types";
 const config = {
   name: "vike-cloudflare",
   require: {
-    vike: ">=0.4.226",
+    vike: ">=0.4.227",
   },
   vite: {
     plugins: [plugin()],
