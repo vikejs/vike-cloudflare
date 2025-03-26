@@ -12,25 +12,22 @@ const cloudflareBuiltInModules = [
 export function resolveConditionsPlugin(): Plugin {
   return {
     name: `${NAME}:resolve-conditions`,
-    config(_config, env) {
+    configEnvironment(_name, config, env) {
+      if (config.consumer !== "server") return;
       const isDev = env.command === "serve";
-
       return isDev
         ? {
-            ssr: {
-              resolve: {
-                builtins: [...cloudflareBuiltInModules],
-              },
+            resolve: {
+              noExternal: ["vike-cloudflare"],
+              builtins: [...cloudflareBuiltInModules],
             },
           }
         : {
-            ssr: {
+            resolve: {
               noExternal: true,
-              resolve: {
-                // https://github.com/cloudflare/workers-sdk/blob/515de6ab40ed6154a2e6579ff90b14b304809609/packages/wrangler/src/deployment-bundle/bundle.ts#L37
-                conditions: ["workerd", "worker", "browser", "development|production"],
-                builtins: [...cloudflareBuiltInModules],
-              },
+              // https://github.com/cloudflare/workers-sdk/blob/515de6ab40ed6154a2e6579ff90b14b304809609/packages/wrangler/src/deployment-bundle/bundle.ts#L37
+              conditions: ["workerd", "worker", "browser", "development|production"],
+              builtins: [...cloudflareBuiltInModules],
             },
           };
     },
