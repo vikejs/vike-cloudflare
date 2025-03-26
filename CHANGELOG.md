@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/vikejs/vike-cloudflare/compare/v0.2.0...v0.2.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* use configEnvironment instead of config. Fixes [#52](https://github.com/vikejs/vike-cloudflare/issues/52) ([#53](https://github.com/vikejs/vike-cloudflare/issues/53)) ([ac1272a](https://github.com/vikejs/vike-cloudflare/commit/ac1272accac90361be8d000865fcb22604420daf))
+
+
+
 # [0.2.0](https://github.com/vikejs/vike-cloudflare/compare/v0.1.7...v0.2.0) (2025-03-25)
 
 

@@ -19,7 +19,7 @@
     "@universal-middleware/core": "^0.4.4",
     "cross-env": "^7.0.3",
     "typescript": "^5.8.2",
-    "vike-cloudflare": "^0.2.0",
+    "vike-cloudflare": "^0.2.1",
     "vike-server": "^1.0.0",
     "wrangler": "^4.4.0"
   },
