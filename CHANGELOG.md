@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/vikejs/vike-cloudflare/compare/v0.2.1...v0.2.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* wrong resolve conditions applied in dev ([48d5fa7](https://github.com/vikejs/vike-cloudflare/commit/48d5fa70b2504eb9b4cba0f35e1a60f826f0c7e6))
+
+
+
 ## [0.2.1](https://github.com/vikejs/vike-cloudflare/compare/v0.2.0...v0.2.1) (2025-03-26)
 
 

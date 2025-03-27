@@ -18,7 +18,7 @@
     "@types/node": "^18.19.70",
     "@universal-middleware/core": "^0.4.4",
     "typescript": "^5.8.2",
-    "vike-cloudflare": "^0.2.1",
+    "vike-cloudflare": "^0.2.2",
     "vike-server": "^1.0.5",
     "wrangler": "^4.4.0"
   },
