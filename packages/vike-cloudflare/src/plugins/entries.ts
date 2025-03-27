@@ -10,6 +10,7 @@ import {
 import type { SupportedServers } from "../types";
 import { getAsset } from "../assets";
 import { getUserServerConfig } from "./utils/resolveServerConfig";
+import { assert } from "../assert";
 
 export function entriesPlugin(): Plugin[] {
   const resolvedPlugins = new Map<string, SupportedServers>();
@@ -102,10 +103,3 @@ const idsToServers: Record<string, SupportedServers> = {
   "vike-cloudflare/hattip": "hattip",
   "vike-server/hattip": "hattip",
 };
-
-function assert(condition: unknown, message?: string): asserts condition {
-  if (condition) {
-    return;
-  }
-  throw new Error(message);
-}

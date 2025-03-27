@@ -15,6 +15,7 @@ import { dirname, isAbsolute, join, posix, relative } from "node:path";
 import { prerender } from "vike/api";
 import { getVikeConfig } from "vike/plugin";
 import { getUserServerConfig } from "./utils/resolveServerConfig";
+import { assert } from "../assert";
 
 export function buildPlugin(): Plugin {
   let resolvedConfig: ResolvedConfig;
@@ -29,7 +30,7 @@ export function buildPlugin(): Plugin {
     async configResolved(config) {
       resolvedConfig = config;
       const vike = getVikeConfig(config);
-      assert2(vike);
+      assert(vike, "[Bug] Reach out to a maintainer");
       shouldPrerender = isPrerenderEnabled(vike);
     },
     config() {
@@ -172,13 +173,6 @@ function getOutDir(config: ResolvedConfig, force?: "client" | "server" | "cloudf
   return join(dirname(p), force);
 }
 
-function assert(condition: unknown, message?: string): asserts condition {
-  if (condition) {
-    return;
-  }
-  throw new Error(message);
-}
-
 async function prerenderPages() {
   const filePaths: string[] = [];
   await prerender({
@@ -208,7 +202,4 @@ function isPrerenderValueEnabling(prerender: PrerenderSetting): boolean {
 }
 function isObject(val: unknown): val is object {
   return typeof val === "object" && val !== null;
-}
-function assert2(condition: unknown): asserts condition {
-  assert(condition, "[Bug] Reach out to a maintainer");
 }

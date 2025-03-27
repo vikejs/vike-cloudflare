@@ -1,5 +1,6 @@
 import type { Plugin } from "vite";
 import { NAME } from "./const";
+import { assert } from "../assert";
 
 // https://github.com/cloudflare/workers-sdk/blob/4d9d9e6c830b32a0e9948ace32e20a1cdac3a53b/packages/vite-plugin-cloudflare/src/cloudflare-environment.ts#L114C1-L119C3
 const cloudflareBuiltInModules = [
@@ -12,14 +13,16 @@ const cloudflareBuiltInModules = [
 export function resolveConditionsPlugin(): Plugin {
   return {
     name: `${NAME}:resolve-conditions`,
-    configEnvironment(_name, config, env) {
+    enforce: "post",
+    configEnvironment(name, config, env) {
+      // Should have been set by `vike-server`
+      assert(config.consumer);
       if (config.consumer !== "server") return;
       const isDev = env.command === "serve";
       return isDev
         ? {
             resolve: {
               noExternal: ["vike-cloudflare"],
-              builtins: [...cloudflareBuiltInModules],
             },
           }
         : {

@@ -1,6 +1,7 @@
 import type { ResolvedConfig, UserConfig } from "vite";
 import { getVikeConfig } from "vike/plugin";
 import { resolveServerConfig } from "vike-server/api";
+import { assert } from "../../assert";
 
 export function getUserServerConfig(config: UserConfig | ResolvedConfig) {
   const vike = getVikeConfig(config);
@@ -11,11 +12,4 @@ export function getUserServerConfig(config: UserConfig | ResolvedConfig) {
   const server = servers[0];
   assert(server);
   return server;
-}
-
-function assert(condition: unknown, message?: string): asserts condition {
-  if (condition) {
-    return;
-  }
-  throw new Error(message);
 }
