@@ -25,7 +25,7 @@
     "esbuild-plugin-raw": "^0.1.8",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
-    "vike": "^0.4.227",
+    "vike": "^0.4.228",
     "vite": "^6.2.3"
   },
   "peerDependencies": {
