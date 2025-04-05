@@ -1,3 +1,12 @@
+## [0.2.3](https://github.com/vikejs/vike-cloudflare/compare/v0.2.2...v0.2.3) (2025-04-05)
+
+
+### Bug Fixes
+
+* avoid type mismatch between different Vite versions ([#56](https://github.com/vikejs/vike-cloudflare/issues/56)) ([7471fd3](https://github.com/vikejs/vike-cloudflare/commit/7471fd342e90d57b2dd8c568d06e41ad2c80af5e))
+
+
+
 ## [0.2.2](https://github.com/vikejs/vike-cloudflare/compare/v0.2.1...v0.2.2) (2025-03-27)
 
 
