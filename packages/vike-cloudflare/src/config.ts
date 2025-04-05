@@ -9,7 +9,11 @@ const config = {
     vike: ">=0.4.227",
   },
   vite: {
-    plugins: [...plugin()],
+    plugins: [
+      ...(plugin() as
+        // biome-ignore lint/suspicious/noExplicitAny: avoid type mismatch between different Vite versions
+        any[]),
+    ],
   },
   extends: ["import:vike-server/config"],
   prerender: {
