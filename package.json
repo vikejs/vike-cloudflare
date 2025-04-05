@@ -21,12 +21,12 @@
   "pnpm": {
     "overrides": {
       "vike-cloudflare": "link:./packages/vike-cloudflare/",
-      "esbuild": "^0.25.0"
+      "esbuild": "^0.25.2"
     }
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@brillout/test-e2e": "^0.6.4",
+    "@brillout/test-e2e": "^0.6.8",
     "@brillout/test-types": "^0.1.15",
     "playwright": "^1.51.1"
   },
