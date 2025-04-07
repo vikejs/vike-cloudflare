@@ -1,6 +1,6 @@
 import { createRouter } from "@hattip/router";
-import { apply } from "vike-cloudflare/hattip";
-import { serve } from "vike-cloudflare/hattip/serve";
+import { apply } from "vike-server/hattip";
+import { serve } from "vike-server/hattip/serve";
 
 function startServer() {
   const router = createRouter();

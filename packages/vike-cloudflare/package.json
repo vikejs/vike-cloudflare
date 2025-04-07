@@ -17,7 +17,7 @@
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "dependencies": {
     "hono": "^4.7.4",
-    "vike-server": "^1.0.5"
+    "vike-server": "1.0.14-commit-7e948b6"
   },
   "devDependencies": {
     "@brillout/release-me": "^0.4.3",
@@ -29,7 +29,7 @@
     "vite": "^6.2.5"
   },
   "peerDependencies": {
-    "vike": ">=0.4.227",
+    "vike": ">=0.4.228",
     "vite": ">=5.3.0"
   },
   "optionalDependencies": {
@@ -48,22 +48,6 @@
       "default": "./dist/index.js"
     },
     "./config": "./dist/config.js",
-    "./hono": {
-      "types": "./dist/hono.d.ts",
-      "default": "./dist/hono.js"
-    },
-    "./hono/serve": {
-      "types": "./dist/hono/serve.d.ts",
-      "default": "./dist/hono/serve.js"
-    },
-    "./hattip": {
-      "types": "./dist/hattip.d.ts",
-      "default": "./dist/hattip.js"
-    },
-    "./hattip/serve": {
-      "types": "./dist/hattip/serve.d.ts",
-      "default": "./dist/hattip/serve.js"
-    },
     "./types": {
       "types": "./vike.d.ts"
     }

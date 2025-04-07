@@ -2,6 +2,7 @@ export { config as default };
 
 import { pages as plugin } from "./plugins";
 import type { Config } from "vike/types";
+import { vikeServer } from "vike-server/plugin";
 
 const config = {
   name: "vike-cloudflare",
@@ -9,23 +10,20 @@ const config = {
     vike: ">=0.4.227",
   },
   vite: {
-    plugins: [
-      ...(plugin() as
-        // biome-ignore lint/suspicious/noExplicitAny: avoid type mismatch between different Vite versions
-        any[]),
-    ],
+    // biome-ignore lint/suspicious/noExplicitAny: avoid type mismatch between different Vite versions
+    plugins: [...plugin(), vikeServer()] as any[],
   },
-  extends: ["import:vike-server/config"],
   prerender: {
     enable: null,
     disableAutoRun: true,
   },
-  server: {
-    entry: "virtual:vike-cloudflare:auto-entry",
-    // We're using rollup's noExternal instead
-    // @ts-ignore
-    standalone: false,
+  meta: {
+    server: {
+      env: { config: true },
+      global: true,
+    },
   },
+  vite6BuilderApp: true,
 } satisfies Config;
 
 declare global {
@@ -34,11 +32,6 @@ declare global {
       server?: {
         entry: string;
       };
-    }
-    interface ConfigResolved {
-      server?: {
-        entry: string;
-      }[];
     }
   }
 }
