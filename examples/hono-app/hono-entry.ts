@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import { apply } from "vike-cloudflare/hono";
-import { serve } from "vike-cloudflare/hono/serve";
+import { apply } from "vike-server/hono";
+import { serve } from "vike-server/hono/serve";
 
 function startServer() {
   console.log(`process.env.NODE_ENV === ${JSON.stringify(process.env.NODE_ENV)}`);
