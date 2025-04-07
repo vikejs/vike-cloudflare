@@ -2,6 +2,7 @@
 import type { Plugin } from "vite";
 import {
   NAME,
+  resolvedVirtualDefaultEntryId,
   resolvedVirtualWorkerEntryId,
   virtualDefaultEntryId,
   virtualUserEntryId,
@@ -57,6 +58,9 @@ export function entriesPlugin(): Plugin[] {
             isEntry: true,
           });
         }
+        if (id === virtualDefaultEntryId) {
+          return resolvedVirtualDefaultEntryId;
+        }
       },
 
       async config(userConfig) {
@@ -79,7 +83,12 @@ export function entriesPlugin(): Plugin[] {
       },
 
       async load(id) {
-        if (id === virtualDefaultEntryId) {
+        if (id === resolvedVirtualDefaultEntryId) {
+          const resolved = await Promise.all([this.resolve("hono"), this.resolve("vike-server")]);
+          // FIXME
+          assert(resolved[0], "Add 'hono' as a dependency");
+          assert(resolved[0], "Add 'vike-server' as a 'dependency'");
+
           return getAsset("hono-dev");
         }
       },

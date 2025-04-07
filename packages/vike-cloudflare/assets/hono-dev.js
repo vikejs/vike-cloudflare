@@ -1,5 +1,6 @@
-import { apply, Hono } from "vike-cloudflare/hono";
-import { serve } from "vike-cloudflare/hono/serve";
+import { apply } from "vike-server/hono";
+import { serve } from "vike-server/hono/serve";
+import { Hono } from "hono";
 
 function startServer() {
   const app = new Hono();

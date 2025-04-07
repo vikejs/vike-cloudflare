@@ -144,7 +144,15 @@ async function symlinkOrCopy(target: string, path: string) {
   } else {
     const parent = dirname(path);
     await mkdir(parent, { recursive: true }).catch(() => {});
-    await symlink(posix.relative(parent, target), path);
+    try {
+      await symlink(posix.relative(parent, target), path);
+    } catch (error) {
+      if (error instanceof Error && "code" in error && error.code === "EEXIST") {
+        // do nothing
+      } else {
+        throw error;
+      }
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 import "virtual:@brillout/vite-plugin-server-entry:serverEntry";
-import { Hono } from "vike-cloudflare/hono";
 import app from "virtual:vike-cloudflare:user-entry";
+import { Hono } from "hono";
 
 const worker = new Hono();
 
