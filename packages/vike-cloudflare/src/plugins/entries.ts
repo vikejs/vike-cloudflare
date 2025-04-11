@@ -1,17 +1,9 @@
-/// <reference types="vike-server/api" />
+/// <reference types="@photonjs/core/api" />
 import type { Plugin } from "vite";
-import {
-  NAME,
-  resolvedVirtualDefaultEntryId,
-  resolvedVirtualWorkerEntryId,
-  virtualDefaultEntryId,
-  virtualUserEntryId,
-  virtualWorkerEntryId,
-} from "./const";
+import { NAME, resolvedVirtualWorkerEntryId, virtualUserEntryId, virtualWorkerEntryId } from "./const";
 import type { SupportedServers } from "../types";
 import { getAsset } from "../assets";
 import { assert } from "../assert";
-import { getVikeConfig } from "vike/plugin";
 
 const supportedServers = ["hono", "hattip"];
 
@@ -32,8 +24,8 @@ export function entriesPlugin(): Plugin[] {
             isEntry: true,
           });
           assert(resolved);
-          const loaded = await this.load({ ...resolved, resolveDependencies: true });
-          console.log("LOADED", entry, loaded);
+          // Ensures that photonjs meta are up to date!
+          await this.load({ ...resolved, resolveDependencies: true });
 
           if (entry.type === "server") {
             assert(
@@ -50,46 +42,10 @@ export function entriesPlugin(): Plugin[] {
       },
     },
     {
-      name: `${NAME}:resolve-entries:default-server`,
-
+      name: `${NAME}:resolve-user-entry`,
       resolveId(id) {
         if (id === virtualUserEntryId) {
-          return this.resolve(this.environment.config.photonjs.entry.index.id, undefined, {
-            isEntry: true,
-          });
-        }
-        if (id === virtualDefaultEntryId) {
-          return resolvedVirtualDefaultEntryId;
-        }
-      },
-
-      async config(userConfig) {
-        const vikeConfig = getVikeConfig(userConfig);
-
-        // No server provided by the user, we default to hono-dev
-        if (!vikeConfig.config.server) {
-          return {
-            photonjs: {
-              entry: {
-                index: {
-                  id: virtualDefaultEntryId,
-                  type: "server",
-                  server: "hono",
-                },
-              },
-            },
-          };
-        }
-      },
-
-      async load(id) {
-        if (id === resolvedVirtualDefaultEntryId) {
-          const resolved = await Promise.all([this.resolve("hono"), this.resolve("vike-server")]);
-          // FIXME
-          assert(resolved[0], "Add 'hono' as a dependency");
-          assert(resolved[0], "Add 'vike-server' as a 'dependency'");
-
-          return getAsset("hono-dev");
+          return this.resolve(this.environment.config.photonjs.entry.index.id, undefined, { isEntry: true });
         }
       },
     },

@@ -19,10 +19,10 @@
     "@universal-middleware/core": "^0.4.4",
     "typescript": "^5.8.2",
     "vike-cloudflare": "^0.2.3",
-    "vike-server": "1.0.14-commit-7e948b6",
     "wrangler": "^4.4.0"
   },
   "dependencies": {
+    "@photonjs/core": "0.0.1-commit-1f5ba61",
     "@universal-middleware/hono": "^0.4.6",
     "cross-env": "^7.0.3",
     "hono": "^4.7.5",

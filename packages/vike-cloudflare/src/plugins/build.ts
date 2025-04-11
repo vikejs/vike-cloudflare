@@ -1,4 +1,4 @@
-/// <reference types="vike-server/api" />
+/// <reference types="@photonjs/core/api" />
 import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
 import { isCI, isWin, NAME, ROUTES_JSON_NAME, virtualWorkerEntryId, WORKER_JS_NAME } from "./const";
 import { cp, mkdir, readdir, symlink, writeFile } from "node:fs/promises";

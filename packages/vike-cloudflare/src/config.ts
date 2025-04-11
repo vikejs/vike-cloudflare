@@ -2,6 +2,7 @@ export { config as default };
 
 import { pages as plugin } from "./plugins";
 import type { Config } from "vike/types";
+import photonjs from "@photonjs/core/plugin";
 import { vikeServer } from "vike-server/plugin";
 
 const config = {
@@ -11,7 +12,7 @@ const config = {
   },
   vite: {
     // biome-ignore lint/suspicious/noExplicitAny: avoid type mismatch between different Vite versions
-    plugins: [...plugin(), vikeServer()] as any[],
+    plugins: [...plugin(), photonjs(), vikeServer()] as any[],
   },
   prerender: {
     enable: null,
