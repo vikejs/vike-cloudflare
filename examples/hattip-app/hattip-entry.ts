@@ -1,6 +1,5 @@
 import { createRouter } from "@hattip/router";
-import { apply } from "vike-server/hattip";
-import { serve } from "vike-server/hattip/serve";
+import { apply, serve } from "@photonjs/core/hattip";
 
 function startServer() {
   console.log(`process.env.NODE_ENV === ${JSON.stringify(process.env.NODE_ENV)}`);

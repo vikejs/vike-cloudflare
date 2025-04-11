@@ -8,5 +8,3 @@ export const isCI = Boolean(process.env.CI);
 export const virtualWorkerEntryId = "virtual:vike-cloudflare:worker-entry";
 export const resolvedVirtualWorkerEntryId = `\0${virtualWorkerEntryId}`;
 export const virtualUserEntryId = "virtual:vike-cloudflare:user-entry";
-export const virtualDefaultEntryId = "virtual:vike-cloudflare:default-entry";
-export const resolvedVirtualDefaultEntryId = `\0${virtualDefaultEntryId}`;

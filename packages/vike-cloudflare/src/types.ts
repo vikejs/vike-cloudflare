@@ -1,4 +1,4 @@
-export type SupportedServers = "hono" | "hono-dev" | "hattip";
+export type SupportedServers = "hono" | "hattip";
 
 export interface VikeCloudflarePagesOptions {
   server?: {

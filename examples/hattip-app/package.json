@@ -1,31 +1,37 @@
 {
+  "name": "hattip-app",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
   "type": "module",
   "scripts": {
     "dev": "vike dev",
     "build": "vike build",
     "preview": "vike build && cross-env NODE_ENV=production wrangler pages dev",
     "deploy": "vike build && cross-env NODE_ENV=production wrangler pages deploy",
-    "test:types": "tsc --noEmit"
+    "test": "tsc --noEmit"
   },
+  "keywords": [],
+  "author": "",
   "devDependencies": {
-    "@auth/core": "^0.40.0",
+    "@auth/core": "^0.38.0",
     "@hattip/adapter-cloudflare-workers": "^0.0.49",
-    "@universal-middleware/core": "^0.4.9",
+    "@universal-middleware/core": "^0.4.4",
     "cross-env": "^7.0.3",
-    "typescript": "^5.9.2",
-    "vike-cloudflare": "^0.2.7",
-    "vike-server": "1.0.14-commit-7e948b6",
-    "wrangler": "^4.28.0"
+    "typescript": "^5.8.2",
+    "vike-cloudflare": "^0.2.3",
+    "wrangler": "^4.4.0"
   },
   "dependencies": {
     "@hattip/core": "^0.0.49",
     "@hattip/router": "^0.0.49",
-    "@universal-middleware/hattip": "^0.4.12",
+    "@photonjs/core": "0.0.1-commit-1f5ba61",
+    "@universal-middleware/hattip": "^0.4.5",
     "hattip": "^0.0.33",
     "lowdb": "^7.0.1",
-    "solid-js": "^1.9.7",
-    "vike": "^0.4.236",
-    "vike-solid": "^0.7.12",
-    "vite": "^7.0.6"
+    "solid-js": "^1.9.5",
+    "vike": "^0.4.228",
+    "vike-solid": "^0.7.9",
+    "vite": "^6.2.5"
   }
 }
