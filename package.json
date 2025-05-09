@@ -21,6 +21,7 @@
   "pnpm": {
     "overrides": {
       "vike-cloudflare": "link:./packages/vike-cloudflare/",
+      "@photonjs/core": "0.0.1-commit-1f5ba61",
       "esbuild": "^0.25.0"
     }
   },

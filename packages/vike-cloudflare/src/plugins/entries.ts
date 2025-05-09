@@ -1,105 +1,53 @@
+/// <reference types="@photonjs/core/api" />
 import type { Plugin } from "vite";
-import {
-  NAME,
-  resolvedVirtualProdEntryId,
-  resolvedVirtualUserEntryId,
-  virtualEntryAuto,
-  virtualProdEntryId,
-  virtualUserEntryId,
-} from "./const";
+import { NAME, resolvedVirtualWorkerEntryId, virtualUserEntryId, virtualWorkerEntryId } from "./const";
 import type { SupportedServers } from "../types";
 import { getAsset } from "../assets";
-import { getUserServerConfig } from "./utils/resolveServerConfig";
 import { assert } from "../assert";
 
-export function entriesPlugin(): Plugin[] {
-  const resolvedPlugins = new Map<string, SupportedServers>();
+const supportedServers = ["hono", "hattip"];
 
+export function entriesPlugin(): Plugin[] {
   return [
-    {
-      name: `${NAME}:resolve-entries:pre`,
-      enforce: "pre",
-      apply: "build",
-      async resolveId(id, importer, opts) {
-        if (id in idsToServers) {
-          const resolved = await this.resolve(id, importer, opts);
-          if (resolved) {
-            resolvedPlugins.set(resolved.id, idsToServers[id]);
-          }
-        }
-      },
-    },
     {
       name: `${NAME}:resolve-entries:prod`,
       apply: "build",
-      async resolveId(id, importer, opts) {
-        if (id === virtualEntryAuto || id === virtualProdEntryId) {
-          return resolvedVirtualProdEntryId;
+      async resolveId(id) {
+        if (id === virtualWorkerEntryId) {
+          return resolvedVirtualWorkerEntryId;
         }
       },
       async load(id) {
-        if (id === resolvedVirtualProdEntryId) {
-          const server = getUserServerConfig(this.environment.config);
+        if (id === resolvedVirtualWorkerEntryId) {
+          const entry = this.environment.config.photonjs.entry.index;
+          const resolved = await this.resolve(this.environment.config.photonjs.entry.index.id, undefined, {
+            isEntry: true,
+          });
+          assert(resolved);
+          // Ensures that photonjs meta are up to date!
+          await this.load({ ...resolved, resolveDependencies: true });
 
-          if (server) {
-            // Resolve entry graph until we find a plugin
-            const loaded = await this.load({ id: server.entry.index, resolveDependencies: true });
-            const graph = new Set([...loaded.importedIdResolutions, ...loaded.dynamicallyImportedIdResolutions]);
+          if (entry.type === "server") {
+            assert(
+              supportedServers.includes(entry.server),
+              `[${NAME}] Only "hono" and "hattip" are supported, found "${entry.server}"`,
+            );
 
-            let found: SupportedServers | undefined;
-            for (const imported of graph.values()) {
-              found = resolvedPlugins.get(imported.id);
-              if (found) break;
-              if (imported.external) continue;
-              const sub = await this.load({ id: imported.id, resolveDependencies: true });
-              for (const imp of [...sub.importedIdResolutions, ...sub.dynamicallyImportedIdResolutions]) {
-                graph.add(imp);
-              }
-            }
-            assert(found, `[${NAME}] Cannot find "vike-cloudflare/hattip" or "vike-cloudflare/hono" in server entry`);
-
-            return getAsset(found);
+            return getAsset(entry.server as SupportedServers);
           }
 
-          // Default to hono
-          return getAsset("hono");
+          // TODO handle universal-middleware
+          assert(false, `[${NAME}] Unsupported entry type "${entry.type}"`);
         }
       },
     },
     {
-      name: `${NAME}:resolve-entries:user`,
-      async resolveId(id) {
-        if (id === virtualEntryAuto || id === virtualUserEntryId || id === resolvedVirtualUserEntryId) {
-          const server = getUserServerConfig(this.environment.config);
-
-          if (server) {
-            const resolved = await this.resolve(server.entry.index);
-            assert(resolved, `[${NAME}] Cannot resolve ${server.entry.index}`);
-
-            return resolved;
-          }
-
-          // Not a \0 id so that `vike-server` can resolve it
-          return resolvedVirtualUserEntryId;
-        }
-      },
-      async load(id) {
-        if (id === resolvedVirtualUserEntryId) {
-          const server = getUserServerConfig(this.environment.config);
-          if (server) {
-            // Should have already been resolved by resolveId hook
-            assert(false);
-          }
-          return getAsset("hono-dev");
+      name: `${NAME}:resolve-user-entry`,
+      resolveId(id) {
+        if (id === virtualUserEntryId) {
+          return this.resolve(this.environment.config.photonjs.entry.index.id, undefined, { isEntry: true });
         }
       },
     },
   ];
 }
-
-const idsToServers: Record<string, SupportedServers> = {
-  "vike-cloudflare/hono": "hono",
-  "vike-server/hono": "hono",
-  "vike-cloudflare/hattip": "hattip",
-  "vike-server/hattip": "hattip",
-};
