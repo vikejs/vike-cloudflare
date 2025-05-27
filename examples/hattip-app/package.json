@@ -20,12 +20,12 @@
     "cross-env": "^7.0.3",
     "typescript": "^5.8.2",
     "vike-cloudflare": "^0.2.3",
-    "vike-server": "^1.0.5",
     "wrangler": "^4.4.0"
   },
   "dependencies": {
     "@hattip/core": "^0.0.49",
     "@hattip/router": "^0.0.49",
+    "@photonjs/core": "0.0.1-commit-1f5ba61",
     "@universal-middleware/hattip": "^0.4.5",
     "hattip": "^0.0.33",
     "lowdb": "^7.0.1",

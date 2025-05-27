@@ -1,6 +1,5 @@
 import { createRouter } from "@hattip/router";
-import { apply } from "vike-cloudflare/hattip";
-import { serve } from "vike-cloudflare/hattip/serve";
+import { apply, serve } from "@photonjs/core/hattip";
 
 function startServer() {
   const router = createRouter();

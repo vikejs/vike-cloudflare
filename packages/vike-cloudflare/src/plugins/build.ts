@@ -1,34 +1,23 @@
+/// <reference types="@photonjs/core/api" />
 import { normalizePath, type Plugin, type ResolvedConfig } from "vite";
-import {
-  isCI,
-  isWin,
-  NAME,
-  ROUTES_JSON_NAME,
-  virtualProdEntryId,
-  virtualUserEntryId,
-  WORKER_JS_NAME,
-  WORKER_NAME,
-} from "./const";
-import { cp, mkdir, readdir, rm, symlink, writeFile } from "node:fs/promises";
+import { isCI, isWin, NAME, ROUTES_JSON_NAME, virtualWorkerEntryId, WORKER_JS_NAME } from "./const";
+import { cp, mkdir, readdir, symlink, writeFile } from "node:fs/promises";
 import { builtinModules } from "node:module";
-import { dirname, isAbsolute, join, posix, relative } from "node:path";
+import { dirname, isAbsolute, join, posix } from "node:path";
 import { prerender } from "vike/api";
 import { getVikeConfig } from "vike/plugin";
-import { getUserServerConfig } from "./utils/resolveServerConfig";
 import { assert } from "../assert";
 
 export function buildPlugin(): Plugin {
-  let resolvedConfig: ResolvedConfig;
   let shouldPrerender = false;
 
   return {
     name: NAME,
     enforce: "post",
     applyToEnvironment(env) {
-      return env.name === "ssr";
+      return env.name === "cloudflare";
     },
     async configResolved(config) {
-      resolvedConfig = config;
       const vike = getVikeConfig(config);
       assert(vike, "[Bug] Reach out to a maintainer");
       shouldPrerender = isPrerenderEnabled(vike);
@@ -52,36 +41,42 @@ export function buildPlugin(): Plugin {
             },
           },
         },
+        builder: {
+          async buildApp(builder) {
+            await builder.build(builder.environments.client);
+            await builder.build(builder.environments.ssr);
+            await builder.build(builder.environments.cloudflare);
+          },
+        },
       };
     },
-    options(inputOptions) {
-      inputOptions.input ??= {};
-      // FIXME use emitFile
-      assert(
-        typeof inputOptions.input === "object" && !Array.isArray(inputOptions.input),
-        `[${NAME}] input should be an object. Aborting`,
-      );
-
-      inputOptions.input[WORKER_NAME] = virtualProdEntryId;
-
-      const server = getUserServerConfig(this.environment.config);
-      if (server) {
-        inputOptions.input["cloudflare-server-entry"] = virtualUserEntryId;
-      }
+    buildStart(this) {
+      this.emitFile({
+        type: "chunk",
+        fileName: WORKER_JS_NAME,
+        id: virtualWorkerEntryId,
+      });
     },
+
     writeBundle: {
       order: "post",
       sequential: true,
       async handler(opts, bundle) {
-        const outCloudflare = getOutDir(resolvedConfig, "cloudflare");
-        const outClient = getOutDir(resolvedConfig, "client");
-        const outServer = getOutDir(resolvedConfig, "server");
+        const outCloudflare = getOutDir(this.environment.config, "cloudflare");
+        const outClient = getOutDir(this.environment.config, "client");
+        const outServer = getOutDir(this.environment.config, "server");
 
-        // 1. Ensure empty `dist/cloudflare` folder
-        await rm(outCloudflare, { recursive: true, force: true });
-        await mkdir(outCloudflare, { recursive: true });
+        console.log({
+          outCloudflare,
+          outClient,
+          outServer,
+        });
 
-        let staticRoutes: string[] = [];
+        // // 1. Ensure empty `dist/cloudflare` folder
+        // await rm(outCloudflare, { recursive: true, force: true });
+        // await mkdir(outCloudflare, { recursive: true });
+
+        const staticRoutes: string[] = [];
 
         // 2. Symlink `dist/client/*` to `dist/cloudflare/*`
         for (const file of await readdir(outClient, {
@@ -96,22 +91,24 @@ export function buildPlugin(): Plugin {
         }
 
         // 3. Symlink `dist/server` to `dist/cloudflare/server`
-        await symlinkOrCopy(outServer, join(outCloudflare, "server"));
+        // await symlinkOrCopy(outServer, join(outCloudflare, "server"));
 
-        if (shouldPrerender) {
-          // 4. Prerender
-          const filePaths = await prerenderPages();
-          const relPaths = filePaths.map((path) => relative(outClient, path));
-          for (const relPath of relPaths) {
-            await symlinkOrCopy(join(outClient, relPath), join(outCloudflare, relPath));
-          }
+        // TODO
+        // if (shouldPrerender) {
+        //   // 4. Prerender
+        //   const filePaths = await prerenderPages();
+        //   const relPaths = filePaths.map((path) => relative(outClient, path));
+        //   for (const relPath of relPaths) {
+        //     await symlinkOrCopy(join(outClient, relPath), join(outCloudflare, relPath));
+        //   }
+        //
+        //   staticRoutes = relPaths
+        //     .map(normalizePath)
+        //     .map((m) => `/${m.endsWith(".html") ? m.slice(0, -5) : m}`)
+        //     .map((m) => (m.endsWith("/index") ? m.slice(0, -5) : m));
+        // }
 
-          staticRoutes = relPaths
-            .map(normalizePath)
-            .map((m) => `/${m.endsWith(".html") ? m.slice(0, -5) : m}`)
-            .map((m) => (m.endsWith("/index") ? m.slice(0, -5) : m));
-        }
-
+        // TODO use emitFile
         // 5. Create _routes.json
         await writeFile(
           join(outCloudflare, ROUTES_JSON_NAME),
@@ -124,25 +121,6 @@ export function buildPlugin(): Plugin {
             undefined,
             2,
           ),
-          "utf-8",
-        );
-
-        // 6. Create _worker.js
-        const res = Object.entries(bundle).find(([_, value]) => {
-          return value.type === "chunk" && value.isEntry && value.name === WORKER_NAME;
-        });
-
-        if (!res) {
-          throw new Error(`Cannot find ${WORKER_NAME} entry`);
-        }
-
-        const [chunkPath] = res;
-
-        await writeFile(
-          join(outCloudflare, WORKER_JS_NAME),
-          `import handler from "./server/${chunkPath}";
-export default handler;
-`,
           "utf-8",
         );
       },
@@ -163,7 +141,15 @@ async function symlinkOrCopy(target: string, path: string) {
   } else {
     const parent = dirname(path);
     await mkdir(parent, { recursive: true }).catch(() => {});
-    await symlink(posix.relative(parent, target), path);
+    try {
+      await symlink(posix.relative(parent, target), path);
+    } catch (error) {
+      if (error instanceof Error && "code" in error && error.code === "EEXIST") {
+        // do nothing
+      } else {
+        throw error;
+      }
+    }
   }
 }
 
