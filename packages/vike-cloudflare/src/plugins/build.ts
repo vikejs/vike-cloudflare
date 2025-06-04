@@ -9,7 +9,7 @@ import {
   WORKER_JS_NAME,
   WORKER_NAME,
 } from "./const";
-import { cp, mkdir, readdir, rm, symlink, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, rm, symlink, writeFile, stat, unlink } from "node:fs/promises";
 import { builtinModules } from "node:module";
 import { dirname, isAbsolute, join, posix, relative } from "node:path";
 import { prerender } from "vike/api";
@@ -163,6 +163,12 @@ async function symlinkOrCopy(target: string, path: string) {
   } else {
     const parent = dirname(path);
     await mkdir(parent, { recursive: true }).catch(() => {});
+    // Check for existance of existing symlinks/files
+    const stats = await stat(path).catch(() => null);
+    if (stats) {
+      assert(!stats.isSymbolicLink(), `[${NAME}] File or directory already exists at ${path}. Aborting`);
+      await unlink(path);
+    }
     await symlink(posix.relative(parent, target), path);
   }
 }
