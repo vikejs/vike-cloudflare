@@ -1,6 +1,6 @@
 {
   "name": "vike-cloudflare",
-  "version": "0.1.7",
+  "version": "0.2.3",
   "description": "Cloudflare adapter for Vike",
   "license": "MIT",
   "type": "module",
@@ -15,18 +15,21 @@
     "cloudflare"
   ],
   "author": "Joël Charles <joel.charles91@gmail.com>",
+  "dependencies": {
+    "hono": "^4.7.4",
+    "vike-server": "^1.0.5"
+  },
   "devDependencies": {
     "@brillout/release-me": "^0.4.3",
     "@hattip/adapter-cloudflare-workers": "^0.0.49",
     "esbuild-plugin-raw": "^0.1.8",
-    "hono": "^4.6.16",
-    "tsup": "^8.3.5",
-    "typescript": "^5.7.3",
-    "vike": "^0.4.219",
-    "vite": "^6.0.7"
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "vike": "^0.4.228",
+    "vite": "^6.2.5"
   },
   "peerDependencies": {
-    "vike": "^0.4.174",
+    "vike": ">=0.4.227",
     "vite": ">=5.3.0"
   },
   "optionalDependencies": {
@@ -43,6 +46,23 @@
       "node": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./config": "./dist/config.js",
+    "./hono": {
+      "types": "./dist/hono.d.ts",
+      "default": "./dist/hono.js"
+    },
+    "./hono/serve": {
+      "types": "./dist/hono/serve.d.ts",
+      "default": "./dist/hono/serve.js"
+    },
+    "./hattip": {
+      "types": "./dist/hattip.d.ts",
+      "default": "./dist/hattip.js"
+    },
+    "./hattip/serve": {
+      "types": "./dist/hattip/serve.d.ts",
+      "default": "./dist/hattip/serve.js"
     },
     "./types": {
       "types": "./vike.d.ts"
