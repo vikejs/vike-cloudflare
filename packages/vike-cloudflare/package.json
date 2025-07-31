@@ -1,6 +1,6 @@
 {
   "name": "vike-cloudflare",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Cloudflare adapter for Vike",
   "license": "MIT",
   "type": "module",

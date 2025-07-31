@@ -1,3 +1,12 @@
+## [0.2.4](https://github.com/vikejs/vike-cloudflare/compare/v0.2.3...v0.2.4) (2025-07-31)
+
+
+### Bug Fixes
+
+* assets are not served if prerendering is active. Fixes [#66](https://github.com/vikejs/vike-cloudflare/issues/66) ([72a8f19](https://github.com/vikejs/vike-cloudflare/commit/72a8f191e70585e6a760081f974052e15b768668))
+
+
+
 ## [0.2.3](https://github.com/vikejs/vike-cloudflare/compare/v0.2.2...v0.2.3) (2025-04-05)
 
 
