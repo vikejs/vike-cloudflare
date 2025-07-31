@@ -383,9 +383,6 @@ packages:
     peerDependencies:
       typescript: '>=4.0.0'
 
-  '@brillout/vite-plugin-server-entry@0.7.1':
-    resolution: {integrity: sha512-f4Mf4/5Lc8ScQwx15EkVfp34Zmt0o4pDG6zvNWxMNyCToUTs31RDCiXtIGTWck2AOIAiBkEeuM6vK0cA7cuU1Q==}
-
   '@brillout/vite-plugin-server-entry@0.7.5':
     resolution: {integrity: sha512-OHMTJrAY2gGFA231VnUrGM/gZNkhZAa5cCYA7BQ7V0EGDBOIUxMmTxmrSdnUWfbzLG7H5CP+x19mfwGNnoy52Q==}
 
@@ -1808,6 +1805,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   spdx-correct@3.2.0:
     resolution: {integrity: sha512-kN9dJbvnySHULIluDHy32WHRUu3Og7B9sbY7tsFLctQkIqnMh3hErYgdMjTYuqmcXX+lK5T1lnUt3G7zNswmZA==}
@@ -2354,11 +2352,6 @@ snapshots:
       fast-glob: 3.3.3
       source-map-support: 0.5.21
       typescript: 5.8.2
-
-  '@brillout/vite-plugin-server-entry@0.7.1':
-    dependencies:
-      '@brillout/import': 0.2.6
-      '@brillout/picocolors': 1.0.26
 
   '@brillout/vite-plugin-server-entry@0.7.5':
     dependencies:
@@ -3827,7 +3820,7 @@ snapshots:
   vike-server@1.0.5(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.228(vite@6.2.5(@types/node@18.19.83)(tsx@4.19.3)))(vite@6.2.5(@types/node@18.19.83)(tsx@4.19.3)):
     dependencies:
       '@brillout/picocolors': 1.0.26
-      '@brillout/vite-plugin-server-entry': 0.7.1
+      '@brillout/vite-plugin-server-entry': 0.7.5
       '@universal-middleware/compress': 0.2.22
       '@universal-middleware/core': 0.4.5(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)
       '@universal-middleware/elysia': 0.4.6(@cloudflare/workers-types@4.20250321.0)(@hattip/core@0.0.49)(hono@4.7.5)
