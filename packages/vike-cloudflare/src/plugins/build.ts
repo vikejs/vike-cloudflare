@@ -119,7 +119,7 @@ export function buildPlugin(): Plugin {
             {
               version: 1,
               include: ["/*"],
-              exclude: staticRoutes,
+              exclude: ["/assets/*", ...staticRoutes],
             },
             undefined,
             2,
