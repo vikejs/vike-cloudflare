@@ -30,7 +30,7 @@ export function buildPlugin(): Plugin {
     async configResolved(config) {
       resolvedConfig = config;
       const vike = getVikeConfig(config);
-      assert(vike, "[Bug] Reach out to a maintainer");
+      assert(vike);
       shouldPrerender = isPrerenderEnabled(vike);
     },
     config() {
@@ -72,7 +72,7 @@ export function buildPlugin(): Plugin {
     writeBundle: {
       order: "post",
       sequential: true,
-      async handler(opts, bundle) {
+      async handler(_opts, bundle) {
         const outCloudflare = getOutDir(resolvedConfig, "cloudflare");
         const outClient = getOutDir(resolvedConfig, "client");
         const outServer = getOutDir(resolvedConfig, "server");
@@ -98,9 +98,12 @@ export function buildPlugin(): Plugin {
         // 3. Symlink `dist/server` to `dist/cloudflare/server`
         await symlinkOrCopy(outServer, join(outCloudflare, "server"));
 
+        // 4. Prerender
         if (shouldPrerender) {
-          // 4. Prerender
-          const filePaths = await prerenderPages();
+          await prerender();
+          const vike = getVikeConfig(resolvedConfig);
+          assert(vike.prerenderContext.output);
+          const filePaths = vike.prerenderContext.output.map((o) => o.filePath);
           const relPaths = filePaths.map((path) => relative(outClient, path));
           for (const relPath of relPaths) {
             await symlinkOrCopy(join(outClient, relPath), join(outCloudflare, relPath));
@@ -171,20 +174,6 @@ function getOutDir(config: ResolvedConfig, force?: "client" | "server" | "cloudf
   const p = join(config.root, normalizePath(config.build.outDir));
   if (!force) return p;
   return join(dirname(p), force);
-}
-
-async function prerenderPages() {
-  const filePaths: string[] = [];
-  await prerender({
-    // biome-ignore lint/suspicious/noExplicitAny: TODO
-    async onPagePrerender(page: any) {
-      const result = page._prerenderResult;
-      filePaths.push(result.filePath);
-      await mkdir(dirname(result.filePath), { recursive: true }).catch(() => {});
-      await writeFile(result.filePath, result.fileContent, "utf-8");
-    },
-  });
-  return filePaths;
 }
 
 type VikeConfig = ReturnType<typeof getVikeConfig>;
