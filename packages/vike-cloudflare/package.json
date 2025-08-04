@@ -8,7 +8,8 @@
     "build": "tsup",
     "release": "LANG=en_US release-me patch",
     "release:minor": "LANG=en_US release-me minor",
-    "release:commit": "LANG=en_US release-me commit"
+    "release:commit": "LANG=en_US release-me commit",
+    "test:types": "tsc --noEmit"
   },
   "keywords": [
     "vike",
@@ -17,7 +18,7 @@
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "dependencies": {
     "hono": "^4.7.4",
-    "vike-server": "^1.0.20"
+    "vike-server": "^1.0.22"
   },
   "devDependencies": {
     "@brillout/release-me": "^0.4.3",
@@ -25,11 +26,11 @@
     "esbuild-plugin-raw": "^0.1.8",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
-    "vike": "^0.4.228",
+    "vike": "^0.4.236",
     "vite": "^6.2.5"
   },
   "peerDependencies": {
-    "vike": ">=0.4.227",
+    "vike": ">=0.4.231",
     "vite": ">=5.3.0"
   },
   "optionalDependencies": {

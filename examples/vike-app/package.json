@@ -9,7 +9,7 @@
     "build": "vike build",
     "preview": "vike build && cross-env NODE_ENV=production wrangler pages dev",
     "deploy": "vike build && cross-env NODE_ENV=production wrangler pages deploy",
-    "test": "tsc --noEmit"
+    "test:types": "tsc --noEmit"
   },
   "keywords": [],
   "author": "Joël Charles <joel.charles91@gmail.com>",
@@ -19,15 +19,15 @@
     "@universal-middleware/core": "^0.4.4",
     "typescript": "^5.8.2",
     "vike-cloudflare": "^0.2.4",
-    "vike-server": "^1.0.5",
+    "vike-server": "^1.0.22",
     "wrangler": "^4.4.0"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
     "solid-js": "^1.9.5",
     "tsx": "^4.19.3",
-    "vike": "^0.4.228",
-    "vike-solid": "^0.7.9",
+    "vike": "^0.4.236",
+    "vike-solid": "^0.7.12",
     "vite": "^6.2.5"
   }
 }
