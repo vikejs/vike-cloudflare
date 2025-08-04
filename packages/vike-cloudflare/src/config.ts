@@ -19,6 +19,7 @@ const config = {
   prerender: {
     enable: null,
     disableAutoRun: true,
+    keepDistServer: true,
   },
   server: {
     entry: "virtual:vike-cloudflare:auto-entry",
