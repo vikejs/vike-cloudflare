@@ -1,3 +1,12 @@
+## [0.2.5](https://github.com/vikejs/vike-cloudflare/compare/v0.2.4...v0.2.5) (2025-08-04)
+
+
+### Bug Fixes
+
+* `vike-server` resolution issue ([#69](https://github.com/vikejs/vike-cloudflare/issues/69)) ([1a89258](https://github.com/vikejs/vike-cloudflare/commit/1a892589956d3c31b5f3e18841884d3180b865e5))
+
+
+
 ## [0.2.4](https://github.com/vikejs/vike-cloudflare/compare/v0.2.3...v0.2.4) (2025-07-31)
 
 
