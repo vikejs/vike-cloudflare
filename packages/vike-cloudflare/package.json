@@ -30,6 +30,7 @@
     "vite": "^7.0.6"
   },
   "peerDependencies": {
+    "hono": "^4.7.4",
     "vike": ">=0.4.231",
     "vite": ">=5.3.0"
   },
