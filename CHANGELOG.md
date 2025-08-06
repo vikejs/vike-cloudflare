@@ -1,3 +1,13 @@
+## [0.2.6](https://github.com/vikejs/vike-cloudflare/compare/v0.2.5...v0.2.6) (2025-08-06)
+
+
+### Bug Fixes
+
+* add Hono as peer dependency ([22c0b7b](https://github.com/vikejs/vike-cloudflare/commit/22c0b7ba03dd6fef04ec9df0cd05c1a968d27604))
+* don't use onPagePrerender() ([#70](https://github.com/vikejs/vike-cloudflare/issues/70)) ([007ce40](https://github.com/vikejs/vike-cloudflare/commit/007ce4097b9ac102a5ce7508ec4a3acdd5bbc7d6))
+
+
+
 ## [0.2.5](https://github.com/vikejs/vike-cloudflare/compare/v0.2.4...v0.2.5) (2025-08-04)
 
 
