@@ -17,7 +17,7 @@
   ],
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "dependencies": {
-    "hono": "^4.7.4",
+    "hono": "^4.8.12",
     "vike-server": "^1.0.22"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
     "vike": "^0.4.236",
-    "vite": "^6.2.5"
+    "vite": "^7.0.6"
   },
   "peerDependencies": {
     "hono": "^4.7.4",
