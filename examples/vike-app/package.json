@@ -19,7 +19,6 @@
     "@universal-middleware/core": "^0.4.4",
     "typescript": "^5.8.2",
     "vike-cloudflare": "^0.2.5",
-    "vike-server": "^1.0.22",
     "wrangler": "^4.4.0"
   },
   "dependencies": {
