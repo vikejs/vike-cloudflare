@@ -163,11 +163,11 @@ importers:
   packages/vike-cloudflare:
     dependencies:
       hono:
-        specifier: ^4.7.4
-        version: 4.7.5
+        specifier: ^4.8.12
+        version: 4.8.12
       vike-server:
         specifier: ^1.0.22
-        version: 1.0.22(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.236(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3)))(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3))
+        version: 1.0.22(@hattip/core@0.0.49)(hono@4.8.12)(vike@0.4.236(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3)))(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3))
     optionalDependencies:
       '@hattip/adapter-cloudflare-workers':
         specifier: ^0.0.49
@@ -1431,10 +1431,6 @@ packages:
 
   hattip@0.0.33:
     resolution: {integrity: sha512-FG0IHeOdoTceFF4ta0eZ+GKEXCvqvSzLgmX3RZi3ia/OtczKn74OwjYRfyL9fBtUiyc1Z27F9daiLowfzgZ/Gg==}
-
-  hono@4.7.5:
-    resolution: {integrity: sha512-fDOK5W2C1vZACsgLONigdZTRZxuBqFtcKh7bUQ5cVSbwI2RWjloJDcgFOVzbQrlI6pCmhlTsVYZ7zpLj4m4qMQ==}
-    engines: {node: '>=16.9.0'}
 
   hono@4.8.12:
     resolution: {integrity: sha512-MQSKk1Mg7b74k8l+A025LfysnLtXDKkE4pLaSsYRQC5iy85lgZnuyeQ1Wynair9mmECzoLu+FtJtqNZSoogBDQ==}
@@ -2906,14 +2902,6 @@ snapshots:
 
   '@universal-middleware/compress@0.2.30': {}
 
-  '@universal-middleware/core@0.4.9(@hattip/core@0.0.49)(hono@4.7.5)':
-    dependencies:
-      regexparam: 3.0.0
-      tough-cookie: 5.1.2
-    optionalDependencies:
-      '@hattip/core': 0.0.49
-      hono: 4.7.5
-
   '@universal-middleware/core@0.4.9(@hattip/core@0.0.49)(hono@4.8.12)':
     dependencies:
       regexparam: 3.0.0
@@ -2922,9 +2910,9 @@ snapshots:
       '@hattip/core': 0.0.49
       hono: 4.8.12
 
-  '@universal-middleware/elysia@0.4.8(@hattip/core@0.0.49)(hono@4.7.5)':
+  '@universal-middleware/elysia@0.4.8(@hattip/core@0.0.49)(hono@4.8.12)':
     dependencies:
-      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.7.5)
+      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.8.12)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@hattip/core'
@@ -2934,9 +2922,9 @@ snapshots:
       - h3
       - hono
 
-  '@universal-middleware/express@0.4.19(@hattip/core@0.0.49)(hono@4.7.5)':
+  '@universal-middleware/express@0.4.19(@hattip/core@0.0.49)(hono@4.8.12)':
     dependencies:
-      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.7.5)
+      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.8.12)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@hattip/core'
@@ -2946,10 +2934,10 @@ snapshots:
       - h3
       - hono
 
-  '@universal-middleware/fastify@0.5.20(@hattip/core@0.0.49)(hono@4.7.5)':
+  '@universal-middleware/fastify@0.5.20(@hattip/core@0.0.49)(hono@4.8.12)':
     dependencies:
-      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.7.5)
-      '@universal-middleware/express': 0.4.19(@hattip/core@0.0.49)(hono@4.7.5)
+      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.8.12)
+      '@universal-middleware/express': 0.4.19(@hattip/core@0.0.49)(hono@4.8.12)
       fastify-raw-body: 5.0.0
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
@@ -2960,21 +2948,9 @@ snapshots:
       - h3
       - hono
 
-  '@universal-middleware/h3@0.4.12(@hattip/core@0.0.49)(hono@4.7.5)':
+  '@universal-middleware/h3@0.4.12(@hattip/core@0.0.49)(hono@4.8.12)':
     dependencies:
-      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.7.5)
-    transitivePeerDependencies:
-      - '@cloudflare/workers-types'
-      - '@hattip/core'
-      - '@webroute/route'
-      - elysia
-      - fastify
-      - h3
-      - hono
-
-  '@universal-middleware/hattip@0.4.12(@hattip/core@0.0.49)(hono@4.7.5)':
-    dependencies:
-      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.7.5)
+      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.8.12)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@hattip/core'
@@ -2987,18 +2963,6 @@ snapshots:
   '@universal-middleware/hattip@0.4.12(@hattip/core@0.0.49)(hono@4.8.12)':
     dependencies:
       '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.8.12)
-    transitivePeerDependencies:
-      - '@cloudflare/workers-types'
-      - '@hattip/core'
-      - '@webroute/route'
-      - elysia
-      - fastify
-      - h3
-      - hono
-
-  '@universal-middleware/hono@0.4.16(@hattip/core@0.0.49)(hono@4.7.5)':
-    dependencies:
-      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.7.5)
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - '@hattip/core'
@@ -3418,8 +3382,6 @@ snapshots:
       uglify-js: 3.19.3
 
   hattip@0.0.33: {}
-
-  hono@4.7.5: {}
 
   hono@4.8.12: {}
 
@@ -4065,18 +4027,18 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vike-server@1.0.22(@hattip/core@0.0.49)(hono@4.7.5)(vike@0.4.236(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3)))(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3)):
+  vike-server@1.0.22(@hattip/core@0.0.49)(hono@4.8.12)(vike@0.4.236(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3)))(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3)):
     dependencies:
       '@brillout/picocolors': 1.0.26
       '@brillout/vite-plugin-server-entry': 0.7.12
       '@universal-middleware/compress': 0.2.30
-      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.7.5)
-      '@universal-middleware/elysia': 0.4.8(@hattip/core@0.0.49)(hono@4.7.5)
-      '@universal-middleware/express': 0.4.19(@hattip/core@0.0.49)(hono@4.7.5)
-      '@universal-middleware/fastify': 0.5.20(@hattip/core@0.0.49)(hono@4.7.5)
-      '@universal-middleware/h3': 0.4.12(@hattip/core@0.0.49)(hono@4.7.5)
-      '@universal-middleware/hattip': 0.4.12(@hattip/core@0.0.49)(hono@4.7.5)
-      '@universal-middleware/hono': 0.4.16(@hattip/core@0.0.49)(hono@4.7.5)
+      '@universal-middleware/core': 0.4.9(@hattip/core@0.0.49)(hono@4.8.12)
+      '@universal-middleware/elysia': 0.4.8(@hattip/core@0.0.49)(hono@4.8.12)
+      '@universal-middleware/express': 0.4.19(@hattip/core@0.0.49)(hono@4.8.12)
+      '@universal-middleware/fastify': 0.5.20(@hattip/core@0.0.49)(hono@4.8.12)
+      '@universal-middleware/h3': 0.4.12(@hattip/core@0.0.49)(hono@4.8.12)
+      '@universal-middleware/hattip': 0.4.12(@hattip/core@0.0.49)(hono@4.8.12)
+      '@universal-middleware/hono': 0.4.16(@hattip/core@0.0.49)(hono@4.8.12)
       '@universal-middleware/sirv': 0.1.20
       esbuild: 0.25.1
       vike: 0.4.236(vite@7.0.6(@types/node@24.2.0)(tsx@4.20.3))
