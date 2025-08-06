@@ -28,7 +28,7 @@
     "@universal-middleware/hattip": "^0.4.5",
     "hattip": "^0.0.33",
     "lowdb": "^7.0.1",
-    "solid-js": "^1.9.5",
+    "solid-js": "^1.9.7",
     "vike": "^0.4.236",
     "vike-solid": "^0.7.12",
     "vite": "^7.0.6"
