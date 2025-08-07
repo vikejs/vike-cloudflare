@@ -1,3 +1,12 @@
+## [0.2.7](https://github.com/vikejs/vike-cloudflare/compare/v0.2.6...v0.2.7) (2025-08-07)
+
+
+### Bug Fixes
+
+* fix server setting type ([#77](https://github.com/vikejs/vike-cloudflare/issues/77)) ([a78f964](https://github.com/vikejs/vike-cloudflare/commit/a78f964364c061f72b52098a61e007e1dc8c1c6a))
+
+
+
 ## [0.2.6](https://github.com/vikejs/vike-cloudflare/compare/v0.2.5...v0.2.6) (2025-08-06)
 
 
