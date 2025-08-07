@@ -30,7 +30,7 @@ function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parame
   });
 
   test("process.env.NODE_ENV", async () => {
-    await page.goto(getServerUrl() + "/");
+    await page.goto(`${getServerUrl()}/`);
     await testCounter();
     const bodyText = await page.textContent("body");
     expect(bodyText).toContain("process.env.NODE_ENV");
