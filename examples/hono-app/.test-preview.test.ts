@@ -2,6 +2,7 @@ import { testRun } from "../hono-app/.testRun";
 
 testRun("pnpm run preview", {
   tolerateError: true,
+  hasServer: true,
   serverIsReadyMessage: "Starting local server",
   serverIsReadyDelay: 2000,
   serverUrl: "http://127.0.0.1:3000",

@@ -1,10 +1,13 @@
-import { autoRetry, expect, fetchHtml, getServerUrl, page, run, test } from "@brillout/test-e2e";
+import { autoRetry, expect, expectLog, fetchHtml, getServerUrl, page, run, test } from "@brillout/test-e2e";
 
 export { testRun };
 
 let isProd: boolean;
 
-function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parameters<typeof run>[1]) {
+function testRun(
+  cmd: `pnpm run ${"dev" | "preview"}${string}`,
+  options: Parameters<typeof run>[1] & { hasServer?: true },
+) {
   run(cmd, options);
 
   isProd = !cmd.startsWith("pnpm run dev");
@@ -34,7 +37,9 @@ function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parame
     await testCounter();
     const bodyText = await page.textContent("body");
     expect(bodyText).toContain("process.env.NODE_ENV");
-    expect(bodyText).toContain(isProd ? "production" : "development");
+    const log = `process.env.NODE_ENV === ${JSON.stringify(isProd ? "production" : "development")}`;
+    expect(bodyText).toContain(log);
+    if (options.hasServer) expectLog(log, { allLogs: true, filter: (log) => log.logSource === "stdout" });
   });
 }
 
