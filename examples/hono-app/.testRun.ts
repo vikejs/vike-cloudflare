@@ -28,6 +28,14 @@ function testRun(cmd: `pnpm run ${"dev" | "preview"}${string}`, options?: Parame
     title: "Return of the Jedi",
     text: "1983-05-25",
   });
+
+  test("process.env.NODE_ENV", async () => {
+    await page.goto(getServerUrl() + "/");
+    await testCounter();
+    const bodyText = await page.textContent("body");
+    expect(bodyText).toContain("process.env.NODE_ENV");
+    expect(bodyText).toContain(isProd ? "production" : "development");
+  });
 }
 
 function testUrl({
