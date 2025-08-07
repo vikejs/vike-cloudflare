@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@universal-middleware/hono": "^0.4.16",
-    "cross-env": "^10.0.0",
     "hono": "^4.8.12",
     "solid-js": "^1.9.7",
     "tsx": "^4.20.3",
