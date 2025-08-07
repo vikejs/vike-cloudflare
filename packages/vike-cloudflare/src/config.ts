@@ -32,9 +32,11 @@ const config = {
 declare global {
   namespace Vike {
     interface Config {
-      server?: string | {
-        entry: string;
-      };
+      server?:
+        | string
+        | {
+            entry: string;
+          };
     }
     interface ConfigResolved {
       server?: {
