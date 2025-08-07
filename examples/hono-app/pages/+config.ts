@@ -8,8 +8,7 @@ export default {
   Layout,
   Head,
   title: "My Vike App",
-  server: {
-    entry: "hono-entry.ts",
-  },
+  // @ts-ignore
+  server: "hono-entry.ts",
   extends: [vikeSolid, vikeCloudflare],
 } satisfies Config;
