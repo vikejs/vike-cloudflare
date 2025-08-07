@@ -3,6 +3,5 @@
   "compatibility_date": "2025-08-06",
   "name": "vike_test_vike-cloudflare",
   "pages_build_output_dir": "./dist/cloudflare",
-  "dev": { "port": 3000 },
-  "compatibility_flags": ["nodejs_compat"]
+  "dev": { "port": 3000 }
 }
