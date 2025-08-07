@@ -15,6 +15,9 @@ export default function Page() {
           Interactive. <Counter />
         </li>
       </ul>
+      <p>
+        <code>process.env.NODE_ENV === {JSON.stringify(process.env.NODE_ENV)}</code>
+      </p>
     </>
   );
 }

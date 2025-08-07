@@ -3,12 +3,10 @@ import { apply } from "vike-cloudflare/hono";
 import { serve } from "vike-cloudflare/hono/serve";
 
 function startServer() {
+  console.log(`process.env.NODE_ENV === ${JSON.stringify(process.env.NODE_ENV)}`);
   const app = new Hono();
-  const port = process.env.PORT || 3000;
-
   apply(app);
-
-  return serve(app, { port: +port });
+  return serve(app, { port: 3000 });
 }
 
 export default startServer();
