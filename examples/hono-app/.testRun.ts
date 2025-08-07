@@ -36,7 +36,6 @@ function testRun(
     await page.goto(`${getServerUrl()}/`);
     await testCounter();
     const bodyText = await page.textContent("body");
-    expect(bodyText).toContain("process.env.NODE_ENV");
     const log = `process.env.NODE_ENV === ${JSON.stringify(isProd ? "production" : "development")}`;
     expect(bodyText).toContain(log);
     if (options.hasServer) expectLog(log, { allLogs: true, filter: (log) => log.logSource === "stdout" });
