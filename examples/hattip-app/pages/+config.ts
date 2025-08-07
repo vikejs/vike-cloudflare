@@ -8,7 +8,6 @@ export default {
   Layout,
   Head,
   title: "My Vike App",
-  // @ts-ignore
   server: "hattip-entry.ts",
   extends: [vikeSolid, vikeCloudflare],
 } satisfies Config;
