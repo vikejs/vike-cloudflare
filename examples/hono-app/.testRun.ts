@@ -12,6 +12,15 @@ function testRun(
 
   isProd = !cmd.startsWith("pnpm run dev");
 
+  test("process.env.NODE_ENV", async () => {
+    await page.goto(`${getServerUrl()}/`);
+    await testCounter();
+    const bodyText = await page.textContent("body");
+    const log = `process.env.NODE_ENV === ${JSON.stringify(isProd ? "production" : "development")}`;
+    if (options.hasServer) expectLog(log, { allLogs: true, filter: (log) => log.logSource === "stdout" });
+    expect(bodyText).toContain(log);
+  });
+
   testUrl({
     url: "/",
     title: "My Vike App",
@@ -30,15 +39,6 @@ function testRun(
     url: "/star-wars/3",
     title: "Return of the Jedi",
     text: "1983-05-25",
-  });
-
-  test("process.env.NODE_ENV", async () => {
-    await page.goto(`${getServerUrl()}/`);
-    await testCounter();
-    const bodyText = await page.textContent("body");
-    const log = `process.env.NODE_ENV === ${JSON.stringify(isProd ? "production" : "development")}`;
-    if (options.hasServer) expectLog(log, { allLogs: true, filter: (log) => log.logSource === "stdout" });
-    expect(bodyText).toContain(log);
   });
 }
 
