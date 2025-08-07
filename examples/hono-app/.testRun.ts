@@ -37,8 +37,8 @@ function testRun(
     await testCounter();
     const bodyText = await page.textContent("body");
     const log = `process.env.NODE_ENV === ${JSON.stringify(isProd ? "production" : "development")}`;
-    expect(bodyText).toContain(log);
     if (options.hasServer) expectLog(log, { allLogs: true, filter: (log) => log.logSource === "stdout" });
+    expect(bodyText).toContain(log);
   });
 }
 
