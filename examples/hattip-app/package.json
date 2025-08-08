@@ -12,10 +12,10 @@
     "@universal-middleware/hattip": "^0.4.12",
     "hattip": "^0.0.33",
     "lowdb": "^7.0.1",
-    "solid-js": "^1.9.7",
+    "solid-js": "^1.9.8",
     "vike": "^0.4.236",
     "vike-solid": "^0.7.12",
-    "vite": "^7.0.6"
+    "vite": "^7.1.1"
   },
   "devDependencies": {
     "@auth/core": "^0.40.0",
@@ -23,7 +23,7 @@
     "@universal-middleware/core": "^0.4.9",
     "typescript": "^5.9.2",
     "vike-cloudflare": "^0.2.7",
-    "wrangler": "^4.28.0"
+    "wrangler": "^4.28.1"
   },
   "type": "module"
 }
