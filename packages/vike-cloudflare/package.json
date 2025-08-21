@@ -17,8 +17,8 @@
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "dependencies": {
     "hono": "^4.7.4",
-    "@photonjs/core": "0.0.1-commit-1f5ba61",
-    "vike-server": "1.0.14-commit-522b48f"
+    "@photonjs/core": "0.0.3",
+    "vike-server": "1.0.23-commit-79e7a14"
   },
   "devDependencies": {
     "@brillout/release-me": "^0.4.3",

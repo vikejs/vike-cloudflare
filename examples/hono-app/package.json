@@ -22,7 +22,7 @@
     "wrangler": "^4.4.0"
   },
   "dependencies": {
-    "@photonjs/core": "0.0.1-commit-1f5ba61",
+    "@photonjs/core": "0.0.3",
     "@universal-middleware/hono": "^0.4.6",
     "cross-env": "^7.0.3",
     "hono": "^4.7.5",
