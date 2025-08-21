@@ -2,7 +2,6 @@ export { config as default };
 
 import { pages as plugin } from "./plugins";
 import type { Config } from "vike/types";
-import photonjs from "@photonjs/core/plugin";
 import { vikeServer } from "vike-server/plugin";
 
 const config = {
@@ -11,8 +10,9 @@ const config = {
     vike: ">=0.4.227",
   },
   vite: {
+    // `vike-server` already installs Photon, so no need to install it again here
     // biome-ignore lint/suspicious/noExplicitAny: avoid type mismatch between different Vite versions
-    plugins: [...plugin(), photonjs(), vikeServer()] as any[],
+    plugins: [vikeServer(), ...plugin()] as any[],
   },
   prerender: {
     enable: null,

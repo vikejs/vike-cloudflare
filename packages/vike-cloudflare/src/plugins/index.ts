@@ -4,7 +4,7 @@ import { optionalPlugin } from "./optional";
 import { resolveConditionsPlugin } from "./resolve-conditions";
 import { entriesPlugin } from "./entries";
 import { envPlugin } from "./envs";
-import { definePhotonLib } from "@photonjs/core/api";
+import { installPhoton } from "@photonjs/core/vite";
 
 export const pages = () => {
   return [
@@ -14,6 +14,6 @@ export const pages = () => {
     entriesPlugin(),
     buildPlugin(),
     optionalPlugin(),
-    ...definePhotonLib("vike-cloudflare"),
+    ...installPhoton("vike-cloudflare"),
   ];
 };

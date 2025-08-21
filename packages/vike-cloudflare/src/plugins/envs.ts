@@ -23,6 +23,7 @@ export function envPlugin(): Plugin {
       if (name === "cloudflare") {
         return {
           build: {
+            // FIXME stay in outDir
             outDir: config.build?.outDir ? join(config.build?.outDir, "..", "cloudflare") : "dist/cloudflare",
           },
         };

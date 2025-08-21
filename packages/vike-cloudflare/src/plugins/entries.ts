@@ -1,4 +1,3 @@
-/// <reference types="@photonjs/core/api" />
 import type { Plugin } from "vite";
 import { NAME, resolvedVirtualWorkerEntryId, virtualUserEntryId, virtualWorkerEntryId } from "./const";
 import type { SupportedServers } from "../types";
@@ -18,9 +17,10 @@ export function entriesPlugin(): Plugin[] {
         }
       },
       async load(id) {
+        // FIXME migrate to new Photon usage
         if (id === resolvedVirtualWorkerEntryId) {
-          const entry = this.environment.config.photonjs.entry.index;
-          const resolved = await this.resolve(this.environment.config.photonjs.entry.index.id, undefined, {
+          const entry = this.environment.config.photon.server;
+          const resolved = await this.resolve(this.environment.config.photon.server.id, undefined, {
             isEntry: true,
           });
           assert(resolved);
@@ -29,7 +29,7 @@ export function entriesPlugin(): Plugin[] {
 
           if (entry.type === "server") {
             assert(
-              supportedServers.includes(entry.server),
+              supportedServers.includes(entry.server as string),
               `[${NAME}] Only "hono" and "hattip" are supported, found "${entry.server}"`,
             );
 
@@ -45,7 +45,7 @@ export function entriesPlugin(): Plugin[] {
       name: `${NAME}:resolve-user-entry`,
       resolveId(id) {
         if (id === virtualUserEntryId) {
-          return this.resolve(this.environment.config.photonjs.entry.index.id, undefined, { isEntry: true });
+          return this.resolve(this.environment.config.photon.server.id, undefined, { isEntry: true });
         }
       },
     },
