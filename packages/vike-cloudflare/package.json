@@ -18,15 +18,15 @@
   "author": "Joël Charles <joel.charles91@gmail.com>",
   "dependencies": {
     "hono": "^4.8.12",
-    "vike-server": "^1.0.22"
+    "vike-server": "^1.0.24"
   },
   "devDependencies": {
-    "@brillout/release-me": "^0.4.3",
+    "@brillout/release-me": "^0.4.8",
     "@hattip/adapter-cloudflare-workers": "^0.0.49",
-    "esbuild-plugin-raw": "^0.1.8",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.2",
-    "vike": "^0.4.236",
+    "esbuild-plugin-raw": "^0.3.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vike": "^0.4.242",
     "vite": "^7.0.6"
   },
   "peerDependencies": {
