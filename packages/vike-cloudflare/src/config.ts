@@ -15,7 +15,7 @@ const config = {
         any[]),
     ],
   },
-  extends: ["import:vike-server/config"],
+  extends: ["import:vike-server/config:default"],
   prerender: {
     enable: null,
     disableAutoRun: true,
